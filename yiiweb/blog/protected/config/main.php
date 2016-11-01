@@ -11,7 +11,8 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+  //设置默认控制器
+  'defaultController'=>'Index',
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
