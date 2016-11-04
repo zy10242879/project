@@ -4463,7 +4463,7 @@ wysihtml5.dom.getParentElement = (function() {
  */
 wysihtml5.dom.getStyle = (function() {
   var stylePropertyMapping = {
-        "float": ("styleFloat" in document.createElement("div").style) ? "styleFloat" : "cssFloat"
+        "float": ("styleFloat" in document.createElement("div").style) ? "styleFloat" : "statics/cssFloat"
       },
       REG_EXP_CAMELIZE = /\-[a-z]/g;
   

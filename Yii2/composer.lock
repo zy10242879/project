@@ -37,7 +37,7 @@
                     "composer.json",
                     "CONTRIBUTING.md",
                     "docs",
-                    "js/tests",
+                    "statics/js/tests",
                     "test-infra"
                 ]
             },
@@ -46,10 +46,10 @@
             ],
             "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
             "keywords": [
-                "css",
+                "statics/css",
                 "framework",
                 "front-end",
-                "js",
+                "statics/js",
                 "less",
                 "mobile-first",
                 "responsive",
