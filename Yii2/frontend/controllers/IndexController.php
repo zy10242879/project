@@ -5,7 +5,7 @@ use yii\web\Controller;
 class IndexController extends Controller{
   //前台首页控制器
   public function actionIndex(){
-    $this->layout = 'layout1';
+    $this->layout = 'layout_frontend';
     return $this->render('index');
 
   }

@@ -12,39 +12,26 @@
 
   <title>慕课商城</title>
   <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="statics/css/bootstrap.min.css">
 
   <!-- Customizable CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
-<!--  <link rel="stylesheet" href="/assets/css/red.css">-->
-  <link rel="stylesheet" href="assets/css/green.css">
-  <link rel="stylesheet" href="assets/css/owl.carousel.css">
-  <link rel="stylesheet" href="assets/css/owl.transitions.css">
-  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="statics/css/main.css">
+  <link rel="stylesheet" href="statics/css/red.css">
+  <link rel="stylesheet" href="statics/css/owl.carousel.css">
+  <link rel="stylesheet" href="statics/css/owl.transitions.css">
+  <link rel="stylesheet" href="statics/css/animate.min.css">
 
-  <link rel="stylesheet" href="assets/css/config.css">
-
-  <link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
-  <link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-  <link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">
-  <link href="assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-  <link href="assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
-  <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
-  <!-- Demo Purpose Only. Should be removed in production : END -->
-
-  <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
 
   <!-- Icons/Glyphs -->
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="statics/css/font-awesome.min.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <link rel="shortcut icon" href="statics/images/favicon.ico">
 
   <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
   <!--[if lt IE 9]>
-  <script src="assets/js/html5shiv.js"></script>
-  <script src="assets/js/respond.min.js"></script>
+  <script src="statics/js/html5shiv.js"></script>
+  <script src="statics/js/respond.min.js"></script>
   <![endif]-->
 
 
@@ -85,7 +72,7 @@
         <!-- ============================================================= LOGO ============================================================= -->
         <div class="logo">
           <a href="<?php echo yii\helpers\Url::to(['index/index']) ?>">
-            <img alt="logo" src="/assets/images/logo.PNG" width="233" height="54"/>
+            <img alt="logo" src="statics/images/logo.PNG" width="233" height="54"/>
           </a>
         </div><!-- /.logo -->
         <!-- ============================================================= LOGO : END ============================================================= -->		</div><!-- /.logo-holder -->
@@ -137,37 +124,37 @@
 
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-<!--                  <span class="count">--><?php //echo count($this->params['cart']['products']) ?><!--</span>-->
-                  <img src="/assets/images/icon-cart.png" alt="" />
+                  <span class="count">1234</span>
+                  <img src="statics/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket">
                   <span class="lbl">您的购物车:</span>
                   <span class="total-price">
-<!--                    <span class="sign">￥</span><span class="value">--><?php //echo $this->params['cart']['total'] ?><!--</span>-->
+                    <span class="sign">￥</span><span class="value">1234</span>
                     </span>
                 </div>
               </a>
 
               <ul class="dropdown-menu">
-<!--                --><?php //foreach((array)$this->params['cart']['products'] as $product): ?>
+                1234
                   <li>
                     <div class="basket-item">
                       <div class="row">
                         <div class="col-xs-4 col-sm-4 no-margin text-center">
                           <div class="thumb">
-<!--                            <img alt="" src="--><?php //echo $product['cover'] ?><!---picsmall" />-->
+                            <img alt="" src="1234" />
                           </div>
                         </div>
                         <div class="col-xs-8 col-sm-8 no-margin">
-<!--                          <div class="title">--><?php //echo $product['title'] ?><!--</div>-->
-<!--                          <div class="price">￥ --><?php //echo $product['price'] ?><!--</div>-->
+                          <div class="title">1234</div>
+                          <div class="price">￥ 1234</div>
                         </div>
                       </div>
-<!--                      <a class="close-btn" href="--><?php //echo yii\helpers\Url::to(['cart/del', 'cartid' => $product['cartid']]) ?><!--"></a>-->
+                      <a class="close-btn" href="1234"></a>
                     </div>
                   </li>
-<!--                --><?php //endforeach; ?>
+
                 <li class="checkout">
                   <div class="basket-item">
                     <div class="row">
@@ -200,25 +187,25 @@
             <h2>推荐商品</h2>
             <div class="body">
               <ul>
-<!--                --><?php //foreach($this->params['tui'] as $pro): ?>
+
                   <li>
                     <div class="row">
                       <div class="col-xs-12 col-sm-9 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]); ?><!--">--><?php //echo $pro->title ?><!--</a>-->
+                        <a href="1234">1234</a>
                         <div class="price">
-<!--                          <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
-<!--                          <div class="price-current">￥--><?php //echo $pro->saleprice ?><!--</div>-->
+                          <div class="price-prev">￥1234</div>
+                          <div class="price-current">￥1234</div>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-3 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--" class="thumb-holder">-->
-<!--                          <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---picsmall" data-echo="--><?php //echo $pro->cover ?><!---picsmall" />-->
+                        <a href="1234" class="thumb-holder">
+                          <img alt="1234" src="1234" />
                         </a>
                       </div>
                     </div>
                   </li>
-<!--                --><?php //endforeach; ?>
+
               </ul>
             </div><!-- /.body -->
           </div> <!-- /.widget -->
@@ -230,25 +217,25 @@
             <h2>热卖商品</h2>
             <div class="body">
               <ul>
-<!--                --><?php //foreach($this->params['hot'] as $pro): ?>
+
                   <li>
                     <div class="row">
                       <div class="col-xs-12 col-sm-9 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]); ?><!--">--><?php //echo $pro->title ?><!--</a>-->
+                        <a href="1234">1234</a>
                         <div class="price">
-<!--                          <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
-<!--                          <div class="price-current">￥--><?php //echo $pro->saleprice ?><!--</div>-->
+                          <div class="price-prev">￥1234</div>
+                          <div class="price-current">￥1234</div>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-3 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--" class="thumb-holder">-->
-<!--                          <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---picsmall" data-echo="--><?php //echo $pro->cover ?><!---picsmall" />-->
+                        <a href="1234" class="thumb-holder">
+                          <img alt="1234" src="1234" />
                         </a>
                       </div>
                     </div>
                   </li>
-<!--                --><?php //endforeach; ?>
+
               </ul>
             </div><!-- /.body -->
           </div> <!-- /.widget -->
@@ -260,25 +247,25 @@
             <h2>最新商品</h2>
             <div class="body">
               <ul>
-<!--                --><?php //foreach($this->params['new'] as $pro): ?>
+
                   <li>
                     <div class="row">
                       <div class="col-xs-12 col-sm-9 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]); ?><!--">--><?php //echo $pro->title ?><!--</a>-->
+                        <a href="1234">1234</a>
                         <div class="price">
-<!--                          <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
-<!--                          <div class="price-current">￥--><?php //echo $pro->saleprice ?><!--</div>-->
+                          <div class="price-prev">￥1234</div>
+                          <div class="price-current">￥1234</div>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-3 no-margin">
-<!--                        <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--" class="thumb-holder">-->
-<!--                          <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---picsmall" data-echo="--><?php //echo $pro->cover ?><!---picsmall" />-->
+                        <a href="1234" class="thumb-holder">
+                          <img alt="1234" src="1234" />
                         </a>
                       </div>
                     </div>
                   </li>
-<!--                --><?php //endforeach; ?>
+
               </ul>
             </div><!-- /.body -->
           </div><!-- /.widget -->
@@ -304,7 +291,7 @@
           <!-- ============================================================= CONTACT INFO ============================================================= -->
           <div class="contact-info">
             <div class="footer-logo">
-              <img alt="logo" src="/assets/images/logo.PNG" width="233" height="54"/>
+              <img alt="logo" src="statics/images/logo.PNG" width="233" height="54"/>
             </div><!-- /.footer-logo -->
 
             <p class="regular-bold"> 请通过电话，电子邮件随时联系我们</p>
@@ -336,9 +323,9 @@
             <div class="widget">
               <h3>最新商品</h3>
               <ul>
-<!--                --><?php //foreach($this->params['new'] as $pro): ?>
-<!--                  <li><a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title; ?><!--</a></li>-->
-<!--                --><?php //endforeach; ?>
+
+                  <li><a href="1234">1234</a></li>
+
               </ul>
             </div><!-- /.widget -->
           </div><!-- /.link-widget -->
@@ -347,9 +334,9 @@
             <div class="widget">
               <h3>热门商品</h3>
               <ul>
-<!--                --><?php //foreach($this->params['hot'] as $pro): ?>
-<!--                  <li><a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title; ?><!--</a></li>-->
-<!--                --><?php //endforeach; ?>
+
+                  <li><a href="1234">1234</a></li>
+
               </ul>
             </div><!-- /.widget -->
           </div><!-- /.link-widget -->
@@ -358,9 +345,9 @@
             <div class="widget">
               <h3>促销商品</h3>
               <ul>
-<!--                --><?php //foreach($this->params['sale'] as $pro): ?>
-<!--                  <li><a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title; ?><!--</a></li>-->
-<!--                --><?php //endforeach; ?>
+
+                  <li><a href="1234">1234</a></li>
+
               </ul>
             </div><!-- /.widget -->
           </div><!-- /.link-widget -->
@@ -378,10 +365,10 @@
         <div class="col-xs-12 col-sm-6 no-margin">
           <div class="payment-methods ">
             <ul>
-              <li><img alt="" src="/assets/images/payments/payment-visa.png"></li>
-              <li><img alt="" src="/assets/images/payments/payment-master.png"></li>
-              <li><img alt="" src="/assets/images/payments/payment-paypal.png"></li>
-              <li><img alt="" src="/assets/images/payments/payment-skrill.png"></li>
+              <li><img alt="" src="statics/images/payments/payment-visa.png"></li>
+              <li><img alt="" src="statics/images/payments/payment-master.png"></li>
+              <li><img alt="" src="statics/images/payments/payment-paypal.png"></li>
+              <li><img alt="" src="statics/images/payments/payment-skrill.png"></li>
             </ul>
           </div><!-- /.payment-methods -->
         </div>
@@ -392,21 +379,21 @@
   <!-- ============================================================= FOOTER : END ============================================================= -->	</div><!-- /.wrapper -->
 
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery-1.10.2.min.js"></script>
-<script src="/assets/js/jquery-migrate-1.2.1.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/gmap3.min.js"></script>
-<script src="/assets/js/bootstrap-hover-dropdown.min.js"></script>
-<script src="/assets/js/owl.carousel.min.js"></script>
-<script src="/assets/js/css_browser_selector.min.js"></script>
-<script src="/assets/js/echo.min.js"></script>
-<script src="/assets/js/jquery.easing-1.3.min.js"></script>
-<script src="/assets/js/bootstrap-slider.min.js"></script>
-<script src="/assets/js/jquery.raty.min.js"></script>
-<script src="/assets/js/jquery.prettyPhoto.min.js"></script>
-<script src="/assets/js/jquery.customSelect.min.js"></script>
-<script src="/assets/js/wow.min.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="statics/js/jquery-1.10.2.min.js"></script>
+<script src="statics/js/jquery-migrate-1.2.1.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script src="statics/js/gmap3.min.js"></script>
+<script src="statics/js/bootstrap-hover-dropdown.min.js"></script>
+<script src="statics/js/owl.carousel.min.js"></script>
+<script src="statics/js/css_browser_selector.min.js"></script>
+<script src="statics/js/echo.min.js"></script>
+<script src="statics/js/jquery.easing-1.3.min.js"></script>
+<script src="statics/js/bootstrap-slider.min.js"></script>
+<script src="statics/js/jquery.raty.min.js"></script>
+<script src="statics/js/jquery.prettyPhoto.min.js"></script>
+<script src="statics/js/jquery.customSelect.min.js"></script>
+<script src="statics/js/wow.min.js"></script>
+<script src="statics/js/scripts.js"></script>
 <script>
   $("#createlink").click(function(){
     $(".billing-address").slideDown();

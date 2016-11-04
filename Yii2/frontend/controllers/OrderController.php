@@ -10,7 +10,7 @@ class OrderController extends Controller{
   }
   //收银台核对
   public function actionCheck(){
-    $this->layout = 'layout2';
+    $this->layout = 'layout_frontend';
     return $this->render('check');
   }
 }
