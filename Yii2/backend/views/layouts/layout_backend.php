@@ -23,10 +23,10 @@
   <link rel="stylesheet" href="statics/css/compiled/index.css" type="text/css" media="screen" />
 
   <!-- open sans font -->
-  <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+  <link href='' rel='stylesheet' type='text/css' />
 
   <!-- lato font -->
-  <link href='http://fonts.useso.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+  <link href='' rel='stylesheet' type='text/css' />
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
