@@ -44,7 +44,7 @@
         <input id="remember-me" type="checkbox" />
         <label for="remember-me">记住我</label>
       </div>
-      <a class="btn-glow primary login" href="index.html">登录</a>
+      <a class="btn-glow primary login" href="#">登录</a>
     </div>
   </div>
 
