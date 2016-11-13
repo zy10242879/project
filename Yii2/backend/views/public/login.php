@@ -37,8 +37,8 @@
   <a class="brand" href="index.html"></a>
   <?php $form =ActiveForm::begin([  //begin中加入的参数是个数组
     //此处加入fieldConfig是字段的配置　为的是去掉label标签中的admin user 和 admin pass
-    'fieldConfig' => [
-      'template' => '{input}', //此处为针对每一个input属性不加label标签
+    'fieldConfig' => [    //-----14.在此处{input}前或后加入{error}-----
+      'template' => '{input}{error}', //此处为针对每一个input属性不加label标签
     ],
   ]);?>
   <div class="span4 box">
