@@ -43,7 +43,7 @@
       <span class="icon-bar"></span>
     </button>
 
-    <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">慕课商城 - 后台管理</a>
+    <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">商城 - 后台管理</a>
 
     <ul class="nav pull-right">
       <li class="hidden-phone">
@@ -147,7 +147,8 @@
         </a>
       </li>
       <li class="settings hidden-phone">
-        <a href="signin.html" role="button">
+        <!--1.使用yii提供的路径定义类来进行路径跳转，便于后期URL美化效果-->
+        <a href="<?=yii\helpers\Url::to(['public/logout']);?>" role="button">
           <i class="icon-share-alt"></i>
         </a>
       </li>
