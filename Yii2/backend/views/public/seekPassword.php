@@ -43,23 +43,17 @@
   ]);?>
   <div class="span4 box">
     <div class="content-wrap">
-      <h6>商城 - 后台管理</h6>
+      <h6>商城 - 找回密码</h6>
+<!--  ⑭加入判断是否存在'info'信息 有则输出设置的返回结果-->
+      <?php if(Yii::$app->session->hasFlash('info')) {
+        echo Yii::$app->session->getFlash('info');
+      }?>
       <?=$form->field($model,'admin_user')->textInput(['class'=>'span12','placeholder'=>'管理员账号']);?>   <!--此处为Yii 中ActiveForm组件的textInput写法-->
 <!--      <input class="span12" type="text" placeholder="管理员账号" />-->
-      <?=$form->field($model,'admin_pass')->passwordInput(['class'=>'span12','placeholder'=>'管理员密码']);?><!--此处为Yii 中ActiveForm组件的passwordInput写法-->
-<!--      <input class="span12" type="password" placeholder="管理员密码" />-->
-<!--      ②写入忘记密码对应跳转的链接地址-->
-      <a href="<?=yii\helpers\Url::to(['public/seek-password'])?>" class="forgot">忘记密码?</a>
-      <?=$form->field($model,'rememberMe')->checkbox([
-        'id' => 'remember-me',
-        //template是Yii框架带的属性，叫做模板，可以将标签直接写入
-        'template'=> '<div class="remember">{input}<label for="remember-me">记住我</label></div>'
-      ]);?>
-<!--      <div class="remember">-->
-<!--        <input id="remember-me" type="checkbox" />-->
-<!--        <label for="remember-me">记住我</label>-->
-<!--      </div>-->
-      <?=Html::submitButton('登录',['class'=>'btn-glow primary login']);?> <!--这里需要载入helps\Html-->
+      <?=$form->field($model,'admin_email')->textInput(['class'=>'span12','placeholder'=>'管理员电子邮箱']);?>
+      <a href="<?=yii\helpers\Url::to(['public/login'])?>" class="forgot">返回登录</a>
+
+      <?=Html::submitButton('找回密码',['class'=>'btn-glow primary login']);?> <!--这里需要载入helps\Html-->
 <!--      <a class="btn-glow primary login" href="#">登录</a>-->
     </div>
   </div>

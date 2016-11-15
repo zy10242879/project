@@ -41,4 +41,25 @@ class PublicController extends Controller{
     //6.否则，就跳回到原来的页面
     $this->goBack();
   }
+
+  //电子邮箱找回密码的实现--发送邮件并生成对应链接 seekPassword
+  /*①设置login.php视图文件的找回密码的url地址：<?=yii\helpers\Url::to(['public/seek-password'])?>
+  ②定义SeekPassword 方法　在login.php中写入链接地址：由于S P大写，所以，以上中要在两个单词间加上- */
+  public function actionSeekPassword(){
+    //④实例化Admin创建$model对象
+    $model = new Admin;
+    //⑥判断是否有post数据传递，有就将$post数据传递到Admin模型的seekPass方法中去 $model->seekPass($post)
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->seekPass($post)){ //$model->seekPass($post)返回真或假　所以此处做个if判断，假显示错误
+        //⑬验证通过后进行session中存入临时的数据，到以下视图seekPassword中去显示效果出来
+        //setFlash()设置  getFlash()访问　hasFlash()判断是否存在　只可访问一次的session信息，访问后自动删除
+        Yii::$app->session->setFlash('info','电子邮件已经发送成功，请查收');
+        //⑭以上内容完成后，在seekPassword.php视图文件中 加入判断存在'info'信息则输出设置的返回结果
+      }
+    }
+    //③载入模板seekPassword 创建seekPassword 样子同login 复一下修改一下模板样式即可
+                                              //⑤将model发送给视图
+    return $this->renderPartial('seekPassword',['model'=>$model]);
+  }
 }
