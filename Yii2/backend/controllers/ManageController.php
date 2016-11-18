@@ -3,8 +3,8 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use backend\models\Admin;
-
-//⑱⑴创建管理员控制器，来进行邮箱链接的校验及密码修改功能
+use yii\data\Pagination;  //Ⅳ.载入分页类
+//⑱⑴创建管理员控制器，来进行邮箱链接的校验及密码修改 以及管理员的CRUL操作
 class ManageController extends Controller{
   //⑵创建邮箱密码修改方法
   public function actionMailChangePass(){
@@ -37,5 +37,23 @@ class ManageController extends Controller{
     //⑺以上校验通过，生成更改用户名和密码的表单　创建mailChangePass，并进行相应修改 由于在视图中声明了rePass　所以在Admin活动记录中同样要像rememberMe一样，声明一个$rePass;
     $model->admin_user = $admin_user; //先给admin_user赋值需要传给隐藏域
     return $this->renderPartial('mailChangePass',['model'=>$model]);
+  }
+
+  //Ⅰ.增加管理员列表显示效果
+  public function actionManagers(){
+    //Ⅱ.载入默认布局，在默认布局中添加管理员管理，修改管理员列表及管理员修改链接
+    $this->layout = 'layout_backend';
+    //Ⅲ.创建views/manage/managers.php视图文件，加载前端视图
+    //查找数据库所有管理员信息，并载入到managers.php视图文件中　遍历标签
+    //$managers = Admin::find()->all(); //改造$managers 进行实现分页效果Ⅴ.
+    //Ⅳ.载入分页类　　Ⅴ.实现分页效果
+    $count = Admin::find()->count();
+    //Ⅶ.在backend/config/params.php配置文件中进行pageSize的配置，这样可以不修改控制器而进行页数的设置
+    //$pageSize就是调用params中的页数的方法
+    $pageSize = Yii::$app->params['pageSize']['manage'];
+    $pager = new Pagination(['totalCount'=>$count,'pageSize'=>$pageSize]);
+    $managers = Admin::find()->offset($pager->offset)->limit($pager->limit)->all();
+                    //Ⅵ.将$pager载入模板 并修改managers.php视图　通过yii框架的组件来生成分页图标，注意：写法
+    return $this->render('managers',['managers'=>$managers,'pager'=>$pager]);
   }
 }

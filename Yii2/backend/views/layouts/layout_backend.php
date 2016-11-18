@@ -28,8 +28,6 @@
   <!-- lato font -->
   <link href='' rel='stylesheet' type='text/css' />
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
@@ -165,7 +163,7 @@
         <div class="arrow"></div>
         <div class="arrow_border"></div>
       </div>
-      <a href="index.html">
+      <a href="<?=yii\helpers\Url::to(['index/index'])?>">
         <i class="icon-home"></i>
         <span>后台首页</span>
       </a>
@@ -175,6 +173,17 @@
         <i class="icon-signal"></i>
         <span>统计</span>
       </a>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="#">
+        <i class="icon-user"></i>
+        <span>管理员管理</span>
+        <i class="icon-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="<?=yii\helpers\Url::to(['manage/managers']);?>">管理员列表</a></li>
+        <li><a href="<?=yii\helpers\Url::to(['manage/reg']);?>">加入新管理员</a></li>
+      </ul>
     </li>
     <li>
       <a class="dropdown-toggle" href="#">

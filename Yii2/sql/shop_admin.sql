@@ -16,3 +16,6 @@ CREATE TABLE IF NOT EXISTS `shop_admin`(  #创建数据表及字段
 #初始化时插入一条管理员记录，用来登录
 INSERT INTO `shop_admin`(admin_user,admin_pass,admin_email,create_time)
     VALUE ('admin',md5('admin'),'10242879@163.com',UNIX_TIMESTAMP());
+
+INSERT INTO `shop_admin`(admin_user,admin_pass,admin_email,create_time)
+    VALUE ('xiaoming',md5('123'),'',UNIX_TIMESTAMP());
