@@ -1,0 +1,41 @@
+<?php
+namespace backend\controllers;
+use Yii;
+use yii\web\Controller;
+use backend\models\Admin;
+
+//⑱⑴创建管理员控制器，来进行邮箱链接的校验及密码修改功能
+class ManageController extends Controller{
+  //⑵创建邮箱密码修改方法
+  public function actionMailChangePass(){
+    //⑶获取所有get传递过来的参数
+    $time = Yii::$app->request->get('timestamp');
+    $admin_user = Yii::$app->request->get('admin_user');
+    $token = Yii::$app->request->get('token');
+    //⑷调用admin模型中的createToken方法，来获得此链接的token值
+    $model = new Admin;
+    $my_token = $model->createToken($admin_user,$time);
+    //⑸判断get传递的token传是否与生成的my_token的值相同
+    if($token != $my_token){
+      //不等于代表签名是错误的，跳转到登录页面
+      $this->redirect(['public/login']);
+      Yii::$app->end();
+    }
+    //⑹限制链接的时间为10分钟内有效，判断当前时间戳减去传递过来的时间戳大于600秒，就跳转到登录页面
+    if(time()-$time >600){
+      $this->redirect(['public/login']);
+      Yii::$app->end();
+    }
+    //⑻判断是否是post提交，如果是获取post数据，并通过创建一个changePass来进行数据校验及数据库写入
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->changePass($post)){ //在admin.php活动记录中声明一个changePass方法来校验
+        Yii::$app->session->setFlash('info','密码修改成功!');//这里同样要在视图中写入判断后载入info
+        return $this->renderPartial('mailChangePass',['model'=>$model]);
+      }
+    }
+    //⑺以上校验通过，生成更改用户名和密码的表单　创建mailChangePass，并进行相应修改 由于在视图中声明了rePass　所以在Admin活动记录中同样要像rememberMe一样，声明一个$rePass;
+    $model->admin_user = $admin_user; //先给admin_user赋值需要传给隐藏域
+    return $this->renderPartial('mailChangePass',['model'=>$model]);
+  }
+}

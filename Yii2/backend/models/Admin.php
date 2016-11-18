@@ -5,6 +5,7 @@ use yii\db\ActiveRecord;
 class Admin extends ActiveRecord{
   //定义一个属性rememberMe 由于在form表单中有记住我这个复选框，而数据库中没有这个属性，所以要在这里声明一个
   public $rememberMe = true;
+  public $rePass;
   //定义静态方法来表示该类操作的数据表
   public static function tableName()
   {
@@ -15,13 +16,15 @@ class Admin extends ActiveRecord{
   {
     return [
       ['admin_user','required','message'=>'管理员账号不能为空','on'=>['login','seekPass']],
-      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login']],
+      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login','changePass']],
       ['rememberMe','boolean','on'=>['login']],
       ['admin_email','required','message'=>'电子邮箱不能为空','on'=>['seekPass']],
       ['admin_email','email','message'=>'请输入正确的电子邮箱格式','on'=>['seekPass']],
       ['admin_email','validateEmail','on'=>['seekPass']],
       //6.验证密码是否正确，需添加自定义回调方法
       ['admin_pass','validatePass','on'=>['login']],
+      ['rePass','compare','compareAttribute'=>'admin_pass','message'=>'两次密码输入不一致','on'=>['changePass']],
+      ['rePass','required','message'=>'确认密码不能为空','on'=>['changePass']],
     ];
   }
   //7.创建validatePass方法来进行验证
@@ -110,4 +113,17 @@ class Admin extends ActiveRecord{
     return md5(md5($admin_user).base64_encode(Yii::$app->request->userIP).md5($time));
     //⑰查看common->mail->seekPass.php的样式写法 由于本身mailer就有layouts默认布局，所以写入内容即可
   } //⑱邮箱链接创建完成，点击链接后进行访问manager控制器，然后调用mailChangePass方法来进行传入的参数的校验，校验确认后进行页面载入，并通过提交新密码来修改数据密码的操作，创建新的步骤⑱⑴
+
+  //⑼声明changePass进行校验及数据库修改管理员密码
+  public function changePass($data){
+    //将数据载入并进行校验　同之前的操作类似
+    $this->scenario ='changePass'; //声明场景，进行校验见rules()
+    if($this->load($data) && $this->validate()){
+      //载入成功并校验成功，进行数据库修改操作 修改成功强转为boolean类型
+      Yii::$app->session->setFlash('info','设置密码是当前可用密码!');
+      return (bool)$this->updateAll(['admin_pass'=>md5($this->admin_pass)],'admin_user=:user',[':user'=>$data['Admin']['admin_user']]);
+    }
+    return false;
+  }
 }
+
