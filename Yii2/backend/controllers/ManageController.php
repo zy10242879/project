@@ -56,4 +56,20 @@ class ManageController extends Controller{
                     //Ⅵ.将$pager载入模板 并修改managers.php视图　通过yii框架的组件来生成分页图标，注意：写法
     return $this->render('managers',['managers'=>$managers,'pager'=>$pager]);
   }
+
+  //加入新管理员方法实现　注意：views/manage/reg.php表单的写法
+  public function actionReg(){
+    $this->layout = 'layout_backend';
+    $model = new Admin;
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->reg($post)){
+        Yii::$app->session->setFlash('info','管理员添加成功');
+      }
+      $model->admin_pass = "";
+      $model->rePass = "";
+    }
+    //载入新管理员模板
+    return $this->render('reg',['model'=>$model]);
+  }
 }

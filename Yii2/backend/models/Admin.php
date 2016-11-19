@@ -11,20 +11,33 @@ class Admin extends ActiveRecord{
   {
     return '{{%admin}}'; //{{%}}表前缀
   }
+  //设置labels的属性名(在表单view/manage/reg.php中使用到，它处同样使用)
+  public function attributeLabels()
+  {
+    return [
+      'admin_user'=>'管理员账号',
+      'admin_email'=>'管理员邮箱',
+      'admin_pass'=>'管理员密码',
+      'rePass'=>'确认密码',
+    ];
+  }
+
   //5.使用rules()执行验证
   public function rules()
   {
     return [
-      ['admin_user','required','message'=>'管理员账号不能为空','on'=>['login','seekPass']],
-      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login','changePass']],
+      ['admin_user','required','message'=>'管理员账号不能为空','on'=>['login','seekPass','adminAdd']],
+      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login','changePass','adminAdd']],
       ['rememberMe','boolean','on'=>['login']],
-      ['admin_email','required','message'=>'电子邮箱不能为空','on'=>['seekPass']],
-      ['admin_email','email','message'=>'请输入正确的电子邮箱格式','on'=>['seekPass']],
+      ['admin_email','required','message'=>'电子邮箱不能为空','on'=>['seekPass','adminAdd']],
+      ['admin_email','email','message'=>'请输入正确的电子邮箱格式','on'=>['seekPass','adminAdd']],
       ['admin_email','validateEmail','on'=>['seekPass']],
       //6.验证密码是否正确，需添加自定义回调方法
       ['admin_pass','validatePass','on'=>['login']],
-      ['rePass','compare','compareAttribute'=>'admin_pass','message'=>'两次密码输入不一致','on'=>['changePass']],
-      ['rePass','required','message'=>'确认密码不能为空','on'=>['changePass']],
+      ['rePass','compare','compareAttribute'=>'admin_pass','message'=>'两次密码输入不一致','on'=>['changePass','adminAdd']],
+      ['rePass','required','message'=>'确认密码不能为空','on'=>['changePass','adminAdd']],
+      ['admin_email','unique','message'=>'电子邮箱已被注册','on'=>['adminAdd']],
+      ['admin_user','unique','message'=>'管理员账号已被注册','on'=>['adminAdd']],
     ];
   }
   //7.创建validatePass方法来进行验证
@@ -124,6 +137,15 @@ class Admin extends ActiveRecord{
       return (bool)$this->updateAll(['admin_pass'=>md5($this->admin_pass)],'admin_user=:user',[':user'=>$data['Admin']['admin_user']]);
     }
     return false;
+  }
+  //加入新管理员的reg方法
+  public function reg($data){
+    $this->scenario = 'adminAdd';
+    if($this->load($data) && $this->validate()){
+      $this->admin_pass = md5($this->admin_pass);
+      $this->create_time = time();
+      return (bool)$this->save(false);
+    }
   }
 }
 
