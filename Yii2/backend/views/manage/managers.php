@@ -66,18 +66,20 @@
               </td>
               <td class="align-right">
 
-                  <a href="#">删除</a>
+                  <a href="<?=yii\helpers\Url::to(['manage/del','admin_id'=>$manager->admin_id]);?>">删除</a>
 
               </td>
             </tr>
           <?php endforeach; ?>
           </tbody>
         </table>
+        <span style="color:red;">
         <?php
         if (Yii::$app->session->hasFlash('info')) {
           echo Yii::$app->session->getFlash('info');
         }
         ?>
+          </span>
       </div>
       <div class="pagination pull-right">
 <!--        Ⅵ.通过yii框架组件生成分页标识-->

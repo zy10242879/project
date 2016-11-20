@@ -64,12 +64,30 @@ class ManageController extends Controller{
     if(Yii::$app->request->isPost){
       $post = Yii::$app->request->post();
       if($model->reg($post)){
-        Yii::$app->session->setFlash('info','管理员添加成功');
+        Yii::$app->session->setFlash('info','管理员添加成功!');
       }
       $model->admin_pass = "";
       $model->rePass = "";
     }
     //载入新管理员模板
     return $this->render('reg',['model'=>$model]);
+  }
+
+  //删除管理员 managers.php视图中加入删除的链接地址
+  /*<?=yii\helpers\Url::to(['manage/del','admin_id'=>$manager->admin_id]);?>*/
+  public function actionDel(){
+    //增加(int)强转为整型以防xss攻击  获得admin_id传过来的id值
+    $admin_id = (int)Yii::$app->request->get('admin_id');
+    //判断admin_id是否存在，不存在跳转到显示页
+    if(empty($admin_id)){
+      $this->redirect(['manage/managers']);
+    }
+    //删除管理员，如果删除成功返回删除成功信息 同时在managers.php视图中要加入getFlash('info')等信息
+    if(Admin::deleteAll('admin_id=:id',[':id'=>$admin_id])){
+      Yii::$app->session->setFlash('info','管理员删除成功!');
+      $this->redirect(['manage/managers']);
+    }
+
+
   }
 }
