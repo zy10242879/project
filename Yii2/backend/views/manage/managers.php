@@ -65,9 +65,9 @@
                 <?php echo date("Y-m-d H:i:s", $manager->create_time); ?>
               </td>
               <td class="align-right">
-
+<?php if($manager->admin_id!=1):?>
                   <a href="<?=yii\helpers\Url::to(['manage/del','admin_id'=>$manager->admin_id]);?>">删除</a>
-
+<?php endif;?>
               </td>
             </tr>
           <?php endforeach; ?>

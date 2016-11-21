@@ -135,7 +135,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a href="<?=yii\helpers\Url::to(['manage/change-email']);?>">个人信息管理</a></li>
-          <li><a href="#">修改密码</a></li>
+          <li><a href="<?=yii\helpers\Url::to(['manage/change-pass']);?>">修改密码</a></li>
           <li><a href="#">订单管理</a></li>
         </ul>
       </li>
@@ -174,6 +174,7 @@
         <span>统计</span>
       </a>
     </li>
+    <?php if(Yii::$app->session['admin']['admin_user']=='admin'):?>
     <li>
       <a class="dropdown-toggle" href="#">
         <i class="icon-user"></i>
@@ -185,6 +186,7 @@
         <li><a href="<?=yii\helpers\Url::to(['manage/reg']);?>">加入新管理员</a></li>
       </ul>
     </li>
+    <?php endif;?>
     <li>
       <a class="dropdown-toggle" href="#">
         <i class="icon-group"></i>

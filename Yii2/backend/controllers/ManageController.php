@@ -104,4 +104,20 @@ class ManageController extends Controller{
     $model->admin_pass = '';
     return $this->render('changeEmail',['model'=>$model]);
   }
+
+  //修改管理员密码
+  public function actionChangePass(){
+    $this->layout = 'layout_backend';
+    $model = Admin::find()->where('admin_user=:user',[':user'=>Yii::$app->session['admin']['admin_user']])->one();
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->updatePass($post)){
+        Yii::$app->session->setFlash('info','密码修改成功');
+      }
+    }
+    $model->admin_pass= '';
+    $model->newPass = '';
+    $model->rePass = '';
+    return $this->render('changePass',['model'=>$model]);
+  }
 }
