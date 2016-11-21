@@ -87,7 +87,21 @@ class ManageController extends Controller{
       Yii::$app->session->setFlash('info','管理员删除成功!');
       $this->redirect(['manage/managers']);
     }
+  }
 
-
+  //邮箱修改　点击共公布局中的账户管理中的个人信息管理来进行邮箱的修改
+  public function actionChangeEmail(){
+    $this->layout = 'layout_backend';
+    //session中存有当前登录的用户名，可以方便取用
+    $model = Admin::find()->where('admin_user=:user',[':user'=>Yii::$app->session['admin']['admin_user']])->one();
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      //changeEmail()方法在phpstorm中报错，实际情况可以正常运行，因为以上Admin:find()->one();获得的是对象
+      if($model->changeEmail($post)){
+        Yii::$app->session->setFlash('info','电子邮箱修改成功');
+      }
+    }
+    $model->admin_pass = '';
+    return $this->render('changeEmail',['model'=>$model]);
   }
 }

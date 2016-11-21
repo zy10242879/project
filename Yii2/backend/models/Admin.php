@@ -26,17 +26,17 @@ class Admin extends ActiveRecord{
   public function rules()
   {
     return [
-      ['admin_user','required','message'=>'管理员账号不能为空','on'=>['login','seekPass','adminAdd']],
-      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login','changePass','adminAdd']],
+      ['admin_user','required','message'=>'管理员账号不能为空','on'=>['login','seekPass','adminAdd','changeEmail']],
+      ['admin_pass','required','message'=>'管理员密码不能为空','on'=>['login','changePass','adminAdd','changeEmail']],
       ['rememberMe','boolean','on'=>['login']],
-      ['admin_email','required','message'=>'电子邮箱不能为空','on'=>['seekPass','adminAdd']],
-      ['admin_email','email','message'=>'请输入正确的电子邮箱格式','on'=>['seekPass','adminAdd']],
+      ['admin_email','required','message'=>'电子邮箱不能为空','on'=>['seekPass','adminAdd','changeEmail']],
+      ['admin_email','email','message'=>'请输入正确的电子邮箱格式','on'=>['seekPass','adminAdd','changeEmail']],
       ['admin_email','validateEmail','on'=>['seekPass']],
       //6.验证密码是否正确，需添加自定义回调方法
-      ['admin_pass','validatePass','on'=>['login']],
+      ['admin_pass','validatePass','on'=>['login','changeEmail']],
       ['rePass','compare','compareAttribute'=>'admin_pass','message'=>'两次密码输入不一致','on'=>['changePass','adminAdd']],
       ['rePass','required','message'=>'确认密码不能为空','on'=>['changePass','adminAdd']],
-      ['admin_email','unique','message'=>'电子邮箱已被注册','on'=>['adminAdd']],
+      ['admin_email','unique','message'=>'电子邮箱已被注册','on'=>['adminAdd','changeEmail']],
       ['admin_user','unique','message'=>'管理员账号已被注册','on'=>['adminAdd']],
     ];
   }
@@ -146,6 +146,21 @@ class Admin extends ActiveRecord{
       $this->create_time = time();
       return (bool)$this->save(false);
     }
+    return false;
+  }
+
+  //邮箱修改的验证
+  public function changeEmail($data){
+    $this->scenario = 'changeEmail';
+    if($this->load($data) && $this->validate()){
+      if((bool)$this->updateAll(['admin_email'=>$this->admin_email],'admin_user=:user',[':user'=>$this->admin_user])){
+        return true;
+      }else{
+        Yii::$app->session->setFlash('info','电子邮箱未做任何改动');
+        return false;
+      }
+    }
+    return false;
   }
 }
 
