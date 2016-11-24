@@ -54,8 +54,8 @@
 
       <div class="col-xs-12 col-sm-6 no-margin">
         <ul class="right">
-          <?php if (\Yii::$app->session['isLogin'] == 1): ?>
-            您好 , 欢迎您回来 <?php echo \Yii::$app->session['loginname']; ?> , <a href="<?php echo yii\helpers\Url::to(['member/logout']); ?>">退出</a>
+          <?php if (\Yii::$app->session['user']['is_login'] == 1): ?>
+            您好 , 欢迎您回来 <?php echo \Yii::$app->session['user']['user_name']; ?> , <a href="<?php echo yii\helpers\Url::to(['member/logout']); ?>">退出</a>
           <?php else: ?>
             <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">注册</a></li>
             <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">登录</a></li>
