@@ -55,7 +55,7 @@ class User extends ActiveRecord{
       $data['User']['user_name'] = 'shop_'.uniqid();
       $data['User']['user_pass'] = uniqid();
       $data['User']['create_time']= time();
-      $token = $this->createToken($data['User']['user_name'],$data['User']['create_time']);
+      $token = $this->createToken($data['User']['user_name'],md5($data['User']['user_pass']),$data['User']['user_email'],$data['User']['create_time']);
       $mailer = Yii::$app->mailer->compose('createUser', ['user' => $data['User'],'token'=>$token]);
       $mailer->setFrom('10242879@163.com'); //设置发件人
       $mailer->setTo($data['User']['user_email']); //特别注意：Admin中A大写   //收件人-表单传过来的邮箱
@@ -68,10 +68,10 @@ class User extends ActiveRecord{
     return false;
   }
 
-  public function createToken($user_name, $time)
+  public function createToken($user_name,$user_pass,$user_email,$create_time)
   {
     //将用户名md5加密后连上用户IP64位加密连上时间戳md5加密　然后对整体进行md5加密后所获得的32位字符串
-    return md5(md5($user_name) . base64_encode(Yii::$app->request->userIP) . md5($time));
+    return md5(md5($user_name).md5($user_pass).md5($user_email).base64_encode(Yii::$app->request->userIP).md5($create_time));
   }
 
 }

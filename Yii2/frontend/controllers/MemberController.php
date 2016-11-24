@@ -30,7 +30,7 @@ class MemberController extends Controller
     $model = new User;
     //这里可以加强一下token 就是生成createToken将以上name,pass,email,time全部传入生成token
     // 这样如果get的数据被修过了,那就不可能通过以下的判断$my_token == $token的判断
-    $my_token = $model->createToken($user_name, $create_time);
+    $my_token = $model->createToken($user_name,$user_pass,$user_email,$create_time);
     if ($my_token !== $token) {
       $this->redirect(['member/auth']);
       Yii::$app->end();
