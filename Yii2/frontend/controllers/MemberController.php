@@ -5,8 +5,8 @@ use yii\web\Controller;
 use common\models\User;
 class MemberController extends Controller
 {
-  //会员登录
-  public function actionAuth()
+  //填邮箱注册会员
+  public function actionReg()
   {
     $this->layout = 'layout_frontend';
     $model = new User;
@@ -60,6 +60,7 @@ class MemberController extends Controller
     Yii::$app->end();
   }
 
+  //清空session，并登出
   public function actionLogout(){
     Yii::$app->session->removeAll();
     if(!isset(Yii::$app->session['user']['is_login'])){
@@ -70,14 +71,14 @@ class MemberController extends Controller
   }
 
   //用户登录
-  public function actionLogin(){
+  public function actionAuth(){
     $this->layout = 'layout_frontend';
     $model = new User;
     if(Yii::$app->request->isPost){
       $post = Yii::$app->request->post();
       if($model->login($post)){
-        $this->redirect(['index/index']);
-        Yii::$app->end();
+        //此方法为，跳回到来源页
+        return $this->goBack(Yii::$app->request->referrer);
       }
     }
     return $this->render('auth',['model'=>$model]);

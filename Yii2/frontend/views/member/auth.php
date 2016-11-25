@@ -21,7 +21,6 @@
               </div>
             </div>
             <?php $form=ActiveForm::begin([
-              'action'=>['member/login'],
               'options'=>[
                 'class'=>'login-form cf-style-1',
                 'role'=>'form',
@@ -69,6 +68,7 @@
             <p>创建一个属于你自己的账户</p>
             <?=Yii::$app->session->hasFlash('info_reg') ? Yii::$app->session->getFlash('info_reg') : '';?>
             <?php $form = ActiveForm::begin([
+              'action'=>['member/reg'],
               'fieldConfig'=>[
                 'template'=>'<div class="field-row">{label}{input}</div>{error}'
               ],
