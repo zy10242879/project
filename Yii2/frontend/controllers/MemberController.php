@@ -8,7 +8,7 @@ class MemberController extends Controller
   //会员登录
   public function actionAuth()
   {
-    $this->layout = 'layout_frontend_nav';
+    $this->layout = 'layout_frontend';
     $model = new User;
     if (Yii::$app->request->isPost) {
       $post = Yii::$app->request->post();
@@ -67,5 +67,19 @@ class MemberController extends Controller
       Yii::$app->end();
     }
     $this->goBack();
+  }
+
+  //用户登录
+  public function actionLogin(){
+    $this->layout = 'layout_frontend';
+    $model = new User;
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->login($post)){
+        $this->redirect(['index/index']);
+        Yii::$app->end();
+      }
+    }
+    return $this->render('auth',['model'=>$model]);
   }
 }

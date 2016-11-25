@@ -20,32 +20,46 @@
                 </div>
               </div>
             </div>
-
-            <form role="form" class="login-form cf-style-1">
-              <div class="field-row">
-                <label>用户名/电子邮箱</label>
-                <input type="text" class="le-input">
-              </div><!-- /.field-row -->
-
-              <div class="field-row">
-                <label>登录密码</label>
-                <input type="text" class="le-input">
-              </div><!-- /.field-row -->
-
-              <div class="field-row clearfix">
-                        	<span class="pull-left">
-                        		<label class="content-color"><input type="checkbox" class="le-checbox auto-width inline"> <span class="bold">记住我</span></label>
-                        	</span>
+            <?php $form=ActiveForm::begin([
+              'action'=>['member/login'],
+              'options'=>[
+                'class'=>'login-form cf-style-1',
+                'role'=>'form',
+              ],
+              'fieldConfig'=>[
+                'template'=>'<div class="field-row">{label}{input}</div>{error}'
+              ],
+            ]);?>
+            <?=$form->field($model,'loginName')->textInput(['class'=>'le-input']);?>
+            <?=$form->field($model,'user_pass')->passwordInput(['class'=>'le-input']);?>
+<!--            <form role="form" class="login-form cf-style-1">-->
+            <!--              <div class="field-row">-->
+            <!--                <label>用户名/电子邮箱</label>-->
+            <!--                <input type="text" class="le-input">-->
+            <!--              </div><!-- /.field-row -->
+            <!---->
+            <!--              <div class="field-row">-->
+            <!--                <label>登录密码</label>-->
+            <!--                <input type="text" class="le-input">-->
+            <!--              </div><!-- /.field-row -->
+            <div class="field-row clearfix">
+              <span class="pull-left">
+            <?=$form->field($model,'rememberMe')->checkbox([
+              'class'=>'le-checbox auto-width inline',
+              'template'=>'<label class="content-color">{input}<span class="bold"> 记住我</span></label>',
+            ]);?>
+              </span>
                 <span class="pull-right">
                         		<a href="#" class="content-color bold">忘记密码?</a>
-                        	</span>
+
               </div>
 
               <div class="buttons-holder">
-                <button type="submit" class="le-button huge">安全登录</button>
+                <?=Html::submitButton('安全登录',['class'=>'le-button huge']);?>
+<!--                <button type="submit" class="le-button huge">安全登录</button>-->
               </div><!-- /.buttons-holder -->
-            </form><!-- /.cf-style-1 -->
-
+<!--            </form><!-- /.cf-style-1 -->
+            <?php ActiveForm::end();?>
           </section><!-- /.sign-in -->
         </div><!-- /.col -->
 

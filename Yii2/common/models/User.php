@@ -5,6 +5,8 @@ use yii\db\ActiveRecord;
 
 class User extends ActiveRecord{
   public $rePass;
+  public $loginName;
+  public $rememberMe;
   public static function tableName()
   {
     return '{{%user}}';
@@ -15,8 +17,9 @@ class User extends ActiveRecord{
     return [
       'user_name'=>'用户名',
       'user_email'=>'电子邮箱',
-      'user_pass'=>'用户密码',
-      'rePass'=>'确认密码'
+      'user_pass'=>'登录密码',
+      'rePass'=>'确认密码',
+      'loginName'=>'用户名/电子邮箱'
     ];
   }
 
@@ -27,12 +30,27 @@ class User extends ActiveRecord{
       ['user_email','required','message'=>'电子邮箱不能为空','on'=>['reg','regByEmail']],
       ['user_email','unique','message'=>'电子邮箱已被注册','on'=>['reg','regByEmail']],
       ['user_email','email','message'=>'电子邮箱格式不正确','on'=>['reg','regByEmail']],
-      ['user_pass','required','message'=>'密码不能为空','on'=>['reg']],
+      ['user_pass','required','message'=>'密码不能为空','on'=>['reg','login']],
       ['rePass','required','message'=>'确认密码不能为空','on'=>['reg']],
-      ['rePass','compare','compareAttribute'=>'user_pass','message'=>'两次密码不一致','on'=>['reg']]
+      ['rePass','compare','compareAttribute'=>'user_pass','message'=>'两次密码不一致','on'=>['reg']],
+      ['loginName','required','message'=>'登录名不能为空','on'=>['login']],
+      ['loginName','validateLoginName','on'=>['login']],
+      ['rememberMe','boolean','on'=>['login']],//此rememberMe必需要写验证不然$this->rememberMe为Null
     ];
   }
 
+  //验证前台登录用户名/邮箱/密码
+  public function validateLoginName(){
+    if(!$this->hasErrors()) {
+      $data_name = self::find()->where('user_name=:user and user_pass=:pass', [':user' => $this->loginName, ':pass' => md5($this->user_pass)])->one();
+      $data_email = self::find()->where('user_email=:email and user_pass=:pass',[':email'=>$this->loginName,':pass'=>md5($this->user_pass)])->one();
+      if(is_null($data_name) && is_null($data_email)){
+        $this->addError('loginName','登录名或密码不正确');
+      }
+    }
+  }
+
+  //后台注册方法
   public function reg($data,$scenario='reg'){
     $this->scenario = $scenario;
     if($this->load($data) && $this->validate()) {
@@ -74,4 +92,20 @@ class User extends ActiveRecord{
     return md5(md5($user_name).md5($user_pass).md5($user_email).base64_encode(Yii::$app->request->userIP).md5($create_time));
   }
 
+  //前台登录方法
+  public function login($data,$scenario='login'){
+    $this->scenario = $scenario;
+    if($this->load($data) && $this->validate()){
+      //validate中必需要写入rememberMe的验证，不然$this->rememberMe为Null
+      $lifetime = $this->rememberMe ? 24 * 3600 : 0;
+      $session = Yii::$app->session;
+      session_set_cookie_params($lifetime);
+      $session['user']= [
+        'user_name'=>$this->loginName,
+        'is_login'=>1,
+      ];
+      return (bool)$session['user']['is_login'];
+    }
+    return false;
+  }
 }
