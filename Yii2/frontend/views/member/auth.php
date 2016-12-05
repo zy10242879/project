@@ -110,5 +110,9 @@
 
 
 <!-- For demo purposes – can be removed on production : End -->
-
-</html>
+<script>
+  var qqbtn =document.getElementById('login_qq');
+  qqbtn.onclick = function(){
+    window.location.href="<?=yii\helpers\Url::to(['member/qq-login']);?>"
+  }
+</script>

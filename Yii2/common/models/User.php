@@ -25,14 +25,16 @@ class User extends ActiveRecord{
 
   public function rules(){
     return [
-      ['user_name','required','message'=>'用户名不能为空','on'=>['reg']],
-      ['user_name','unique','message'=>'用户名已存在','on'=>['reg']],
+      ['user_name','required','message'=>'用户名不能为空','on'=>['reg','qqReg']],
+      ['user_name','unique','message'=>'用户名已存在','on'=>['reg','qqReg']],
+      ['openid','unique','message'=>'openid已被注册','on'=>['qqReg']],
+      ['openid','required','message'=>'openid不能为空','on'=>['qqReg']],
       ['user_email','required','message'=>'电子邮箱不能为空','on'=>['reg','regByEmail']],
       ['user_email','unique','message'=>'电子邮箱已被注册','on'=>['reg','regByEmail']],
       ['user_email','email','message'=>'电子邮箱格式不正确','on'=>['reg','regByEmail']],
-      ['user_pass','required','message'=>'密码不能为空','on'=>['reg','login']],
-      ['rePass','required','message'=>'确认密码不能为空','on'=>['reg']],
-      ['rePass','compare','compareAttribute'=>'user_pass','message'=>'两次密码不一致','on'=>['reg']],
+      ['user_pass','required','message'=>'密码不能为空','on'=>['reg','login','qqReg']],
+      ['rePass','required','message'=>'确认密码不能为空','on'=>['reg','qqReg']],
+      ['rePass','compare','compareAttribute'=>'user_pass','message'=>'两次密码不一致','on'=>['reg','qqReg']],
       ['loginName','required','message'=>'登录名不能为空','on'=>['login']],
       ['loginName','validateLoginName','on'=>['login']],
       ['rememberMe','boolean','on'=>['login']],//此rememberMe必需要写验证不然$this->rememberMe为Null
@@ -100,11 +102,9 @@ class User extends ActiveRecord{
       $lifetime = $this->rememberMe ? 24 * 3600 : 0;
       $session = Yii::$app->session;
       session_set_cookie_params($lifetime);
-      $session['user']= [
-        'user_name'=>$this->loginName,
-        'is_login'=>1,
-      ];
-      return (bool)$session['user']['is_login'];
+      $session['loginName'] = $this->loginName;
+      $session['is_login'] = 1;
+      return (bool)$session['is_login'];
     }
     return false;
   }
