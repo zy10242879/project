@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `shop_user`(
   `create_time` INT UNSIGNED NOT NULL DEFAULT '0',
   UNIQUE shop_user_user_name_user_pass(`user_name`,`user_pass`),
   UNIQUE shop_user_user_email_user_pass(`user_email`,`user_pass`),
-  INDEX shop_openid(`openid`), #此为普通索引　由于此字段不一定是用QQ登录，所以会出现默认0，不能用唯一索引
+  INDEX shop_user_openid(`openid`), #此为普通索引　由于此字段不一定是用QQ登录，所以会出现默认0，不能用唯一索引
   PRIMARY KEY(`user_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
