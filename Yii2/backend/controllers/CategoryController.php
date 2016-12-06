@@ -4,18 +4,21 @@ use Yii;
 use yii\web\Controller;
 use backend\models\Category;
 class CategoryController extends Controller{
-  //分类列表
+  //分类列表  可以做个分页显示，前面有不再重复
   public function actionList(){
     $this->layout = 'layout_backend';
-    return $this->render('cates');
+    $model = new Category();
+    $cates = $model->getTreeList();
+    return $this->render('cates',['cates'=>$cates,'model'=>$model]);
   }
+
   //添加分类-----无限级分类方法-----isPost写法与之前类似
   public function actionAdd(){
     $this->layout = 'layout_backend';
     $model = new Category();
-    //无限级分类方法步骤
-    //1.---获得所有分类数据---（可通过Category活动记录中的getData()方法，或下面的方法两种来获得）
-    $cates = Category::find()->asArray()->all();
+    //无限级分类方法步骤   以下1-4步可使用合并为一个方法的$model->getOption() 来直接调用
+    //1.---获得所有分类数据---可通过 $cates = Category::find()->asArray()->all(); 来获得数据
+    $cates = $model->getData();
     //2.---递归重组$cates--- 按照顶级一路往下分类排序
     $tree = $model->getTree($cates);
     //3.---将排序好的$tree数组进行增加前缀---　通过调用Category活动记录中的getPrefix($tree)方法来实现
@@ -31,5 +34,20 @@ class CategoryController extends Controller{
       }
     }
     return $this->render('add',['list'=>$list,'model'=>$model]);
+  }
+  //编辑分类
+  public function actionMod(){
+    $this->layout = 'layout_backend';
+    $cate_id = Yii::$app->request->get('cate_id');
+    $model = Category::find()->where('cate_id=:cate_id',[':cate_id'=>$cate_id])->one();
+    if(Yii::$app->request->isPost){
+      $post = Yii::$app->request->post();
+      if($model->mod($post)){
+        Yii::$app->session->setFlash('info','修改成功');
+      }
+    }
+    //getOption()可以通过魔术方法来直接当属性来使用
+    $list = $model->option;
+    return $this->render('mod',['model'=>$model,'list'=>$list]);
   }
 }

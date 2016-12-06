@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/admin/css/compiled/user-list.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="static/css/compiled/user-list.css" type="text/css" media="screen" />
 <!-- main container -->
 <div class="content">
 
@@ -38,18 +38,32 @@
           <tbody>
           <!-- row -->
           <?php foreach($cates as $cate): ?>
-            <tr class="first">
+            <?php if($cate['parent_id']==0):?>
+            <tr>
               <td>
-                <?php echo $cate['cateid'] ?>
+                <?php echo $cate['cate_id'] ?>
               </td>
-              <td>
-                <?php echo $cate['title'] ; ?>
+              <td onclick="return Collapse(<?=$cate['cate_id'];?>)">
+                <span><?php echo $cate['title'] ; ?></span>
+                <i class="icon-chevron-down"></i>
               </td>
               <td class="align-right">
-                <a href="<?php echo yii\helpers\Url::to(['category/mod', 'cateid' => $cate['cateid']]); ?>">编辑</a>
-                <a href="<?php echo yii\helpers\Url::to(['category/del', 'cateid' => $cate['cateid']]); ?>">删除</a>
+                <a href="<?php echo yii\helpers\Url::to(['category/mod', 'cate_id' => $cate['cate_id']]); ?>">编辑</a>
+                <a href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $cate['cate_id']]); ?>">删除</a>
               </td>
             </tr>
+            <?php $subcates =$model->getSubTree($cate['cate_id']);?>
+              <?php foreach ($subcates as $subcate):?>
+                <tr class="<?=$cate['cate_id'];?>" style="display:none">
+                  <td><?=$subcate['cate_id'];?></td>
+                  <td><?=$subcate['title'];?></td>
+                  <td class="align-right">
+                  <a href="<?php echo yii\helpers\Url::to(['category/mod', 'cate_id' => $subcate['cate_id']]); ?>">编辑</a>
+                  <a href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $subcate['cate_id']]); ?>">删除</a>
+                  </td>
+                  </tr>
+              <?php endforeach;?>
+            <?php endif;?>
           <?php endforeach; ?>
           </tbody>
         </table>
@@ -66,3 +80,14 @@
   </div>
 </div>
 <!-- end main container -->
+<script>
+  function Collapse(cate_id){
+    if($('.'+cate_id).css('display')=='none'){
+      $('.'+cate_id).css('display','');
+    }else{
+      $('.'+cate_id).css('display','none');
+    }
+
+
+  }
+</script>

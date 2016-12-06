@@ -19,13 +19,21 @@ class Category extends ActiveRecord{
   public function rules()
   {
     return [
-      ['parent_id','required','message'=>'上级分类不能为空','on'=>['add']],
-      ['title','required','message'=>'分类名不能为空','on'=>['add']],
-      ['title','unique','message'=>'分类名已存在','on'=>['add']],
+      ['parent_id','required','message'=>'上级分类不能为空','on'=>['add','mod']],
+      ['title','required','message'=>'分类名不能为空','on'=>['add','mod']],
+      ['title','unique','message'=>'分类名已存在','on'=>['add','mod']],
       //safe 为安全添加验证(说明create_time是安全的)　如果create_time不做验证，就无法写入数据库
       ['create_time','safe']
 
     ];
+  }
+  //编辑分类的校验
+  public function mod($data){
+    $this->scenario = 'mod';
+    if($this->load($data) && $this->save()){
+      return true;
+    }
+    return false;
   }
   //添加分类的校验
   public function add($data){
@@ -38,11 +46,11 @@ class Category extends ActiveRecord{
   }
 
   //将所有分类信息查询出来  此方法可以通过//$cates = self::find()->asArray()->all();直接获得数据
-//  public function getData(){
-//    $cates = self::find()->all();
-//    $cates = \yii\helpers\ArrayHelper::toArray($cates);
-//    return $cates;
-//  }
+  public function getData(){
+    $cates = self::find()->all();
+    $cates = \yii\helpers\ArrayHelper::toArray($cates);
+    return $cates;
+  }
 
   //将分类信息级别显示 (递归)--通过递归将传入的数据通过pid重组新的数组
   public function getTree($cates,$pid=0){
@@ -64,10 +72,10 @@ class Category extends ActiveRecord{
   }
 
   //定义getPrefix($data)进行添加前缀
-  public function setPrefix($data,$p='|---'){
+  public function setPrefix($data,$num=0,$p='|---'){
     $tree = [];//设置拼接好后返回的数组
-    $num = 0;  //设置分类的层级
-    $prefix = [0=>0]; //$prefix如果设置为1则顶级分类会有前缀，如果设置0则顶级分类无前缀
+    //$num = 0;  //设置分类的层级
+    $prefix = [0=>$num]; //$prefix如果设置为1则顶级分类会有前缀，如果设置0则顶级分类无前缀
     foreach($data as $key =>$value){ //编历数组　获得$key 和 $value
       if($key > 0){ //从第２次遍历开始判断层级，因为下标为０的层级一定是顶级分类（从前面getTree()可了解）
         if($data[$key-1]['parent_id'] != $value['parent_id'] ){
@@ -85,6 +93,7 @@ class Category extends ActiveRecord{
   }
 
   //定义getOptions($tree)来返回下拉列表中的分类数据
+  //可以将以上的3个方法写入到getOptions()中，让CategoryController来直接调用此方法即可
   public function getOptions($tree){
     $options = ['添加顶级分类'];
     foreach($tree as $cate){
@@ -93,4 +102,28 @@ class Category extends ActiveRecord{
     return $options;
   }
 
+  //定义getOption($tree)来直接返回分类数据 以上４个方法的合并
+  public function getOption(){
+    $data = $this->getData();
+    $tree = $this->getTree($data);
+    $tree = $this->setPrefix($tree);
+    $options = ['添加顶级分类'];
+    foreach($tree as $cate){
+      $options[$cate['cate_id']] = $cate['title'];
+    }
+    return $options;
+  }
+
+  //获得所有数据用于list
+  public function getTreeList(){
+    $data = $this->getData();
+    $tree = $this->getTree($data);
+    return $tree = $this->setPrefix($tree);
+  }
+  //获得相对分类的子分类 给views/category/cates.php 中使用的
+  public function getSubTree($cate_id){
+    $data = $this->getData();
+    $tree = $this->getTree($data,$cate_id);
+    return $tree = $this->setPrefix($tree,1,'---|');
+  }
 }
