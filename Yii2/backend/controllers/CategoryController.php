@@ -1,5 +1,6 @@
 <?php
 namespace backend\controllers;
+use League\Flysystem\Exception;
 use Yii;
 use yii\web\Controller;
 use backend\models\Category;
@@ -49,5 +50,25 @@ class CategoryController extends Controller{
     //getOption()可以通过魔术方法来直接当属性来使用
     $list = $model->option;
     return $this->render('mod',['model'=>$model,'list'=>$list]);
+  }
+  //删除分类 删除中的异常抛出
+  public function actionDel(){
+    try{
+      $cate_id = Yii::$app->request->get('cate_id');
+      if(empty($cate_id)){
+        throw new \Exception('参数错误');
+      }
+      if(Category::find()->where('parent_id=:cate_id',[':cate_id'=>$cate_id])->one()){
+        throw new \Exception('该分类下有子类，不允许删除');
+      }
+      if(!Category::deleteAll('cate_id=:cate_id',[':cate_id'=>$cate_id])){
+        throw new \Exception('删除失败');
+      }
+    }catch (\Exception $e){
+      Yii::$app->session->setFlash('info',$e->getMessage());
+      return $this->redirect(['category/list']);
+    }
+    Yii::$app->session->setFlash('info','删除成功');
+    return $this->redirect(['category/list']);
   }
 }

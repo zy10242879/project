@@ -49,7 +49,7 @@
               </td>
               <td class="align-right">
                 <a href="<?php echo yii\helpers\Url::to(['category/mod', 'cate_id' => $cate['cate_id']]); ?>">编辑</a>
-                <a href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $cate['cate_id']]); ?>">删除</a>
+                <a onclick="return confirm('确定要删除吗?')" href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $cate['cate_id']]); ?>">删除</a>
               </td>
             </tr>
             <?php $subcates =$model->getSubTree($cate['cate_id']);?>
@@ -59,7 +59,7 @@
                   <td><?=$subcate['title'];?></td>
                   <td class="align-right">
                   <a href="<?php echo yii\helpers\Url::to(['category/mod', 'cate_id' => $subcate['cate_id']]); ?>">编辑</a>
-                  <a href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $subcate['cate_id']]); ?>">删除</a>
+                  <a onclick="return confirm('确定要删除吗?')" href="<?php echo yii\helpers\Url::to(['category/del', 'cate_id' => $subcate['cate_id']]); ?>">删除</a>
                   </td>
                   </tr>
               <?php endforeach;?>
