@@ -212,6 +212,17 @@
     </li>
     <li>
       <a class="dropdown-toggle" href="#">
+        <i class="icon-glass"></i>
+        <span>商品管理</span>
+        <i class="icon-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="<?=yii\helpers\Url::to(['product/list']);?>">商品列表</a></li>
+        <li><a href="<?=yii\helpers\Url::to(['product/add'])?>">添加商品</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="#">
         <i class="icon-edit"></i>
         <span>表单</span>
         <i class="icon-chevron-down"></i>

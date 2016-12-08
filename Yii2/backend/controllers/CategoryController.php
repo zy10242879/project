@@ -1,9 +1,8 @@
 <?php
 namespace backend\controllers;
-use League\Flysystem\Exception;
 use Yii;
 use yii\web\Controller;
-use backend\models\Category;
+use common\models\Category;
 class CategoryController extends Controller{
   //分类列表  可以做个分页显示，前面有不再重复
   public function actionList(){
