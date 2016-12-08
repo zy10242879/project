@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>慕课商城 - 后台管理</title>
+  <title>商城 - 后台管理</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -21,11 +21,14 @@
 
   <!-- this page specific styles -->
   <link rel="stylesheet" href="statics/css/compiled/index.css" type="text/css" media="screen" />
-
+  <link href="statics/css/lib/bootstrap-wysihtml5.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="statics/css/compiled/form-showcase.css" type="text/css" media="screen" />
   <!-- open sans font -->
   <link href='' rel='stylesheet' type='text/css' />
-
-  <!-- lato font -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<!-- lato font -->
   <link href='' rel='stylesheet' type='text/css' />
 
   <![endif]-->
@@ -275,6 +278,8 @@
 <script src="statics/js/jquery.flot.stack.js"></script>
 <script src="statics/js/jquery.flot.resize.js"></script>
 <script src="statics/js/theme.js"></script>
+<script src="statics/js/wysihtml5-0.3.0.js"></script>
+<script src="statics/js/bootstrap-wysihtml5-0.0.2.js"></script>
 
 <script type="text/javascript">
   $(function () {
@@ -387,6 +392,14 @@
         previousPoint = null;
       }
     });
+  });
+  $(".wysihtml5").wysihtml5({
+    "font-styles": false
+  });
+  $("#addpic").click(function(){
+    var pic = $("#product-pics").clone();
+    pic.attr("style", "margin-left:120px");
+    $("#product-pics").parent().append(pic);
   });
 </script>
 

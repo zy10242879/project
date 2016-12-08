@@ -22,7 +22,7 @@ class ProductController extends Controller{
     $model = new Product;
     $cate = new Category;
     $list = $cate->getOption();
-    unset($list[0]);
+    unset($list[0]);//去掉　$list[0]＝〉添加顶级分类
 
     return $this->render("add", ['opts' => $list, 'model' => $model]);
   }
