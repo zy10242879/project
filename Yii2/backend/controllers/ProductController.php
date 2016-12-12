@@ -117,4 +117,66 @@ class ProductController extends Controller{
       $qiNiu->delete(basename($pic));
     }
   }
+  //商品编辑功能
+  public function actionMod()
+  {
+    $this->layout = "layout_backend";
+    $cate = new Category;
+    $list = $cate->getOption();
+    unset($list[0]);
+
+    $product_id = Yii::$app->request->get("product_id");
+    $model = Product::find()->where('product_id = :id', [':id' => $product_id])->one();
+    if (Yii::$app->request->isPost) {
+      $post = Yii::$app->request->post();
+      $qiNiu = new Qiniu(Product::AK, Product::SK, Product::DOMAIN, Product::BUCKET);
+      $post['Product']['cover'] = $model->cover;
+      if ($_FILES['Product']['error']['cover'] == 0) {
+        $key = uniqid();
+        $qiNiu->uploadFile($_FILES['Product']['tmp_name']['cover'], $key);
+        $post['Product']['cover'] = $qiNiu->getLink($key);
+        $qiNiu->delete(basename($model->cover));
+      }
+      $pics = [];
+      foreach($_FILES['Product']['tmp_name']['pics'] as $k => $file) {
+        if ($_FILES['Product']['error']['pics'][$k] > 0) {
+          continue;
+
+        }
+        $key = uniqid();
+        $qiNiu->uploadFile($file, $key);
+        $pics[$key] = $qiNiu->getLink($key);
+      }
+      $post['Product']['pics'] = json_encode(array_merge((array)json_decode($model->pics, true), $pics));
+      $sale = $this->isSale($post);
+      if(!$sale){
+        $model->addError('sale_price','确认促销必需填写促销价格');
+      }
+      if ($sale && $model->load($post) && $model->save()) {
+        Yii::$app->session->setFlash('info', '修改成功');
+      }else{
+        Yii::$app->session->setFlash('info','修改失败，请检查错误');
+      }
+    }
+    return $this->render('mod', ['model' => $model, 'opts' => $list]);
+  }
+  //针对编辑中图片集删除写入actionRemovePic()
+  public function actionRemovePic(){
+    //⑴接收get数据
+    $key = Yii::$app->request->get('key');
+    $product_id = Yii::$app->request->get('product_id');
+    //⑵找到该商品
+    $model = Product::find()->where('product_id = :pid',[':pid'=>$product_id])->one();
+    //⑶实例化七牛类
+    $qiNiu = new Qiniu(Product::AK,Product::SK,Product::DOMAIN,Product::BUCKET);
+    //⑷删除$key对应的图片
+    $qiNiu->delete($key);
+    //(5)获得pics的值　并删除对应pics[]的值
+    $pics = json_decode($model->pics,true);
+    unset($pics[$key]);
+    //⑹写入数据库
+    Product::updateAll(['pics'=>json_encode($pics)],'product_id = :pid',[':pid'=>$product_id]);
+    //⑺跳转到修改页面，传入数据显示
+    return $this->redirect(['product/mod','product_id'=>$product_id]);
+  }
 }
