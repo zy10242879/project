@@ -208,4 +208,17 @@ class ProductController extends Controller{
     Yii::$app->session->setFlash('info','删除成功');
     return $this->redirect(['product/list']);
   }
+  //上架处理
+  public function actionOn(){
+    $product_id = Yii::$app->request->get('product_id');
+    Product::updateAll(['is_on'=>1],'product_id = :pid',[':pid'=>$product_id]);
+    return $this->redirect(['product/list']);
+  }
+  //下架处理
+  public function actionOff(){
+    $product_id = Yii::$app->request->get('product_id');
+    Product::updateAll(['is_on'=>0],'product_id = :pid',[':pid'=>$product_id]);
+    return $this->redirect(['product/list']);
+  }
+
 }

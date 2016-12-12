@@ -89,8 +89,11 @@
 
                             <td class="align-right">
                             <a href="<?php echo yii\helpers\Url::to(['product/mod', 'product_id' => $product->product_id]); ?>">编辑</a>
+                            <?php if($product->is_on ==0){?>
                             <a href="<?php echo yii\helpers\Url::to(['product/on', 'product_id' => $product->product_id]); ?>">上架</a>
+                                <?php }else{?>
                             <a href="<?php echo yii\helpers\Url::to(['product/off', 'product_id' => $product->product_id]); ?>">下架</a>
+                                <?php };?>
                             <a onclick="return confirm('确认删除商品吗?')" href="<?php echo yii\helpers\Url::to(['product/del', 'product_id' => $product->product_id]); ?>">删除</a>
                             </td>
                         </tr>
