@@ -91,7 +91,7 @@
                             <a href="<?php echo yii\helpers\Url::to(['product/mod', 'product_id' => $product->product_id]); ?>">编辑</a>
                             <a href="<?php echo yii\helpers\Url::to(['product/on', 'product_id' => $product->product_id]); ?>">上架</a>
                             <a href="<?php echo yii\helpers\Url::to(['product/off', 'product_id' => $product->product_id]); ?>">下架</a>
-                            <a href="<?php echo yii\helpers\Url::to(['product/del', 'product_id' => $product->product_id]); ?>">删除</a>
+                            <a onclick="return confirm('确认删除商品吗?')" href="<?php echo yii\helpers\Url::to(['product/del', 'product_id' => $product->product_id]); ?>">删除</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

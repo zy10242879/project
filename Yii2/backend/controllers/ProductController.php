@@ -51,7 +51,7 @@ class ProductController extends Controller{
       }else{
         //12.如果添加失败查看$key对应的图片，如果有图片将图片删除
         if($pics['cover']){
-          $this->delCover($pics);
+          $this->delCover($pics['cover']);
         }
         if($pics['pics']){
           $this->delPics(json_decode($pics['pics']));
@@ -108,13 +108,13 @@ class ProductController extends Controller{
   //如果商品添加失败，就将上传的图片删除
   private function delCover($pics){
     $qiNiu = new Qiniu(Product::AK,Product::SK,Product::DOMAIN,Product::BUCKET);
-    $qiNiu->delete(basename($pics['cover']));
+    $qiNiu->delete(basename($pics));
   }
   //如果商品添加失败，如果有图集就将图集删除
   private function delPics($pics){
     $qiNiu = new Qiniu(Product::AK,Product::SK,Product::DOMAIN,Product::BUCKET);
     foreach($pics as $k => $pic){
-      $qiNiu->delete(basename($pic));
+      $qiNiu->delete(basename($pic));//==$qiNiu->delete($k); basename($pic)=$key
     }
   }
   //商品编辑功能
@@ -178,5 +178,34 @@ class ProductController extends Controller{
     Product::updateAll(['pics'=>json_encode($pics)],'product_id = :pid',[':pid'=>$product_id]);
     //⑺跳转到修改页面，传入数据显示
     return $this->redirect(['product/mod','product_id'=>$product_id]);
+  }
+  //商品删除  //可以通过事务处理来完成删除　以免其中一个删除错误而导致程序无法运行
+  public function actionDel(){
+    $trans = Yii::$app->db->beginTransaction();
+    try{
+      $product_id = Yii::$app->request->get('product_id');
+      if(empty($product_id)){
+        throw new \Exception('参数错误');
+      }
+      $model = Product::find()->where('product_id = :pid',[':pid'=>$product_id])->one();
+      if(!$model){
+        throw new \Exception('无法找到对应数据');
+      }
+      if(!Product::deleteAll('product_id = :pid',[':pid'=>$product_id])){
+        throw new \Exception('数据删除失败');
+      }
+      if($this->delCover($model->cover)){
+        throw new \Exception('删除封面图片失败');
+      }
+      if($this->delPics(json_decode($model->pics,true))){
+        throw new \Exception('删除图片集失败');
+      }
+      $trans->commit();
+    }catch (\Exception $e){
+      Yii::$app->session->setFlash('info',$e->getMessage());
+      return $this->redirect(['product/list']);
+    }
+    Yii::$app->session->setFlash('info','删除成功');
+    return $this->redirect(['product/list']);
   }
 }

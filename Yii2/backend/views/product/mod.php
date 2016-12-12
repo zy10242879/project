@@ -67,9 +67,12 @@
                           <hr>
                                 <input type='button' id="addpic" value='增加一个'>
                                 <div class="span11 field-box actions">
-                                    <?php echo Html::submitButton('提交', ['class' => 'btn-glow primary']); ?>
+                                    <?php echo Html::submitButton('提交', ['class' => 'btn btn-primary']); ?>
                                     <span>OR</span>
-                                    <?php echo Html::resetButton('取消', ['class' => 'reset']); ?>
+                                    <?php echo Html::resetButton('取消', ['class' => 'reset btn btn-warning']); ?>
+                                    <span>OR</span>
+                                    <a href="<?=\yii\helpers\Url::to(['product/list']);?>"><?php echo Html::button('返回', ['class' => 'btn btn-default']); ?></a>
+
                                 </div>
                           <?php ActiveForm::end(); ?>
                         </div>
