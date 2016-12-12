@@ -15,6 +15,10 @@
                 </div>
 
                 <!-- Users table -->
+              <?php
+              if (Yii::$app->session->hasFlash('info')) {
+                echo '<span style="color:red">'.Yii::$app->session->getFlash('info').'</span>';
+              }?>
                 <div class="row-fluid table">
                     <table class="table table-hover">
                         <thead>
@@ -54,8 +58,8 @@
                         <?php foreach($products as $product): ?>
                         <tr class="first">
                             <td>
-                                <img src="<?php echo $product->cover; ?>-coversmall" class="img-circle avatar hidden-phone" />
-                                <a href="#" class="name"><?php echo $product->title; ?></a>
+                                <img src="//<?=$product->cover;?>-coversmall" class="img-circle avatar hidden-phone" />
+                                <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$product->product_id]);?>" class="name"><?php echo $product->title; ?></a>
                             </td>
                             <td>
                                 <?php echo $product->num; ?>
@@ -64,23 +68,23 @@
                                 <?php echo $product->price; ?>
                             </td>
                             <td>
-                                <?php $hot = ['不热卖', '热卖'] ?>
-                                <?php echo $hot[$product->is_hot]; ?>
+                                <?php $is_hot = ['不热卖', '热卖'] ?>
+                                <?php echo $is_hot[$product->is_hot]; ?>
                             </td>
                             <td>
-                                <?php $sale = ['不促销', '促销'] ?>
-                                <?php echo $sale[$product->is_sale]; ?>
+                                <?php $is_sale = ['不促销', '促销'] ?>
+                                <?php echo $is_sale[$product->is_sale]; ?>
                             </td>
                             <td>
-                                <?php echo $product->saleprice; ?>
+                                <?php echo $product->sale_price; ?>
                             </td>
                             <td>
-                                <?php $on = ['下架', '上架'] ?>
-                                <?php echo $on[$product->is_on]; ?>
+                                <?php $is_on = ['下架', '上架'] ?>
+                                <?php echo $is_on[$product->is_on]; ?>
                             </td>
                             <td>
-                                <?php $on = ['不推荐', '推荐'] ?>
-                                <?php echo $on[$product->is_tui]; ?>
+                                <?php $is_tui = ['不推荐', '推荐'] ?>
+                                <?php echo $is_tui[$product->is_tui]; ?>
                             </td>
 
                             <td class="align-right">
