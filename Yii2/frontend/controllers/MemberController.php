@@ -167,7 +167,7 @@ class MemberController extends Controller
         $session['is_login'] = 1;
         return $this->redirect(['index/index']);
       }
-        var_dump($model->getErrors());die; //如果有问题可以通以此方法来查看错误
+        //var_dump($model->getErrors());die; //如果有问题可以通以此方法来查看错误
     }
     //14-③加载qqReg页面，并载入$model类  在views/member/下创建qqReg.php视图文件复制auth.php进行修改
     return  $this->render('qqReg',['model'=>$model]);

@@ -125,4 +125,34 @@ class Category extends ActiveRecord{
     $tree = $this->getTree($data,$cate_id);
     return $tree = $this->setPrefix($tree,1,'---|');
   }
+  //CommonController中使用的获得分类信息的静态方法可以通过Category::getMenu()来获得
+  public static function getMenu(){
+    $top = self::find()->where('parent_id = :pid',[':pid'=>0])->asArray()->all();
+    $data = [];
+    //$cate就是顶级分类　而下面的$cate['children']就是将$cate顶级分类下面加入['children']的子分类(2级分类)
+    foreach ((array)$top as $k => $cate){
+      $cate['children'] = self::find()->where("parent_id = :pid", [":pid" => $cate['cate_id']])->asArray()->all();
+      $data[$k]=$cate;
+    }
+    return $data;
+  }
+  //-----------上下两种getMenu()获得1-2级分类(节省资源，效率高)和getMenus()递归获得所有分类(信息全)--------
+
+  //无限级分类查询所有分类下的子分类　随调随用
+  //将平行的二维数组，转成包含关系的多维数组
+  public static function getMenus($pid=0){
+    //先查出所有数据
+    $cates = self::find()->asArray()->all();
+    $data = [];
+    foreach ($cates as $cate) {
+      if($cate['parent_id'] == $pid){
+        //找到了，继续查找其后代节点
+        $cate['children'] = self::getMenus($cate['cate_id']); //直到找不到才将后代节点一步步存入$cate中
+        $data[] = $cate;
+      }
+    }
+    return $data;
+  }
+
+
 }

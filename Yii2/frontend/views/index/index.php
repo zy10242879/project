@@ -7,18 +7,20 @@
                 <div class="head"><i class="fa fa-list"></i> 所有分类 </div>
                 <nav class="yamm megamenu-horizontal" role="navigation">
                     <ul class="nav">
-
+                        <?php
+                        foreach($this->params['menu'] as $top) :
+                            ?>
                             <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">1234</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $top['title'] ?></a>
                                 <ul class="dropdown-menu mega-menu">
                                     <li class="yamm-content">
                                         <!-- ================================== MEGAMENU VERTICAL ================================== -->
                                         <div class="row">
                                             <div class="col-xs-12 col-lg-4">
                                                 <ul>
-                                                    1234
-                                                        <li><a href="1234">1234</a></li>
-
+                                                    <?php foreach($top['children'] as $child): ?>
+                                                        <li><a href="<?php echo yii\helpers\Url::to(['product/index', 'cate_id' => $child['cate_id']]) ?>"><?php echo $child['title'] ?></a></li>
+                                                    <?php endforeach; ?>
                                                 </ul>
                                             </div>
                                             <div class="dropdown-banner-holder">
@@ -29,7 +31,9 @@
                                     </li>
                                 </ul>
                             </li><!-- /.menu-item -->
-
+                            <?php
+                        endforeach;
+                        ?>
                         <!--<li><a href="http://themeforest.net/item/media-center-electronic-ecommerce-html-template/8178892?ref=shaikrilwan">Buy this Theme</a></li>-->
                     </ul><!-- /.nav -->
                 </nav><!-- /.megamenu-horizontal -->
@@ -42,7 +46,7 @@
             <div id="hero">
                 <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-                    <div class="item" style="background-image: url(/assets/images/sliders/slider01.jpg);">
+                    <div class="item" style="background-image: url(statics/images/sliders/slider01.jpg);">
                         <div class="container-fluid">
                             <div class="caption vertical-center text-left">
                                 <div class="big-text fadeInDown-1">
@@ -64,7 +68,7 @@
                         </div><!-- /.container-fluid -->
                     </div><!-- /.item -->
 
-                    <!--<div class="item" style="background-image: url(/assets/images/sliders/slider02.jpg);">
+                    <div class="item" style="background-image: url(statics/images/sliders/slider02.jpg);">
                       <div class="container-fluid">
                         <div class="caption vertical-center text-left">
                           <div class="big-text fadeInDown-1">
@@ -81,7 +85,7 @@
                             <a href="#" class="big le-button ">去购买</a>
                           </div>
                         </div>--><!-- /.caption -->
-                    <!--</div>--><!-- /.container-fluid -->
+                    </div>--><!-- /.container-fluid -->
                     <!--</div>--><!-- /.item -->
 
                 </div><!-- /.owl-carousel -->
@@ -131,37 +135,37 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="featured">
                     <div class="product-grid-holder">
-
+<!--                        --><?php //foreach ($data['is_tui'] as $pro): ?>
                             <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
                                 <div class="product-item">
-
+<!--                                    --><?php //if ($pro->is_hot): ?>
                                         <div class="ribbon red"><span>HOT</span></div>
-
-
+<!--                                    --><?php //endif; ?>
+<!--                                    --><?php //if ($pro->issale): ?>
                                         <div class="ribbon green"><span>sale</span></div>
-
+<!--                                    --><?php //endif; ?>
 
                                     <div class="image">
-                                        <img alt="1234" src="1234" />
+<!--                                        <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---covermiddle" data-echo="--><?php //echo $pro->cover ?><!---covermiddle" />-->
                                     </div>
                                     <div class="body">
                                         <div class="title">
-                                            <a href="1234">1234</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title ?><!--</a>-->
                                         </div>
                                     </div>
                                     <div class="prices">
-                                        <div class="price-prev">￥1234</div>
-                                        <div class="price-current pull-right">￥1234</div>
+<!--                                        <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
+<!--                                        <div class="price-current pull-right">￥--><?php //echo $pro->saleprice ?><!--</div>-->
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="1234" class="le-button">加入购物车</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['cart/add', 'productid' => $pro->productid]) ?><!--" class="le-button">加入购物车</a>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+<!--                        --><?php //endforeach; ?>
                     </div>
                     <div class="loadmore-holder text-center">
                         <a class="btn-loadmore" href="#">
@@ -172,37 +176,37 @@
                 </div>
                 <div class="tab-pane" id="new-arrivals">
                     <div class="product-grid-holder">
-
+<!--                        --><?php //foreach ($data['new'] as $pro): ?>
                             <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
                                 <div class="product-item">
-
+<!--                                    --><?php //if ($pro->ishot): ?>
                                         <div class="ribbon red"><span>HOT</span></div>
-
-
+<!--                                    --><?php //endif; ?>
+<!--                                    --><?php //if ($pro->issale): ?>
                                         <div class="ribbon green"><span>sale</span></div>
-
+<!--                                    --><?php //endif; ?>
 
                                     <div class="image">
-                                        <img alt="1234" src="1234" />
+<!--                                        <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---covermiddle" data-echo="--><?php //echo $pro->cover ?><!---covermiddle" />-->
                                     </div>
                                     <div class="body">
                                         <div class="title">
-                                            <a href="1234">1234</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title ?><!--</a>-->
                                         </div>
                                     </div>
                                     <div class="prices">
-                                        <div class="price-prev">￥1234</div>
-                                        <div class="price-current pull-right">￥1234</div>
+<!--                                        <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
+<!--                                        <div class="price-current pull-right">￥--><?php //echo $pro->saleprice ?><!--</div>-->
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="1234" class="le-button">加入购物车</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['cart/add', 'productid' => $pro->productid]) ?><!--" class="le-button">加入购物车</a>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        1234
+<!--                        --><?php //endforeach; ?>
                     </div>
                     <div class="loadmore-holder text-center">
                         <a class="btn-loadmore" href="#">
@@ -214,37 +218,37 @@
 
                 <div class="tab-pane" id="top-sales">
                     <div class="product-grid-holder">
-                        1234
+<!--                        --><?php //foreach ($data['hot'] as $pro): ?>
                             <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
                                 <div class="product-item">
-                                    1234
+<!--                                    --><?php //if ($pro->ishot): ?>
                                         <div class="ribbon red"><span>HOT</span></div>
-                                    1234
-                                    1234
+<!--                                    --><?php //endif; ?>
+<!--                                    --><?php //if ($pro->issale): ?>
                                         <div class="ribbon green"><span>sale</span></div>
-                                    1234
+<!--                                    --><?php //endif; ?>
 
                                     <div class="image">
-                                        <img alt="1234" src="1234-covermiddle" />
+<!--                                        <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---covermiddle" data-echo="--><?php //echo $pro->cover ?><!---covermiddle" />-->
                                     </div>
                                     <div class="body">
                                         <div class="title">
-                                            <a href="1234">1234</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title ?><!--</a>-->
                                         </div>
                                     </div>
                                     <div class="prices">
-                                        <div class="price-prev">￥1234</div>
-                                        <div class="price-current pull-right">￥1234</div>
+<!--                                        <div class="price-prev">￥--><?php //echo $pro->price ?><!--</div>-->
+<!--                                        <div class="price-current pull-right">￥--><?php //echo $pro->saleprice ?><!--</div>-->
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="1234" class="le-button">加入购物车</a>
+<!--                                            <a href="--><?php //echo yii\helpers\Url::to(['cart/add', 'productid' => $pro->productid]) ?><!--" class="le-button">加入购物车</a>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        1234
+<!--                        --><?php //endforeach; ?>
 
 
                     </div>
@@ -267,95 +271,95 @@
             <div class="col-xs-12 col-md-7 no-margin">
 
                 <div class="row no-margin">
-                    1234
-                        1234
+                    <?php for ($i = 0;$i < 3;$i++): ?>
+                        <?php if (empty($data['all'][$i])) continue; ?>
                         <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
                             <div class="product-item">
                                 <div class="image">
-                                    <img alt="1234 src="1234-covermiddle" />
+                                    <img alt="<?php echo $data['all'][$i]->title ?>" src="<?php echo $data['all'][$i]->cover ?>-covermiddle" data-echo="<?php echo $data['all'][$i]->cover ?>-covermiddle" />
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
                                     <div class="title">
-                                        <a href="1234>1234</a>
+                                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'productid' => $data['all'][$i]->productid]); ?>"><?php echo $data['all'][$i]->title ?></a>
                                     </div>
                                 </div>
                                 <div class="prices">
-                                    <div class="price-current text-right">￥1234</div>
+                                    <div class="price-current text-right">￥<?php echo $data['all'][$i]->saleprice ?></div>
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="1234" class="le-button">加入购物车</a>
+                                        <a href="<?php echo yii\helpers\Url::to(['cart/add', 'productid' => $data['all'][$i]->productid]) ?>" class="le-button">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- /.product-item-holder -->
-                    1234
+                    <?php endfor; ?>
                 </div><!-- /.row -->
 
                 <div class="row no-margin">
-                    1234
-                        1234
+                    <?php for ($i = 3;$i < 6;$i++): ?>
+                        <?php if (empty($data['all'][$i])) continue; ?>
                         <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
                             <div class="product-item">
                                 <div class="image">
-                                    <img alt="1234" src="1234-covermiddle" />
+                                    <img alt="<?php echo $data['all'][$i]->title ?>" src="<?php echo $data['all'][$i]->cover ?>-covermiddle" data-echo="<?php echo $data['all'][$i]->cover ?>-covermiddle" />
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
                                     <div class="title">
-                                        <a href="1234">1234</a>
+                                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'productid' => $data['all'][$i]->productid]); ?>"><?php echo $data['all'][$i]->title ?></a>
                                     </div>
                                 </div>
                                 <div class="prices">
-                                    <div class="price-current text-right">￥1234</div>
+                                    <div class="price-current text-right">￥<?php echo $data['all'][$i]->saleprice ?></div>
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="1234" class="le-button">加入购物车</a>
+                                        <a href="<?php echo yii\helpers\Url::to(['cart/add', 'productid' => $data['all'][$i]->productid]) ?>" class="le-button">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- /.product-item-holder -->
-                    1234
+                    <?php endfor; ?>
                 </div><!-- /.row -->
             </div><!-- /.col -->
             <div class="col-xs-12 col-md-5 no-margin">
                 <div class="product-item-holder size-big single-product-gallery small-gallery">
-                    1234
+<!--                    --><?php //$last = $data['all'][count($data['all'])-1];?>
                     <div id="best-seller-single-product-slider" class="single-product-slider owl-carousel">
                         <div class="single-product-gallery-item" id="slide1">
-                            <a data-rel="prettyphoto" href="1234">
-                                <img alt="1234" src="1234-coverbig" />
+<!--                            <a data-rel="prettyphoto" href="--><?php //echo $last->cover ?><!--">-->
+<!--                                <img alt="--><?php //echo $last->title ?><!--" src="--><?php //echo $last->cover ?><!---coverbig" data-echo="--><?php //echo $last->cover ?><!---coverbig" />-->
                             </a>
                         </div><!-- /.single-product-gallery-item -->
-                        1234
-                            <div class="single-product-gallery-item" id="slide1234">
-                                <a data-rel="prettyphoto" href="1234">
-                                    <img alt="" src="1234-picbig" />
+<!--                        --><?php //foreach((array)json_decode($last->pics, true) as $key => $pic): ?>
+<!--                            <div class="single-product-gallery-item" id="slide--><?php //echo $key+2; ?><!--">-->
+<!--                                <a data-rel="prettyphoto" href="--><?php //echo $last->pics ?><!--">-->
+<!--                                    <img alt="" src="--><?php //echo $pic ?><!---picbig" data-echo="--><?php //echo $pic ?><!---picbig" />-->
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
-                        1234
+<!--                        --><?php //endforeach; ?>
                     </div><!-- /.single-product-slider -->
 
                     <div class="gallery-thumbs clearfix">
                         <ul>
-                            <li><a class="horizontal-thumb active" data-target="#best-seller-single-product-slider" data-slide="0" href="#slide1"><img alt="1234 src="1234-picsmall" /></a></li>
-                            1234
-                                <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="1234"><img alt="" src="1234-picsmall" /></a></li>
-                            1234
+<!--                            <li><a class="horizontal-thumb active" data-target="#best-seller-single-product-slider" data-slide="0" href="#slide1"><img alt="--><?php //echo $last->title ?><!--" src="--><?php //echo $last->cover ?><!---picsmall" data-echo="--><?php //echo $last->cover ?><!---picsmall" /></a></li>-->
+<!--                            --><?php //foreach ((array)json_decode($last->pics, true) as $key => $pic): ?>
+<!--                                <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="--><?php //echo $key+1; ?><!--" href="#slide--><?php //echo $key+2; ?><!--"><img alt="" src="--><?php //echo $pic ?><!---picsmall" data-echo="--><?php //echo $pic ?><!---picsmall" /></a></li>-->
+<!--                            --><?php //endforeach; ?>
                         </ul>
                     </div><!-- /.gallery-thumbs -->
 
                     <div class="body">
                         <div class="label-discount clear"></div>
                         <div class="title">
-                            <a href="1234">1234</a>
+<!--                            <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $last->productid]) ?><!--">--><?php //echo $last->title ?><!--</a>-->
                         </div>
                     </div>
                     <div class="prices text-right">
-                        <div class="price-current inline">￥1234</div>
-                        <a href="1234 class="le-button big inline">加入购物车</a>
+<!--                        <div class="price-current inline">￥--><?php //echo $last->saleprice ?><!--</div>-->
+<!--                        <a href="--><?php //echo yii\helpers\Url::to(['cart/add', 'product_id' => $last->product_id]) ?><!--" class="le-button big inline">加入购物车</a>-->
                     </div>
                 </div><!-- /.product-item-holder -->
             </div><!-- /.col -->
@@ -378,35 +382,35 @@
             </div><!-- /.title-nav -->
 
             <div id="owl-recently-viewed" class="owl-carousel product-grid-holder">
-                1234
+<!--                --><?php //foreach($data['all'] as $pro): ?>
                     <div class="no-margin carousel-item product-item-holder size-small hover">
                         <div class="product-item">
-                            1234
+<!--                            --><?php //if ($pro->ishot): ?>
                                 <div class="ribbon red"><span>HOT</span></div>
-                            1234
-                            1234
+<!--                            --><?php //endif; ?>
+<!--                            --><?php //if ($pro->issale): ?>
                                 <div class="ribbon green"><span>sale</span></div>
-                            1234
+<!--                            --><?php //endif; ?>
 
                             <div class="image">
-                                <img alt="1234" src="1234-covermiddle" />
+<!--                                <img alt="--><?php //echo $pro->title ?><!--" src="--><?php //echo $pro->cover ?><!---covermiddle" data-echo="--><?php //echo $pro->cover ?><!---covermiddle" />-->
                             </div>
                             <div class="body">
                                 <div class="title">
-                                    <a href="1234">1234</a>
+<!--                                    <a href="--><?php //echo yii\helpers\Url::to(['product/detail', 'productid' => $pro->productid]) ?><!--">--><?php //echo $pro->title ?><!--</a>-->
                                 </div>
                             </div>
                             <div class="prices">
-                                <div class="price-current text-right">￥1234</div>
+<!--                                <div class="price-current text-right">￥--><?php //echo $pro->saleprice ?><!--</div>-->
                             </div>
                             <div class="hover-area">
                                 <div class="add-cart-button">
-                                    <a href="1234" class="le-button">加入购物车</a>
+<!--                                    <a href="--><?php //echo yii\helpers\Url::to(['cart/add', 'productid' => $pro->productid]) ?><!--" class="le-button">加入购物车</a>-->
                                 </div>
                             </div>
                         </div><!-- /.product-item -->
                     </div><!-- /.product-item-holder -->
-                1234
+<!--                --><?php //endforeach; ?>
             </div><!-- /#recently-carousel -->
 
         </div><!-- /.carousel-holder -->
