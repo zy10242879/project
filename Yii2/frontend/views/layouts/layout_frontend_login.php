@@ -98,9 +98,7 @@
                   <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">所有分类</a>
 
                   <ul class="dropdown-menu" role="menu" >
-                    <?php foreach ($this->params['menu'] as $top):?>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="<?=yii\helpers\Url::to(['product/index','cate_id'=>$top['cate_id']]);?>"><?=$top['title'];?></a></li>
-                    <?php endforeach;?>
+
                   </ul>
                 </li>
               </ul>
@@ -177,112 +175,10 @@
   <?php echo $content; ?>
   <footer id="footer" class="color-bg">
 
-    <div class="container">
-      <div class="row no-margin widgets-row">
-        <div class="col-xs-12  col-sm-4 no-margin-left">
-          <!-- ============================================================= FEATURED PRODUCTS ============================================================= -->
-          <div class="widget">
-            <h2>推荐商品</h2>
-            <div class="body">
-              <ul>
-                <?php foreach($this->params['tui'] as $pro): ?>
-                  <li>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-9 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]); ?>"><?php echo $pro->title ?></a>
-                        <div class="price">
-                          <div class="price-prev">￥<?php echo $pro->price ?></div>
-                          <div class="price-current">￥<?php echo $pro->sale_price ?></div>
-                        </div>
-                      </div>
-
-                      <div class="col-xs-12 col-sm-3 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]) ?>" class="thumb-holder">
-                          <img alt="" src="//<?php echo $pro->cover ?>-picsmall" data-echo="//<?php echo $pro->cover ?>-picsmall" />
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div><!-- /.body -->
-          </div> <!-- /.widget -->
-          <!-- ============================================================= FEATURED PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
-
-        <div class="col-xs-12 col-sm-4 ">
-          <!-- ============================================================= ON SALE PRODUCTS ============================================================= -->
-          <div class="widget">
-            <h2>热卖商品</h2>
-            <div class="body">
-              <ul>
-                <?php foreach($this->params['hot'] as $pro): ?>
-                  <li>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-9 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]); ?>"><?php echo $pro->title ?></a>
-                        <div class="price">
-                          <div class="price-prev">￥<?php echo $pro->price ?></div>
-                          <div class="price-current">￥<?php echo $pro->sale_price ?></div>
-                        </div>
-                      </div>
-
-                      <div class="col-xs-12 col-sm-3 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]) ?>" class="thumb-holder">
-                          <img alt="" src="//<?php echo $pro->cover ?>-picsmall" data-echo="//<?php echo $pro->cover ?>-picsmall" />
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div><!-- /.body -->
-          </div> <!-- /.widget -->
-          <!-- ============================================================= ON SALE PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
-
-        <div class="col-xs-12 col-sm-4 ">
-          <!-- ============================================================= TOP RATED PRODUCTS ============================================================= -->
-          <div class="widget">
-            <h2>最新商品</h2>
-            <div class="body">
-              <ul>
-                <?php foreach($this->params['new'] as $pro): ?>
-                  <li>
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-9 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]); ?>"><?php echo $pro->title ?></a>
-                        <div class="price">
-                          <div class="price-prev">￥<?php echo $pro->price ?></div>
-                          <div class="price-current">￥<?php echo $pro->sale_price ?></div>
-                        </div>
-                      </div>
-
-                      <div class="col-xs-12 col-sm-3 no-margin">
-                        <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]) ?>" class="thumb-holder">
-                          <img alt="" src="//<?php echo $pro->cover ?>-picsmall" data-echo="//<?php echo $pro->cover ?>-picsmall" />
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div><!-- /.body -->
-          </div><!-- /.widget -->
-          <!-- ============================================================= TOP RATED PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
-
-      </div><!-- /.widgets-row-->
-    </div><!-- /.container --><!-- /.sub-form-row -->
+ <!-- /.container --><!-- /.sub-form-row -->
 
 
-    <div class="sub-form-row">
-      <!--<div class="container">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
-              <form role="form">
-                  <input placeholder="Subscribe to our newsletter">
-                  <button class="le-button">Subscribe</button>
-              </form>
-          </div>
-      </div>--><!-- /.container -->
-    </div><!-- /.sub-form-row -->
+
 
     <div class="link-list-row">
       <div class="container no-padding">

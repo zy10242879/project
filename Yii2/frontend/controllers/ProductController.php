@@ -1,10 +1,9 @@
 <?php
 namespace frontend\controllers;
 use Yii;
-use yii\web\Controller;
 use common\models\Product;
 use yii\data\Pagination;
-class ProductController extends Controller{
+class ProductController extends CommonController{
   //商品分类页
   public function actionIndex(){
     $this->layout = "layout_frontend_nav";

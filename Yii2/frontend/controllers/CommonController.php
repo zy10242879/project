@@ -8,7 +8,7 @@ use common\models\Product;
 class CommonController extends Controller{
   public function init()    //当调用继承了CommonController的方法时，会自动先调用init()方法
   {                         //所有前台页面基本及公用数据从此init()方法中获得
-    $menu = Category::getMenus();//获得分类信息 此处用了递归，可以用只获得1-2级的非递归getMenu()，看情况使用
+    $menu = Category::getMenu();//获得分类信息 此处用了递归，可以用只获得1-2级的非递归getMenu()，看情况使用
     //将数据传递给模板对像的params参数
     $this->view->params['menu'] = $menu;
     $data = [];
@@ -16,7 +16,7 @@ class CommonController extends Controller{
     $total = 0;
     if (Yii::$app->session['isLogin']) {
       $user_model = User::find()->where('username = :name', [":name" => Yii::$app->session['loginName']])->one();
-      if (!empty($user_model) && !empty($user_model->userid)) {
+      if (!empty($user_model) && !empty($user_model->user_id)) {
         $user_id = $user_model->userid;
         $carts = Cart::find()->where('user_id = :uid', [':uid' => $user_id])->asArray()->all();
         foreach($carts as $k=>$pro) {
@@ -33,13 +33,15 @@ class CommonController extends Controller{
     }
     $data['total'] = $total;
     $this->view->params['cart'] = $data;
-    $tui = Product::find()->where('is_tui = "1" and is_on = "1"')->orderBy('create_time desc')->limit(3)->all();
-    $new = Product::find()->where('is_on = "1"')->orderBy('create_time desc')->limit(3)->all();
-    $hot = Product::find()->where('is_on = "1" and is_hot = "1"')->orderBy('create_time desc')->limit(3)->all();
-    $sale = Product::find()->where('is_on = "1" and is_sale = "1"')->orderBy('create_time desc')->limit(3)->all();
+    $tui = Product::find()->where('is_tui = "1" and is_on = "1"')->orderBy('create_time desc')->limit(4)->all();
+    $new = Product::find()->where('is_on = "1"')->orderBy('create_time desc')->limit(4)->all();
+    $hot = Product::find()->where('is_on = "1" and is_hot = "1"')->orderBy('create_time desc')->limit(4)->all();
+    $sale = Product::find()->where('is_on = "1" and is_sale = "1"')->orderBy('create_time desc')->limit(4)->all();
+    $all = Product::find()->where('is_on = "1"')->orderBy('create_time desc')->all();
     $this->view->params['tui'] = (array)$tui;
     $this->view->params['new'] = (array)$new;
     $this->view->params['hot'] = (array)$hot;
     $this->view->params['sale'] = (array)$sale;
+    $this->view->params['all'] = (array)$all;
   }
 }

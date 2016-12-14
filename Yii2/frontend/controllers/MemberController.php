@@ -70,7 +70,7 @@ class MemberController extends Controller
 
   //用户登录
   public function actionAuth(){
-    $this->layout = 'layout_frontend_nav';
+    $this->layout = 'layout_frontend_login';
     $model = new User;
     if(Yii::$app->request->isPost){
       $post = Yii::$app->request->post();

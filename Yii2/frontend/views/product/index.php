@@ -13,10 +13,10 @@
             <h2>品牌</h2>
             <hr>
             <ul>
-              <li><input checked="checked" class="le-checkbox" type="checkbox"  /> <label>Samsung</label> <span class="pull-right">(2)</span></li>
-              <li><input  class="le-checkbox" type="checkbox" /> <label>Dell</label> <span class="pull-right">(8)</span></li>
-              <li><input  class="le-checkbox" type="checkbox" /> <label>Toshiba</label> <span class="pull-right">(1)</span></li>
-              <li><input  class="le-checkbox" type="checkbox" /> <label>Apple</label> <span class="pull-right">(5)</span></li>
+              <li><input checked="checked" class="le-checkbox" type="checkbox"  /> <label>Sweet</label> <span class="pull-right">(2)</span></li>
+              <li><input  class="le-checkbox" type="checkbox" /> <label>Soft</label> <span class="pull-right">(8)</span></li>
+              <li><input  class="le-checkbox" type="checkbox" /> <label>Nice</label> <span class="pull-right">(1)</span></li>
+              <li><input  class="le-checkbox" type="checkbox" /> <label>Like</label> <span class="pull-right">(5)</span></li>
             </ul>
           </div><!-- /.category-filter -->
 
@@ -109,7 +109,7 @@
               <div class="product-item">
                 <div class="ribbon red"><span>hot</span></div>
                 <div class="image">
-                  <img alt="" src="<?php echo $pro['cover'];?>-covermiddle" />
+                  <img alt="" src="//<?php echo $pro['cover'];?>-covermiddle" />
                 </div>
                 <div class="body">
                   <div class="title">
@@ -148,7 +148,7 @@
 
               <div class="product-grid-holder">
                 <div class="row no-margin">
-                  <?php foreach($all as $pro): ?>
+                  <?php foreach($this->params['all'] as $pro): ?>
                     <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
                       <div class="product-item">
                         <?php if ($pro['is_hot']): ?>
