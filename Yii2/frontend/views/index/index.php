@@ -149,11 +149,16 @@
                                     <?php if ($pro->is_sale): ?>
                                         <div class="ribbon green"><span>sale</span></div>
                                     <?php endif; ?>
-
+                                    <?php if ($pro['is_tui']): ?>
+                                        <div class="ribbon blue"><span>recommond</span></div>
+                                    <?php endif; ?>
                                     <div class="image">
                                         <img alt="<?php echo $pro->title ?>" src="<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
                                     </div>
                                     <div class="body">
+                                        <?php if($pro['is_sale']): ?>
+                                            <div class="label-discount green"><?php echo round($pro['sale_price']/$pro['price']*100, 0) ?>% sale</div>
+                                        <?php endif; ?>
                                         <div class="title">
                                             <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $pro->product_id]) ?>"><?php echo $pro->title ?></a>
                                         </div>
@@ -181,12 +186,12 @@
                             <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
                                 <div class="product-item">
                                     <?php if ($pro->is_hot): ?>
+                                        <div class="ribbon blue"><span>new</span></div>
                                         <div class="ribbon red"><span>HOT</span></div>
                                     <?php endif; ?>
                                     <?php if ($pro->is_sale): ?>
                                         <div class="ribbon green"><span>sale</span></div>
                                     <?php endif; ?>
-
                                     <div class="image">
                                         <img alt="<?php echo $pro->title ?>" src="<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
                                     </div>
