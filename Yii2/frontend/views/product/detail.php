@@ -74,7 +74,7 @@ use yii\bootstrap\ActiveForm;
           ]) ?>
           <div class="le-quantity">
             <a class="minus" href="#reduce"></a>
-            <input name="productnum" readonly="readonly" type="text" value="1" />
+            <input name="product_num" readonly="readonly" type="text" value="1" />
             <a class="plus" href="#add"></a>
           </div>
           <input type="hidden" name="price" value="<?php echo $product['is_sale'] == '1'?$product['sale_price']:$product['price'] ?>">

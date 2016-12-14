@@ -428,14 +428,16 @@
     $(".billing-address").slideDown();
   });
   $(".minus").click(function(){
-    var cart_id = $("input[name=productnum]").attr('id');
-    var num = parseInt($("input[name=productnum]").val()) - 1;
-    if (parseInt($("input[name=productnum]").val()) <= 1) {
+    var cart_id = $("input[name=product_num]").attr('id');
+    var num = parseInt($("input[name=product_num]").val()) - 1;
+    if (parseInt($("input[name=product_num]").val()) <= 1) {
       var num = 1;
+    }else{
+      $("input[name=product_num]").val(num);
     }
     var total = parseFloat($(".value.pull-right span").html());
     var price = parseFloat($(".price span").html());
-    changeNum(cartid, num);
+    changeNum(cart_id, num);
     var p = total - price;
     if (p < 0) {
       var p = "0";
@@ -444,11 +446,12 @@
     $(".value.pull-right.ordertotal span").html(p + "");
   });
   $(".plus").click(function(){
-    var cartid = $("input[name=productnum]").attr('id');
-    var num = parseInt($("input[name=productnum]").val()) + 1;
+    var cart_id = $("input[name=product_num]").attr('id');
+    var num = parseInt($("input[name=product_num]").val()) + 1;
+    $("input[name=product_num]").val(num);
     var total = parseFloat($(".value.pull-right span").html());
     var price = parseFloat($(".price span").html());
-    changeNum(cartid, num);
+    changeNum(cart_id, num);
     var p = total + price;
     $(".value.pull-right span").html(p + "");
     $(".value.pull-right.ordertotal span").html(p + "");
