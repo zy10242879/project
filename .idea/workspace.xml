@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="117ba22f-add9-4ac6-97f0-fdf3175d9b0f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/project.iml" afterPath="$PROJECT_DIR$/.idea/project.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project.iws" />
@@ -3567,7 +3566,7 @@
             <favorite_root url="file://$PROJECT_DIR$/Yii2/backend/config/main-local.php" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
             <favorite_root url="file://$PROJECT_DIR$/Yii2/backend/config/params-local.php" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/Yii2/backend/models" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/Yii2/common/models" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
             <favorite_root url="file://$PROJECT_DIR$/Yii2/backend/models/.gitkeep" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           </favorite_root>
           <favorite_root url="file://$PROJECT_DIR$/Yii2/backend/runtime" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
@@ -3667,7 +3666,7 @@
           <favorite_root url="file://$PROJECT_DIR$/Yii2/frontend/runtime" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
             <favorite_root url="file://$PROJECT_DIR$/Yii2/frontend/runtime/.gitignore" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/Yii2/frontend/controllers/testcontrollers" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/Yii2/frontend/controllers" module="project" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
             <favorite_root url="file://$PROJECT_DIR$/Yii2/frontend/controllers/SiteController.php" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           </favorite_root>
         </favorite_root>
@@ -3769,32 +3768,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Yii2/composer.json">
+      <file leaf-file-name="CommonController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/CommonController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="336">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+              <folding>
+                <element signature="e#38#46#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shop_admin.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_admin.sql">
+      <file leaf-file-name="CartController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/CartController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="483">
+              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+              <folding>
+                <element signature="e#38#64#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Qiniu.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Yii2/vendor/crazyfd/yii2-qiniu/Qiniu.php">
+      <file leaf-file-name="layout_frontend_nav.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="561">
+              <caret line="454" column="26" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="26" />
+              <folding>
+                <marker date="1481802220713" expanded="true" signature="7588:7654" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8260:8868" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8290:8868" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8324:8868" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8362:8720" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8485:8703" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8826:8868" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8927:9070" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="8963:9070" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9130:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9155:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9181:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9223:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9292:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="9327:9380" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11132:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11161:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11207:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11264:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11456:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11513:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11532:11577" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11619:11788" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11657:11788" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11722:11788" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="11919:12124" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="12219:12285" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="12971:13283" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13162:13283" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13219:13283" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13238:13283" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13325:13494" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13363:13494" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13428:13494" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13625:13830" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="13925:13991" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="14676:14990" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="14869:14990" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="14926:14990" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="14945:14990" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="15032:15201" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="15070:15201" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="15135:15201" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="15332:15537" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="15632:15698" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="16463:16817" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="16475:16784" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="16873:18816" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="16914:18785" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="16956:18317" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="17149:18137" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="17187:17293" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="17391:17482" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="17522:18096" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="17577:18077" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="18369:18772" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="18873:19049" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="18903:19049" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="18954:19049" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="18988:19049" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="19210:19682" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="19251:19641" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="19268:19624" ph="..." />
+                <marker date="1481802220713" expanded="true" signature="20915:20959" ph="{...}" />
+                <marker date="1481802220713" expanded="true" signature="22122:22178" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/cart/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+              <folding>
+                <marker date="1481801697467" expanded="true" signature="2183:2293" ph="..." />
+                <marker date="1481801697467" expanded="true" signature="2215:2293" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3814,31 +3896,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Yii2/common/mail/layouts/seekPass.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/public/seekPassword.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/mail/seekPass.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/public/login.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/controllers/PublicController.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/manage/mailChangePass.php" />
-        <option value="$PROJECT_DIR$/Yii2/sql/shop_admin.sql" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/manage/reg.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/controllers/ManageController.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/manage/changePass.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/manage/changeEmail.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/manage/managers.php" />
-        <option value="$PROJECT_DIR$/Yii2/sql/shop_profile.sql" />
-        <option value="$PROJECT_DIR$/Yii2/backend/controllers/User.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/models/Profile.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/config/params.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/config/params.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/user/users.php" />
-        <option value="$PROJECT_DIR$/Yii2/README.md" />
-        <option value="H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/layouts/layout2.php" />
-        <option value="$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_nav.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/mail/layouts/createUser.php" />
-        <option value="H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/models/User.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/mail/createUser.php" />
         <option value="$PROJECT_DIR$/Yii2/frontend/config/main-local.php" />
         <option value="$PROJECT_DIR$/Yii2/backend/models/Admin.php" />
         <option value="$PROJECT_DIR$/Yii2/common/models/Demo-user.php" />
@@ -3846,25 +3903,50 @@
         <option value="$PROJECT_DIR$/Yii2/vendor/qqlogin/comm/inc.php" />
         <option value="$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/web/Controller.php" />
         <option value="$PROJECT_DIR$/Yii2/vendor/qqLogin/class/Oauth.class.php" />
-        <option value="$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend.php" />
         <option value="$PROJECT_DIR$/Yii2/backend/views/user/reg.php" />
         <option value="H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/member/auth.php" />
         <option value="$PROJECT_DIR$/Yii2/frontend/views/member/auth.php" />
-        <option value="$PROJECT_DIR$/Yii2/frontend/views/member/qqReg.php" />
         <option value="$PROJECT_DIR$/Yii2/frontend/config/main.php" />
-        <option value="$PROJECT_DIR$/Yii2/common/models/User.php" />
-        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/MemberController.php" />
         <option value="$PROJECT_DIR$/Yii2/sql/shop_user.sql" />
         <option value="$PROJECT_DIR$/Yii2/backend/views/category/add.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/views/layouts/layout_backend.php" />
         <option value="$PROJECT_DIR$/Yii2/backend/views/category/mod.php" />
         <option value="$PROJECT_DIR$/Yii2/backend/models/Category.php" />
         <option value="$PROJECT_DIR$/Yii2/backend/views/category/cates.php" />
-        <option value="$PROJECT_DIR$/Yii2/backend/controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/Yii2/sql/shop_caregory.sql" />
-        <option value="$PROJECT_DIR$/Yii2/sql/shop_product.sql" />
         <option value="$PROJECT_DIR$/Yii2/composer.json" />
+        <option value="$PROJECT_DIR$/Yii2/backend/models/Product.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/controllers/CategoryController.php" />
+        <option value="H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/modules/views/layouts/layout1.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/views/layouts/layout_backend.php" />
         <option value="$PROJECT_DIR$/Yii2/vendor/crazyfd/yii2-qiniu/Qiniu.php" />
+        <option value="$PROJECT_DIR$/Yii2/sql/shop_product.sql" />
+        <option value="$PROJECT_DIR$/Yii2/common/models/Product.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/views/product/add.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/views/product/mod.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/views/product/products.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/Yii2/common/models/Category.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/product/product.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/product/category.php" />
+        <option value="$PROJECT_DIR$/Yii2/backend/config/params.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/config/params.php" />
+        <option value="H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/layouts/layout1.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/IndexController.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/product/index.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/product/detail.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/index/index.php" />
+        <option value="$PROJECT_DIR$/Yii2/sql/shop_cart.sql" />
+        <option value="$PROJECT_DIR$/Yii2/common/models/User.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/member/qqReg.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/MemberController.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/models/Cart.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/controllers/CommonController.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_login.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/cart/index.php" />
+        <option value="$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_nav.php" />
       </list>
     </option>
   </component>
@@ -3876,10 +3958,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="256" />
-    <option name="y" value="53" />
+    <option name="x" value="74" />
+    <option name="y" value="46" />
     <option name="width" value="1382" />
-    <option name="height" value="822" />
+    <option name="height" value="820" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3931,7 +4013,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -3979,7 +4060,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -3997,20 +4078,131 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="crazyfd" />
+              <option name="myItemId" value="Yii2" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yii2-qiniu" />
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4026,18 +4218,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\project\Yii2\frontend\controllers" />
+      <recent name="H:\project\Yii2\common\models" />
       <recent name="H:\project\Yii2\common\mail" />
       <recent name="H:\project\Yii2\frontend\views\demoviews--index" />
       <recent name="H:\project\Yii2\frontend\models\testmodels" />
-      <recent name="H:\project\Yii2\frontend\controllers\testcontrollers" />
-      <recent name="H:\project\Yii2\frontend\views\test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\project\Yii2\frontend\views\layouts" />
+      <recent name="H:\project\Yii2\backend\views\product" />
+      <recent name="H:\project\Yii2\backend\views" />
       <recent name="H:\project\Yii2\backend\views\category" />
       <recent name="H:\project\Yii2\frontend\views\member" />
-      <recent name="H:\project\Yii2\vendor" />
-      <recent name="H:\project\Yii2\common\mail\layouts" />
-      <recent name="H:\project\Yii2\backend\views\user" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.ManageController.php">
@@ -4149,22 +4341,26 @@
       <workItem from="1480903723411" duration="28250000" />
       <workItem from="1480982767679" duration="30465000" />
       <workItem from="1481103623145" duration="3987000" />
-      <workItem from="1481166182368" duration="7657000" />
+      <workItem from="1481166182368" duration="18356000" />
+      <workItem from="1481241478098" duration="64409000" />
+      <workItem from="1481590678560" duration="31738000" />
+      <workItem from="1481675961105" duration="36399000" />
+      <workItem from="1481767687160" duration="20951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="487001000" />
+    <option name="totallyTimeSpent" value="651197000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="256" y="53" width="1382" height="822" extended-state="0" />
+    <frame x="74" y="46" width="1382" height="820" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19692533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20278184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17786561" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17701453" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -4177,7 +4373,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -4209,373 +4405,467 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/index/index.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/runtime/debug/5847dfe3e2f52.data">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="159">
+          <caret line="12" column="2002" selection-start-line="12" selection-start-column="2002" selection-end-line="12" selection-end-column="2002" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/common/config/main.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/58186599ecb6d.data">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="243">
+          <caret line="0" column="9299" selection-start-line="0" selection-start-column="9299" selection-end-line="0" selection-end-column="9299" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/common/config/main-local.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/581865951c39d.data">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="159">
+          <caret line="0" column="8976" selection-start-line="0" selection-start-column="8976" selection-end-line="0" selection-end-column="8976" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/5818657aa8925.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="0" column="8611" selection-start-line="0" selection-start-column="8611" selection-end-line="0" selection-end-column="8611" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/58186577ba5cb.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="0" column="8862" selection-start-line="0" selection-start-column="8862" selection-end-line="0" selection-end-column="8862" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/5818657564383.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="0" column="8854" selection-start-line="0" selection-start-column="8854" selection-end-line="0" selection-end-column="8854" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/runtime/debug/5818656d3dc20.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="0" column="8435" selection-start-line="0" selection-start-column="8435" selection-end-line="0" selection-end-column="8435" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/runtime/debug/584915950310d.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="70" column="645" selection-start-line="70" selection-start-column="645" selection-end-line="70" selection-end-column="645" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/runtime/debug/5848eaa7950f5.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="70" column="655" selection-start-line="70" selection-start-column="655" selection-end-line="70" selection-end-column="655" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/runtime/debug/5847e71152c2f.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="70" column="1828" selection-start-line="70" selection-start-column="1828" selection-end-line="70" selection-end-column="1828" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/environments/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/product/product.php" />
     <entry file="file://$PROJECT_DIR$/Yii2/common/config/params.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/common/config/params-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/product/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="48" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Yii2/backend/config/params.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/用户目录/下载/qqConnect_Server_SDK-php_v2.1/Connect2.1/install/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/modules/controllers/ManageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/qqLogin/comm/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/qqLogin/comm/inc.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="1" column="472" selection-start-line="1" selection-start-column="472" selection-end-line="1" selection-end-column="472" />
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/qqLogin/comm/utils.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/product/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="109" selection-end-column="22" />
+          <folding>
+            <marker date="1481564743397" expanded="true" signature="824:833" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/vendor/qqlogin/comm/inc.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/init">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/web/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="305">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/controllers/MemberController.php">
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="51" />
+        <state relative-caret-position="399">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/user/reg.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/common/models/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/qqLogin/class/QC.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/qqLogin/class/Oauth.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/index/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10326">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="987">
+          <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6636">
-          <caret line="57" column="129" selection-start-line="57" selection-start-column="129" selection-end-line="57" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/member/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/member/qqreg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="52" column="77" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/member/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="115" column="62" selection-start-line="115" selection-start-column="62" selection-end-line="115" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/frontend/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/member/qqReg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/common/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="30" column="68" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_user.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_profile.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/PublicController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/ManageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/models/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="65" column="3" selection-start-line="65" selection-start-column="3" selection-end-line="65" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/helpers/ArrayHelper.php">
+    <entry file="file://H:/已完成项目/shopcz/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/category/add.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/member/auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/modules/views/category/cates.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="50" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/manage/changeEmail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/layouts/layout_backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="159" column="26" selection-start-line="158" selection-start-column="0" selection-end-line="159" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/category/mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/models/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
           <folding>
-            <element signature="e#32#40#0#PHP" expanded="false" />
+            <element signature="e#6#35#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/views/category/cates.php">
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/product/detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="50" column="116" selection-start-line="50" selection-start-column="116" selection-end-line="50" selection-end-column="116" />
+        <state relative-caret-position="255">
+          <caret line="75" column="52" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/product/detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/product/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="155" column="39" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/index/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="192" column="54" selection-start-line="192" selection-start-column="54" selection-end-line="192" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_caregory.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_product.sql">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/config/params.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="84">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/di/ServiceLocator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/vendor/yiisoft/yii2/web/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/PublicController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/backend/models/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/member/qqReg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#35#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/MemberController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="121" column="25" selection-start-line="121" selection-start-column="25" selection-end-line="121" selection-end-column="25" />
+        <state relative-caret-position="383">
+          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/backend/controllers/CategoryController.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/common/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="21">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/models/ContactForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
           <folding>
-            <element signature="e#37#68#0#PHP" expanded="false" />
+            <element signature="e#38#46#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/composer.json">
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/cart/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        <state relative-caret-position="210">
+          <caret line="8" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_admin.sql">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/models/Cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        <state relative-caret-position="252">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yii2/vendor/crazyfd/yii2-qiniu/Qiniu.php">
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/CommonController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        <state relative-caret-position="336">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+          <folding>
+            <element signature="e#38#46#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="171" column="47" selection-start-line="171" selection-start-column="47" selection-end-line="171" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="169" column="47" selection-start-line="169" selection-start-column="47" selection-end-line="169" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/layouts/layout2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7303">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/modules/views/layouts/layout1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4627">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/迅雷下载/慕课电商YII/老师的源码-project/v0atia/views/layouts/layout1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="404" column="28" selection-start-line="404" selection-start-column="28" selection-end-line="404" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/sql/shop_cart.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+          <folding>
+            <element signature="e#38#64#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/cart/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding>
+            <marker date="1481801697467" expanded="true" signature="2183:2293" ph="..." />
+            <marker date="1481801697467" expanded="true" signature="2215:2293" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yii2/frontend/views/layouts/layout_frontend_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="454" column="26" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="26" />
+          <folding>
+            <marker date="1481802220713" expanded="true" signature="7588:7654" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8260:8868" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8290:8868" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8324:8868" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8362:8720" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8485:8703" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8826:8868" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8927:9070" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="8963:9070" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9130:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9155:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9181:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9223:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9292:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="9327:9380" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11132:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11161:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11207:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11264:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11456:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11513:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11532:11577" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11619:11788" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11657:11788" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11722:11788" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="11919:12124" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="12219:12285" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="12971:13283" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13162:13283" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13219:13283" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13238:13283" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13325:13494" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13363:13494" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13428:13494" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13625:13830" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="13925:13991" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="14676:14990" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="14869:14990" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="14926:14990" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="14945:14990" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="15032:15201" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="15070:15201" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="15135:15201" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="15332:15537" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="15632:15698" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="16463:16817" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="16475:16784" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="16873:18816" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="16914:18785" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="16956:18317" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="17149:18137" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="17187:17293" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="17391:17482" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="17522:18096" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="17577:18077" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="18369:18772" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="18873:19049" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="18903:19049" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="18954:19049" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="18988:19049" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="19210:19682" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="19251:19641" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="19268:19624" ph="..." />
+            <marker date="1481802220713" expanded="true" signature="20915:20959" ph="{...}" />
+            <marker date="1481802220713" expanded="true" signature="22122:22178" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
