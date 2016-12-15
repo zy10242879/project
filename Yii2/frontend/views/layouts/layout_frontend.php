@@ -122,37 +122,37 @@
 
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                  <span class="count">1234</span>
+                  <span class="count"><?=count($this->params['cart']['products']);?></span>
                   <img src="statics/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket">
                   <span class="lbl">您的购物车:</span>
                   <span class="total-price">
-                    <span class="sign">￥</span><span class="value">1234</span>
+                    <span class="sign">￥</span><span class="value"><?=$this->params['cart']['total'];?></span>
                     </span>
                 </div>
               </a>
 
               <ul class="dropdown-menu">
-                1234
+                <?php foreach ($this->params['cart']['products'] as $pro):?>
                   <li>
                     <div class="basket-item">
                       <div class="row">
                         <div class="col-xs-4 col-sm-4 no-margin text-center">
                           <div class="thumb">
-                            <img alt="" src="1234" />
+                            <img alt="" src="//<?=$pro['cover'];?>-coversmall" />
                           </div>
                         </div>
                         <div class="col-xs-8 col-sm-8 no-margin">
-                          <div class="title">1234</div>
-                          <div class="price">￥ 1234</div>
+                          <div class="title"><?=$pro['title'];?></div>
+                          <div class="price">￥ <?=$pro['price'];?></div>
                         </div>
                       </div>
-                      <a class="close-btn" href="1234"></a>
+                      <a class="close-btn" href="<?=yii\helpers\Url::to(['cart/index']);?>"></a>
                     </div>
                   </li>
-
+                <?php endforeach;?>
                 <li class="checkout">
                   <div class="basket-item">
                     <div class="row">

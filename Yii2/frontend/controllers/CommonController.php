@@ -5,6 +5,7 @@ use yii\web\Controller;
 use common\models\Category;
 use common\models\User;
 use common\models\Product;
+use frontend\models\Cart;
 class CommonController extends Controller{
   public function init()    //当调用继承了CommonController的方法时，会自动先调用init()方法
   {                         //所有前台页面基本及公用数据从此init()方法中获得
@@ -14,10 +15,10 @@ class CommonController extends Controller{
     $data = [];
     $data['products'] = [];
     $total = 0;
-    if (Yii::$app->session['isLogin']) {
-      $user_model = User::find()->where('username = :name', [":name" => Yii::$app->session['loginName']])->one();
+    if (Yii::$app->session['is_login']) {
+      $user_model = User::find()->where('user_name = :name', [":name" => Yii::$app->session['loginName']])->one();
       if (!empty($user_model) && !empty($user_model->user_id)) {
-        $user_id = $user_model->userid;
+        $user_id = $user_model->user_id;
         $carts = Cart::find()->where('user_id = :uid', [':uid' => $user_id])->asArray()->all();
         foreach($carts as $k=>$pro) {
           $product = Product::find()->where('product_id = :pid', [':pid' => $pro['product_id']])->one();

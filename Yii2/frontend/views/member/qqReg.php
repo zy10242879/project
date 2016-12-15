@@ -9,7 +9,7 @@
           <section class="section sign-in inner-right-xs">
             <h2 class="bordered">
               <img src="<?=Yii::$app->session['userInfo']['figureurl_qq_1'];?>">
-              完善您的信息
+              完善您的信息<span style="font-size: 18px;">--<?=Yii::$app->session['userInfo']['nickname'];?></span>
             </h2>
             <p>请填写用户名和密码</p>
 
@@ -23,7 +23,6 @@
                 'template'=>'<div class="field-row">{label}{input}</div>{error}'
               ],
             ]);?>
-            <input type="text" value="<?=Yii::$app->session['userInfo']['nickname'];?>" class="le-input"><br />
             <?=$form->field($model,'user_name')->textInput(['class'=>'le-input']);?>
             <?=$form->field($model,'user_pass')->passwordInput(['class'=>'le-input']);?>
             <?=$form->field($model,'rePass')->passwordInput(['class'=>'le-input']);?>

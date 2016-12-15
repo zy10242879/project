@@ -133,9 +133,10 @@ class MemberController extends Controller
     //10.判断用户是否绑定过自己网站的用户，如果绑定过就做登录操作并跳转到首页，如果没有绑定就先绑定该用户
     //   通过唯一标识openid来进行账号的判断 没有绑定的话　将openid插入到user数据库表中 然后输入用户基本信息
     //判断在数据库中查找openid是否有这条记录
-    if(User::find()->where('openid=:openid',[':openid'=>$openid])->one()){
+    $model = User::find()->where('openid=:openid',[':openid'=>$openid])->one();
+    if($model){
       //11.有就将数据写入session中　包括loginName is_login
-      $session['loginName'] = $userInfo['nickname'];
+      $session['loginName'] = $model->user_name;
       $session['is_login'] = 1;
       //-----更改frontend/config/main.php session保存名称为PHPSESSID-------才能使session正确存储
       //12.并跳转到登录首页面
@@ -151,7 +152,7 @@ class MemberController extends Controller
   //14.创建QqReg方法
   public function actionQqReg(){
     //14-①载入公共布局
-    $this->layout = 'layout_frontend';
+    $this->layout = 'layout_frontend_login';
     //14-②实例化User类生成$model对象
     $model = new User;
     //15.如果有提交，则进行数据校验，并完成注册操作
@@ -163,7 +164,7 @@ class MemberController extends Controller
       if($model->reg($post,'qqReg')){
         //18.成功写入数据库后将登录信息写入session中
         $session = Yii::$app->session;
-        $session['loginName'] = Yii::$app->session['userInfo']['nickname'];
+        $session['loginName'] = $post['User']['user_name'];
         $session['is_login'] = 1;
         return $this->redirect(['index/index']);
       }
