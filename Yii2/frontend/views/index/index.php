@@ -48,43 +48,43 @@
 
                     <div class="item" style="background-image: url(statics/images/sliders/slider01.jpg);">
                         <div class="container-fluid">
-                            <div class="caption vertical-center text-left">
-                                <div class="big-text fadeInDown-1">
-                                    最高优惠<span class="big"><span class="sign">￥</span>400</span>
-                                </div>
-
-                                <div class="excerpt fadeInDown-2">
-                                    潮玩生活<br>
-                                    享受生活<br>
-                                    引领时尚
-                                </div>
-                                <div class="small fadeInDown-2">
-                                    最后 5 天限时抢购
-                                </div>
-                                <div class="button-holder fadeInDown-3">
-                                    <a href="#" class="big le-button ">去购买</a>
-                                </div>
-                            </div><!-- /.caption -->
+<!--                            <div class="caption vertical-center text-left">-->
+<!--                                <div class="big-text fadeInDown-1">-->
+<!--                                    最高优惠<span class="big"><span class="sign">￥</span>400</span>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="excerpt fadeInDown-2">-->
+<!--                                    潮玩生活<br>-->
+<!--                                    享受生活<br>-->
+<!--                                    引领时尚-->
+<!--                                </div>-->
+<!--                                <div class="small fadeInDown-2">-->
+<!--                                    最后 5 天限时抢购-->
+<!--                                </div>-->
+<!--                                <div class="button-holder fadeInDown-3">-->
+<!--                                    <a href="#" class="big le-button ">去购买</a>-->
+<!--                                </div>-->
+<!--                            </div><!-- /.caption -->
                         </div><!-- /.container-fluid -->
                     </div><!-- /.item -->
 
                     <div class="item" style="background-image: url(statics/images/sliders/slider02.jpg);">
                       <div class="container-fluid">
-                        <div class="caption vertical-center text-left">
-                          <div class="big-text fadeInDown-1">
-                            想获得<span class="big"><span class="sign">￥</span>200</span>的优惠？
-                          </div>
-
-                          <div class="excerpt fadeInDown-2">
-                            速速前来 <br>快速抢购<br>
-                          </div>
-                          <div class="small fadeInDown-2">
-                            优惠等你拿
-                          </div>
-                          <div class="button-holder fadeInDown-3">
-                            <a href="#" class="big le-button ">去购买</a>
-                          </div>
-                        </div><!-- /.caption -->
+<!--                        <div class="caption vertical-center text-left">-->
+<!--                          <div class="big-text fadeInDown-1">-->
+<!--                            想获得<span class="big"><span class="sign">￥</span>200</span>的优惠？-->
+<!--                          </div>-->
+<!---->
+<!--                          <div class="excerpt fadeInDown-2">-->
+<!--                            速速前来 <br>快速抢购<br>-->
+<!--                          </div>-->
+<!--                          <div class="small fadeInDown-2">-->
+<!--                            优惠等你拿-->
+<!--                          </div>-->
+<!--                          <div class="button-holder fadeInDown-3">-->
+<!--                            <a href="#" class="big le-button ">去购买</a>-->
+<!--                          </div>-->
+<!--                        </div><!-- /.caption -->
                     </div><!-- /.container-fluid -->
                     <!--</div>--><!-- /.item -->
 
@@ -101,19 +101,19 @@
 <section id="banner-holder" class="wow fadeInUp">
     <div class="container">
         <div class="col-xs-12 col-lg-6 no-margin banner">
-            <a href="category-grid.html">
+            <a href="<?=yii\helpers\Url::to(['product/index']);?>">
                 <div class="banner-text theblue">
                     <h1 style="font-family:'Microsoft Yahei';">尝尝鲜</h1>
-                    <span class="tagline">查看最新分类</span>
+<!--                    <span class="tagline">查看最新分类</span>-->
                 </div>
                 <img class="banner-image" alt="" src="statics/images/blank.gif" data-echo="statics/images/banners/banner-narrow-01.jpg" />
             </a>
         </div>
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
-            <a href="category-grid.html">
+            <a href="<?=yii\helpers\Url::to(['product/index']);?>">
                 <div class="banner-text right">
-                    <h1 style="font-family:'Microsoft Yahei';">时尚流行</h1>
-                    <span class="tagline">查看最新上架</span>
+                    <h1 style="font-family:'Microsoft Yahei';">半价</h1>
+<!--                    <span class="tagline">查看最新上架</span>-->
                 </div>
                 <img class="banner-image" alt="" src="statics/images/blank.gif" data-echo="statics/images/banners/banner-narrow-02.jpg" />
             </a>
@@ -153,7 +153,9 @@
                                         <div class="ribbon blue"><span>recommond</span></div>
                                     <?php endif; ?>
                                     <div class="image">
-                                        <img alt="<?php echo $pro->title ?>" src="<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro->product_id]);?>">
+                                        <img alt="<?php echo $pro->title ?>" src="" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        </a>
                                     </div>
                                     <div class="body">
                                         <?php if($pro['is_sale']): ?>
@@ -164,13 +166,13 @@
                                         </div>
                                     </div>
                                     <div class="prices">
-                                        <div class="price-prev">￥<?php echo $pro->price ?></div>
-                                        <div class="price-current pull-right">￥<?php echo $pro->sale_price ?></div>
+                                        <div class="price-prev">￥<?php echo $pro->price;?></div>
+                                        <div class="price-current pull-right"  >￥<span id="price<?=$pro->product_id;?>"><?php echo $pro->sale_price ?></span></div>
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro->product_id]) ?>" class="le-button">加入购物车</a>
+                                            <a href="javascript:addCart(<?=$pro->product_id;?>)" class="le-button">加入购物车</a>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +195,9 @@
                                         <div class="ribbon green"><span>sale</span></div>
                                     <?php endif; ?>
                                     <div class="image">
-                                        <img alt="<?php echo $pro->title ?>" src="<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro->product_id]);?>">
+                                        <img alt="<?php echo $pro->title ?>" src="" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        </a>
                                     </div>
                                     <div class="body">
                                         <div class="title">
@@ -202,12 +206,12 @@
                                     </div>
                                     <div class="prices">
                                         <div class="price-prev">￥<?php echo $pro->price ?></div>
-                                        <div class="price-current pull-right">￥<?php echo $pro->sale_price ?></div>
+                                        <div class="price-current pull-right">￥<span id="price<?=$pro->product_id;?>"><?php echo $pro->sale_price ?></span></div>
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro->product_id]) ?>" class="le-button">加入购物车</a>
+                                            <a href="javascript:addCart(<?=$pro->product_id;?>)" class="le-button">加入购物车</a>
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +235,9 @@
                                     <?php endif; ?>
 
                                     <div class="image">
-                                        <img alt="<?php echo $pro->title ?>" src="//<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro->product_id]);?>">
+                                        <img alt="<?php echo $pro->title ?>" src="" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                                        </a>
                                     </div>
                                     <div class="body">
                                         <div class="title">
@@ -240,12 +246,12 @@
                                     </div>
                                     <div class="prices">
                                         <div class="price-prev">￥<?php echo $pro->price ?></div>
-                                        <div class="price-current pull-right">￥<?php echo $pro->sale_price ?></div>
+                                        <div class="price-current pull-right">￥<span id="price<?=$pro->product_id;?>"><?php echo $pro->sale_price ?></span></div>
                                     </div>
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro->product_id]) ?>" class="le-button">加入购物车</a>
+                                            <a href="javascript:addCart(<?=$pro->product_id;?>)" class="le-button">加入购物车</a>
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +280,9 @@
                         <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
                             <div class="product-item">
                                 <div class="image">
-                                    <img alt="<?php echo $this->params['all'][$i]->title ?>" src="<?php echo $this->params['all'][$i]->cover ?>-covermiddle" data-echo="//<?php echo $this->params['all'][$i]->cover ?>-covermiddle" />
+                                    <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$this->params['all'][$i]->product_id]);?>">
+                                    <img alt="<?php echo $this->params['all'][$i]->title ?>" src="" data-echo="//<?php echo $this->params['all'][$i]->cover ?>-covermiddle" />
+                                    </a>
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
@@ -283,11 +291,11 @@
                                     </div>
                                 </div>
                                 <div class="prices">
-                                    <div class="price-current text-right">￥<?php echo $this->params['all'][$i]->sale_price ?></div>
+                                    <div class="price-current text-right">￥<span id="price<?=$this->params['all'][$i]->product_id;?>"><?php echo $this->params['all'][$i]->sale_price ?></span></div>
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $this->params['all'][$i]->product_id]) ?>" class="le-button">加入购物车</a>
+                                        <a href="javascript:addCart(<?=$this->params['all'][$i]->product_id;?>)" class="le-button">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +309,9 @@
                         <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
                             <div class="product-item">
                                 <div class="image">
-                                    <img alt="<?php echo $this->params['all'][$i]->title ?>" src="<?php echo $this->params['all'][$i]->cover ?>-covermiddle" data-echo="//<?php echo $this->params['all'][$i]->cover ?>-covermiddle" />
+                                    <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$this->params['all'][$i]->product_id]);?>">
+                                    <img alt="<?php echo $this->params['all'][$i]->title ?>" src="" data-echo="//<?php echo $this->params['all'][$i]->cover ?>-covermiddle" />
+                                        </a>
                                 </div>
                                 <div class="body">
                                     <div class="label-discount clear"></div>
@@ -310,11 +320,11 @@
                                     </div>
                                 </div>
                                 <div class="prices">
-                                    <div class="price-current text-right">￥<?php echo $this->params['all'][$i]->sale_price ?></div>
+                                    <div class="price-current text-right">￥<span id="price<?=$this->params['all'][$i]->product_id;?>"><?php echo $this->params['all'][$i]->sale_price ?></span></div>
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $this->params['all'][$i]->product_id]) ?>" class="le-button">加入购物车</a>
+                                        <a href="javascript:addCart(<?=$this->params['all'][$i]->product_id;?>)" class="le-button">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -327,14 +337,14 @@
                     <?php $last = $this->params['all'][count($this->params['all'])-1];?>
                     <div id="best-seller-single-product-slider" class="single-product-slider owl-carousel">
                         <div class="single-product-gallery-item" id="slide1">
-                            <a data-rel="prettyphoto" href="<?php echo $last->cover ?>">
-                                <img alt="<?php echo $last->title ?>" src="<?php echo $last->cover ?>-coverbig" data-echo="//<?php echo $last->cover ?>-coverbig" />
+                            <a data-rel="prettyphoto" href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$last->product_id]);?>">
+                                <img alt="<?php echo $last->title ?>" src="" data-echo="//<?php echo $last->cover ?>-coverbig" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
                         <?php $i=1;?>
                         <?php foreach((array)json_decode($last->pics, true) as $key => $pic): ?>
                             <div class="single-product-gallery-item" id="slide<?php echo $i+2; ?>">
-                                <a data-rel="prettyphoto" href="<?php echo $last->pics ?>">
+                                <a data-rel="prettyphoto" href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$last->product_id]);?>">
                                     <img alt="" src="//<?php echo $pic ?>-picbig" data-echo="//<?php echo $pic ?>-picbig" />
                                 </a>
                             </div><!-- /.single-product-gallery-item -->
@@ -344,11 +354,11 @@
 
                     <div class="gallery-thumbs clearfix">
                         <ul>
-                            <li><a class="horizontal-thumb active" data-target="#best-seller-single-product-slider" data-slide="0" href="#slide1"><img alt="<?php echo $last->title ?>" src="<?php echo $last->cover ?>-picsmall" data-echo="//<?php echo $last->cover ?>-picsmall" /></a></li>
+                            <li><a class="horizontal-thumb active" data-target="#best-seller-single-product-slider" data-slide="0" href="#slide1"><img alt="<?php echo $last->title ?>" src="" data-echo="//<?php echo $last->cover ?>-picsmall" /></a></li>
                             <?php $i=0;?>
                             <?php foreach ((array)json_decode($last->pics, true) as $key => $pic): ?>
 
-                                <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="<?php echo $i+1; ?>" href="#slide<?php echo $i+2; ?>"><img alt="<?php echo $last->title ?>" src="<?php echo $pic ?>-picsmall" data-echo="//<?php echo $pic ?>-picsmall" /></a></li>
+                                <li><a class="horizontal-thumb" data-target="#best-seller-single-product-slider" data-slide="<?php echo $i+1; ?>" href="#slide<?php echo $i+2; ?>"><img alt="<?php echo $last->title ?>" src="" data-echo="//<?php echo $pic ?>-picsmall" /></a></li>
                             <?php $i++;?>
                             <?php endforeach; ?>
                         </ul>
@@ -361,8 +371,8 @@
                         </div>
                     </div>
                     <div class="prices text-right">
-                        <div class="price-current inline">￥<?php echo $last->sale_price ?></div>
-                        <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $last->product_id]) ?>" class="le-button big inline">加入购物车</a>
+                        <div class="price-current inline">￥<span id="price<?=$last->product_id;?>"><?php echo $last->sale_price ?></span></div>
+                        <a href="javascript:addCart(<?=$last->product_id;?>)" class="le-button big inline">加入购物车</a>
                     </div>
                 </div><!-- /.product-item-holder -->
             </div><!-- /.col -->
@@ -404,11 +414,11 @@
                                 </div>
                             </div>
                             <div class="prices">
-                                <div class="price-current text-right">￥<?php echo $pro->sale_price ?></div>
+                                <div class="price-current text-right">￥<span id="price<?=$pro->product_id;?>"><?php echo $pro->sale_price ?></span></div>
                             </div>
                             <div class="hover-area">
                                 <div class="add-cart-button">
-                                    <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro->product_id]) ?>" class="le-button">加入购物车</a>
+                                    <a href="javascript:addCart(<?=$pro->product_id;?>)" class="le-button">加入购物车</a>
                                 </div>
                             </div>
                         </div><!-- /.product-item -->

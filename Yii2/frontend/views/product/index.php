@@ -109,7 +109,9 @@
               <div class="product-item">
                 <div class="ribbon red"><span>hot</span></div>
                 <div class="image">
-                  <img alt="" src="//<?php echo $pro['cover'];?>-covermiddle" />
+                  <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro['product_id']]);?>">
+                  <img alt="" src="http://<?php echo $pro['cover'];?>-covermiddle" />
+                  </a>
                 </div>
                 <div class="body">
                   <div class="title">
@@ -117,11 +119,11 @@
                   </div>
                 </div>
                 <div class="prices">
-                  <div class="price-current text-right">￥ <?php echo $pro['is_sale'] ? $pro['sale_price'] :$pro['price'] ?></div>
+                  <div class="price-current text-right">￥ <span id="price<?=$pro['product_id'];?>"><?php echo $pro['is_sale'] ? $pro['sale_price'] :$pro['price'] ?></span></div>
                 </div>
                 <div class="hover-area">
                   <div class="add-cart-button">
-                    <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro['product_id']]) ?>" class="le-button">加入购物车</a>
+                    <a href="javascript:addCart(<?=$pro['product_id'];?>)" class="le-button">加入购物车</a>
                   </div>
                 </div>
               </div>
@@ -162,7 +164,9 @@
                         <?php endif; ?>
 
                         <div class="image">
-                          <img alt="" src="//<?php echo $pro['cover'] ?>-covermiddle"  />
+                          <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro['product_id']]);?>">
+                          <img alt="" src="http://<?php echo $pro['cover'] ?>-covermiddle"  />
+                          </a>
                         </div>
                         <div class="body">
                           <?php if($pro['is_sale']): ?>
@@ -175,14 +179,14 @@
                         <div class="prices">
                           <?php if ($pro['is_sale']): ?>
                             <div class="price-prev">￥<?php echo $pro['price'] ?></div>
-                            <div class="price-current pull-right">￥<?php echo $pro['sale_price'] ?></div>
+                            <div class="price-current pull-right">￥<span id="price<?=$pro['product_id'];?>"><?php echo $pro['sale_price'] ?></span></div>
                           <?php else: ?>
-                            <div class="price-current pull-right">￥<?php echo $pro['price'] ?></div>
+                            <div class="price-current pull-right">￥<span id="price<?=$pro['product_id'];?>"><?php echo $pro['price'] ?></span></div>
                           <?php endif; ?>
                         </div>
                         <div class="hover-area">
                           <div class="add-cart-button">
-                            <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro['product_id']]) ?>" class="le-button">加入购物车</a>
+                            <a href="javascript:addCart(<?=$pro['product_id'];?>)" class="le-button">加入购物车</a>
                           </div>
 
                         </div>
@@ -228,7 +232,9 @@
                     <div class="row">
                       <div class="no-margin col-xs-12 col-sm-4 image-holder">
                         <div class="image">
-                          <img alt="" src="<?php echo $pro['cover'] ?>-covermiddle"  />
+                          <a href="<?=yii\helpers\Url::to(['product/detail','product_id'=>$pro['product_id']]);?>">
+                          <img alt="" src="http://<?php echo $pro['cover'] ?>-covermiddle"  />
+                          </a>
                         </div>
                       </div><!-- /.image-holder -->
                       <div class="no-margin col-xs-12 col-sm-5 body-holder">
@@ -254,7 +260,7 @@
                             <div class="price-current">￥<?php echo $pro['price'] ?></div>
                           <?php endif; ?>
                           <div class="availability"><label>库存:</label><span class="available">  <?php echo $pro['num'] ?></span></div>
-                          <a class="le-button" href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro['product_id']]) ?>">加入购物车</a>
+                          <a class="le-button" href="javascript:addCart(<?=$pro['product_id'];?>) ">加入购物车</a>
                         </div>
                       </div><!-- /.price-area -->
                     </div><!-- /.row -->

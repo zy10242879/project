@@ -61,26 +61,25 @@ use yii\bootstrap\ActiveForm;
 
         <div class="prices">
           <?php if ($product['is_sale']): ?>
-            <div class="price-current">￥<?php echo $product['sale_price'] ?></div>
+            <div class="price-current">￥<span id="confirm_price"><?php echo $product['sale_price'] ?></span></div>
             <div class="price-prev">￥<?php echo $product['price'] ?></div>
           <?php else: ?>
-            <div class="price-current">￥<?php echo $product['price'] ?></div>
+            <div class="price-current">￥<span id="confirm_price"><?php echo $product['price'] ?></span></div>
           <?php endif; ?>
         </div>
 
         <div class="qnt-holder">
-          <?php $form = ActiveForm::begin([
-            'action' => yii\helpers\Url::to(['cart/add']),
-          ]) ?>
+
           <div class="le-quantity">
-            <a class="minus" href="#reduce"></a>
+            <a onclick="return detailReduce()" class="minus" href="#reduce"></a>
             <input name="product_num" readonly="readonly" type="text" value="1" />
-            <a class="plus" href="#add"></a>
+            <a onclick="return detailAdd()" class="plus" href="#add"></a>
           </div>
           <input type="hidden" name="price" value="<?php echo $product['is_sale'] == '1'?$product['sale_price']:$product['price'] ?>">
+          <input type="hidden" name="_csrf-frontend" value="<?=Yii::$app->request->csrfToken;?>">
           <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
           <input type='submit' id="addto-cart" class="le-button huge" value="加入购物车">
-          <?php ActiveForm::end(); ?>
+
         </div><!-- /.qnt-holder -->
       </div><!-- /.body -->
 
@@ -133,7 +132,7 @@ use yii\bootstrap\ActiveForm;
               <?php endif; ?>
 
               <div class="image">
-                <img alt="<?php echo $pro->title ?>" src="<?php echo $pro->cover ?>-covermiddle" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
+                <img alt="<?php echo $pro->title ?>" src="" data-echo="//<?php echo $pro->cover ?>-covermiddle" />
               </div>
               <div class="body">
                 <div class="title">
@@ -141,11 +140,11 @@ use yii\bootstrap\ActiveForm;
                 </div>
               </div>
               <div class="prices">
-                <div class="price-current text-right">￥<?php echo $pro->sale_price ?></div>
+                <div class="price-current text-right">￥<span id="product_price<?=$pro->product_id;?>"><?php echo $pro->sale_price ?></span></div>
               </div>
               <div class="hover-area">
                 <div class="add-cart-button">
-                  <a href="<?php echo yii\helpers\Url::to(['cart/add', 'product_id' => $pro->product_id]) ?>" class="le-button">加入购物车</a>
+                  <a href="javascript:addCart(<?=$pro->product_id;?>)" class="le-button">加入购物车</a>
                 </div>
               </div>
             </div><!-- /.product-item -->
@@ -157,4 +156,9 @@ use yii\bootstrap\ActiveForm;
   </div><!-- /.container -->
 </section><!-- /#recently-reviewd -->
 <!-- ========================================= RECENTLY VIEWED : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
+
+
+
+
+
 

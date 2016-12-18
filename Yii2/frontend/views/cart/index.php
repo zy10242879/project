@@ -13,7 +13,7 @@ use yii\bootstrap\ActiveForm;
         <input type="hidden" name="OrderDetail[<?php echo $k?>][product_id]" value="<?php echo $product['product_id'] ?>">
         <input type="hidden" name="OrderDetail[<?php echo $k?>][price]" value="<?php echo $product['price'] ?>">
         <input type="hidden" name="OrderDetail[<?php echo $k?>][product_num]" value="<?php echo $product['product_num'] ?>">
-        <div class="row no-margin cart-item">
+        <div id="del_cart<?=$product['cart_id'];?>" class="row no-margin cart-item">
           <div class="col-xs-12 col-sm-2 no-margin">
             <a href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $product['product_id']]) ?>" class="thumb-holder">
               <img class="lazy" alt="" src="//<?php echo $product['cover'] ?>-picsmall" />
@@ -30,7 +30,7 @@ use yii\bootstrap\ActiveForm;
             <div class="quantity">
               <div class="le-quantity">
                 <a onclick="return reduce(<?=$product['cart_id'];?>)" class="minus" href="#reduce"></a>
-                <input name="product_num" id="cart_id<?php echo $product['cart_id'] ?>" readonly="readonly" type="text" value="<?php echo $product['product_num'] ?>" />
+                <input name="product_num" id="cart_id<?php echo $product['cart_id'] ?>aa" readonly="readonly" type="text" value="<?php echo $product['product_num'] ?>" />
                 <a class="plus" onclick="return add(<?=$product['cart_id'];?>)" href="#add"></a>
               </div>
             </div>
@@ -40,7 +40,7 @@ use yii\bootstrap\ActiveForm;
             <div class="price">
               ￥<span id="price<?=$product['cart_id'];?>"><?php echo $product['price'] ?></span>
             </div>
-            <a class="close-btn" href="<?php echo yii\helpers\Url::to(['cart/del', 'cart_id' => $product['cart_id']]) ?>"></a>
+            <a class="close-btn" href="javascript:del_cart(<?=$product['cart_id'];?>)"></a>
           </div>
         </div><!-- /.cart-item -->
         <?php $total += $product['price']*$product['product_num']; ?>

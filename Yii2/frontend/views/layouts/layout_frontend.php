@@ -22,11 +22,15 @@
   <link rel="stylesheet" href="statics/css/animate.min.css">
 
 
+
   <!-- Icons/Glyphs -->
   <link rel="stylesheet" href="statics/css/font-awesome.min.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="statics/images/favicon.ico">
+
+
+
 
   <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
   <!--[if lt IE 9]>
@@ -111,7 +115,7 @@
           </form>
         </div><!-- /.search-area -->
         <!-- ============================================================= SEARCH AREA : END ============================================================= -->		</div><!-- /.top-search-holder -->
-
+<?php if(Yii::$app->session['is_login']==1):?>
       <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
         <div class="top-cart-row-container">
 
@@ -120,39 +124,22 @@
 
             <div class="basket">
 
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <a id="dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                  <span class="count"><?=count($this->params['cart']['products']);?></span>
+                  <span class="count" id="cart_count"><?=count($this->params['cart']['products']);?></span>
                   <img src="statics/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket">
                   <span class="lbl">您的购物车:</span>
                   <span class="total-price">
-                    <span class="sign">￥</span><span class="value"><?=$this->params['cart']['total'];?></span>
+                    <span class="sign">￥</span><span class="value" id="cart_total"><?=$this->params['cart']['total'];?></span>
                     </span>
                 </div>
               </a>
 
-              <ul class="dropdown-menu">
-                <?php foreach ($this->params['cart']['products'] as $pro):?>
-                  <li>
-                    <div class="basket-item">
-                      <div class="row">
-                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                          <div class="thumb">
-                            <img alt="" src="//<?=$pro['cover'];?>-coversmall" />
-                          </div>
-                        </div>
-                        <div class="col-xs-8 col-sm-8 no-margin">
-                          <div class="title"><?=$pro['title'];?></div>
-                          <div class="price">￥ <?=$pro['price'];?></div>
-                        </div>
-                      </div>
-                      <a class="close-btn" href="<?=yii\helpers\Url::to(['cart/index']);?>"></a>
-                    </div>
-                  </li>
-                <?php endforeach;?>
+              <ul id="dropdown-menu" class="dropdown-menu">
+
                 <li class="checkout">
                   <div class="basket-item">
                     <div class="row">
@@ -171,6 +158,7 @@
           </div><!-- /.top-cart-holder -->
         </div><!-- /.top-cart-row-container -->
         <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->		</div><!-- /.top-cart-row -->
+      <?php endif;?>
 
     </div><!-- /.container -->
   </header>
@@ -364,6 +352,13 @@
 <script src="statics/js/jquery.customSelect.min.js"></script>
 <script src="statics/js/wow.min.js"></script>
 <script src="statics/js/scripts.js"></script>
+<!-- toastr--jQuery-->
+<link href="statics/toastr/toastr.min.css" rel="stylesheet"/>
+<script src="statics/toastr/toastr.min.js"></script>
+<script type="text/javascript">
+  toastr.options.positionClass = 'toast-center-center';
+  toastr.options.timeOut = "2000";
+</script>
 <script>
   $("#createlink").click(function(){
     $(".billing-address").slideDown();
@@ -376,7 +371,7 @@
     }
     var total = parseFloat($(".value.pull-right span").html());
     var price = parseFloat($(".price span").html());
-    changeNum(cartid, num);
+    changeNum(cart_id, num);
     var p = total - price;
     if (p < 0) {
       var p = "0";
@@ -385,18 +380,18 @@
     $(".value.pull-right.ordertotal span").html(p + "");
   });
   $(".plus").click(function(){
-    var cartid = $("input[name=productnum]").attr('id');
+    var cart_id = $("input[name=productnum]").attr('id');
     var num = parseInt($("input[name=productnum]").val()) + 1;
     var total = parseFloat($(".value.pull-right span").html());
     var price = parseFloat($(".price span").html());
-    changeNum(cartid, num);
+    changeNum(cart_id, num);
     var p = total + price;
     $(".value.pull-right span").html(p + "");
     $(".value.pull-right.ordertotal span").html(p + "");
   });
   function changeNum(cart_id, num)
   {
-    $.get('<?php echo yii\helpers\Url::to(['cart/mod']) ?>', {'product_num':num, 'cart_id':cartid}, function(data){
+    $.get('<?php echo yii\helpers\Url::to(['cart/mod']) ?>', {'product_num':num, 'cart_id':cart_id}, function(data){
       location.reload();
     });
   }
@@ -409,6 +404,86 @@
     var addressid = $(this).val();
     $("input[name=addressid]").val(addressid);
   });
+  //ajax修改点击加入购物车后弹出商品已加入到购物车，并写入数据库
+  function addCart(pid) {
+    $.get('<?php echo yii\helpers\Url::to(['cart/add']) ?>', {'product_id':pid}, function(data) {
+      toastr.success("成功加入购物车!"); //此处在php页中需要加入判断添加情况
+      var total = parseFloat($("#cart_total").html());
+      var price = parseFloat($("#price"+pid).html());
+      var p = total + price;
+      $("#cart_total").html(p+ "");
+      if(data==1){
+        var cartCount = parseInt($("#cart_count").html())+1;
+        $("#cart_count").html(cartCount);
+      }
+      //location.reload(); //此处不用重新载入，而是通过上面判断后来更新顶端购物车的数量及价格 此处省略　                                     通过json返回1或0来更新购物车的商品数量，得到更好的用户体验
+    });
+  }
+//  $("a.le-button:contains(加入购物车)").click(function () {
+//
+//    toastr.success("成功加入购物车!");
+//
+//  });
+  //点击公共页购物车，ajax异步刷新点选页
+  $('#dropdown-toggle').click(function () {
+    $('.cart_list').remove();
+    $('#dropdown-menu').prepend('<li class="cart_list"><img class="img-responsive center-block" src="statics/images/AjaxLoader.gif"></li>');
+    $.ajax({
+      url:'<?=yii\helpers\Url::to(['cart/ajax-cart-list']);?>',
+      dataType:'json',
+      type:'get',
+      success : function (data) {
+        var html ='';
+        $(data).each(function (k,v) {
+          html+='<li class="cart_list">';
+          html+='<div class="basket-item">';
+          html+='<div class="row">';
+          html+='<div class="col-xs-4 col-sm-4 no-margin text-center">';
+          html+='<div class="thumb">';
+          html+='<img alt="" src="//'+v.cover+'-coversmall" />';
+          html+='</div>';
+          html+='</div>';
+          html+='<div class="col-xs-8 col-sm-8 no-margin">';
+          html+='<a href="<?=yii\helpers\Url::to(["product/detail","product_id"=>""]);?>'+v.product_id+'">';
+          html+='<div class="title" style="color:#1A1A1A">'+v.title+'</div>';
+          html+='</a>';
+          html+='<div class="price">￥<span id="price'+v.cart_id+'">'+ v.price+'</span>   X <span id="cart_id'+v.cart_id+'"> '+v.num+'</span></div>';
+          html+='</div></div>';
+          html+='<a class="close-btn" href="javascript:del_cart('+v.cart_id+')"></a>';
+          html+='</div>';
+          html+='</li>';
+        });
+        $('.cart_list').remove();
+        $('#dropdown-menu').prepend(html);
+      }
+    });
+  });
+  //ajax删除购物车商品
+  function del_cart(cart_id) {
+    var url = '<?=yii\helpers\Url::to(['cart/del']) ?>';
+    var data = {'cart_id':cart_id};
+    $.get(url,data,function ($e) {
+      if($e==1){
+        toastr.success("商品删除成功!");
+        //修改购物车总价，定单总价
+        var price = parseFloat($('#price'+cart_id).html());
+        var num = parseInt($('#cart_id'+cart_id).html());
+        var total = parseFloat($("#cart_total").html());
+        var p = total-price*num;
+        var cartCount = parseInt($("#cart_count").html())-1;
+        $(".value.pull-right span").html(p + "");
+        $(".value.pull-right.ordertotal span").html(p + "");
+        $("#cart_total").html(p+ "");
+        $("#cart_count").html(cartCount);
+        //删除节点
+        $('#del_cart'+cart_id).remove();
+      }else if($e==0){
+        toastr.warning("**删除失败请重试**");
+      }else{
+        toastr.error("**参数错误请与管理员联系**");
+      }
+    });
+  }
 </script>
 
 </body>
