@@ -1,5 +1,6 @@
 <?php
 namespace frontend\controllers;
+use common\models\Address;
 use common\models\Product;
 use common\models\User;
 use common\models\Order;
@@ -17,10 +18,33 @@ class OrderController extends CommonController {
     $orders = Order::getProducts($user_id); //------此方法中有两层遍历--------
     return $this->render('index',['orders'=>$orders]);
   }
-  //收银台核对
+  //收银台核对商品、地址及支付
   public function actionCheck(){
+    $this->isLogin();
+    //1.查看当前传过来的order_id的订单状态，并判断如果不处于订单初始化或待支付的情况下，跳转到订单中心
+    $order_id = Yii::$app->request->get('order_id');
+    $status = Order::find()->where('order_id=:oid',[':oid'=>$order_id])->one()->status;
+    if($status != Order::CREATE_ORDER && $status != Order::CHECK_ORDER){
+      return $this->redirect(['order/index']);
+    }
+    //2.查询该用户下的地址信息、订单详情、所有快递信息
+    //①查询地址信息 获得user_id 根据user_id查询地址信息
+    $user_id = User::find()->where('user_name = :name',[':name'=>Yii::$app->session['loginName']])->one()->user_id;
+    $addresses = Address::find()->where('user_id = :uid',[':uid'=>$user_id])->asArray()->all();
+    //②通过order_id获得details详细信息，遍历details,通过product_id获取商品的详细信息
+    $details = OrderDetail::find()->where('order_id = :oid',[':oid'=>$order_id])->asArray()->all();
+    $data = [];
+    foreach ($details as $detail) {
+      $model = Product::find()->where('product_id=:pid',[':pid'=>$detail['product_id']])->one();
+      $detail['cover'] = $model->cover;
+      $detail['title'] = $model->title;
+      $data[] = $detail;
+    }
+    //3.获得快递信息
+    $express = Yii::$app->params['express'];
+    $expressPrice = Yii::$app->params['expressPrice'];
     $this->layout = 'layout_frontend';
-    return $this->render('check');
+    return $this->render('check',['express'=>$express,'expressPrice'=>$expressPrice,'products'=>$data,'addresses'=>$addresses]);
   }
   //添加定单
   public function actionAdd(){

@@ -39,6 +39,7 @@ class Order extends ActiveRecord{
       ['create_time','safe','on'=>['add']],
     ];
   }
+  //--------可以通过封装关联查询来尝试减少代码---------(可能效率会降低)
   //遍历订单表index中的orders数据  -----对4个数据表进行操作
   public static function getProducts($user_id){
     //通过user_id找到所有状态不是初始化的订单的订单表数据   ---order---表
