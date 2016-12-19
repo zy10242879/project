@@ -8,6 +8,8 @@ class Product extends ActiveRecord{
   const DOMAIN = 'ohuosrbr4.bkt.clouddn.com';//此处为测试域名　可以绑定自己的域名
   const BUCKET = 'yii2-shop';
 
+  public $cate;
+
   public function attributeLabels()
   {
     return [

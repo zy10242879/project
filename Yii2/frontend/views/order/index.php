@@ -19,7 +19,7 @@
               <td style="padding:10px 20px;text-align:left;width:100%">
                 <label>
                   <strong title="" style="margin-right:8px;font-weight:bold;">
-                    <?php echo date('Y-m-d H:i:s', $order->createtime); ?>
+                    <?php echo date('Y-m-d H:i:s', $order->create_time); ?>
                   </strong>
                 </label>
                 <span>
@@ -28,7 +28,7 @@
                 <span>
               </span>
                 <span>
-                <?php echo $order->orderid ?>
+                <?php echo $order->order_id ?>
               </span>
               </td>
 
@@ -50,12 +50,12 @@
             <tr>
               <td style="text-align:left;vertical-align:top;padding-top:10px;padding-bottom:10px;border-right-width:0;border-right-style:solid;border-right-color:#E8E8E8;border-top-width:0;border-top-style:solid;border-top-color:#E8E8E8;padding-left:20px;" >
                 <div style="overflow:hidden;">
-                  <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['product/detail', 'productid' => $product->productid]) ?>" style="float:left;width:27%;margin-right:2%;text-align:center;" target="_blank">
-                    <img src="<?php echo $product->cover ?>-picsmall" style="border:1px solid #E8E8E8;max-width:80px;">
+                  <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $product->product_id]) ?>" style="float:left;width:27%;margin-right:2%;text-align:center;" target="_blank">
+                    <img src="http://<?php echo $product->cover ?>-picsmall" style="border:1px solid #E8E8E8;max-width:80px;">
                   </a>
                   <div style="float:left;width:71%;word-wrap:break-word;">
                     <div style="margin:0px;">
-                      <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['product/detail', 'productid' => $product->productid]) ?>" target="_blank">
+                      <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['product/detail', 'product_id' => $product->product_id]) ?>" target="_blank">
                       <span>
                         <?php echo $product->title ?>
                       </span>
@@ -141,7 +141,7 @@
                     (含运费：
                   </span>
                       <span>
-                    <?php echo empty(\Yii::$app->params['expressPrice'][$order->expressid]) ? '0' : \Yii::$app->params['expressPrice'][$order->expressid] ?> 元
+                    <?php echo empty(\Yii::$app->params['expressPrice'][$order->express_id]) ? '0' : \Yii::$app->params['expressPrice'][$order->express_id] ?> 元
                   </span>
                       <span>
                   </span>
@@ -159,7 +159,7 @@
                 <td style="text-align:center;vertical-align:top;padding-top:10px;padding-bottom:10px;border-right-width:1px;border-right-style:solid;border-right-color:#E8E8E8;border-top-width:0;border-top-style:solid;border-top-color:#E8E8E8;" >
                 <div>
                 <div style="margin-bottom:3px;">
-                  <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/check', 'orderid' => $order->orderid]) ?>">
+                  <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/check', 'order_id' => $order->order_id]) ?>">
                     <?php echo $order->zhstatus ?>
                   </a>
                 </div>
@@ -167,7 +167,7 @@
                   <div>
                   <div style="margin-bottom:3px;position:relative">
                     <span>
-                        <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/received', 'orderid' => $order->orderid]) ?>" target="_blank">
+                        <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/received', 'order_id' => $order->order_id]) ?>" target="_blank">
                         <span class="trade-operate-text">
                           确认收货
                         </span>
@@ -175,7 +175,7 @@
                       </a>
                     </span>
                     <span>
-                        <a data="<?php echo $order->expressno ?>" class="tp-tag-a express" href="#" target="_blank">
+                        <a data="<?php echo $order->express_no ?>" class="tp-tag-a express" href="#" target="_blank">
                         <span class="trade-operate-text">
                           查看物流
                         </span>

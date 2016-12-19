@@ -14,7 +14,7 @@ class OrderController extends CommonController {
     $this->isLogin();
     $loginName = Yii::$app->session['loginName'];
     $user_id = User::find()->where('user_name=:name',[':name'=>$loginName])->one()->user_id;
-    $orders = Order::getProducts($user_id);
+    $orders = Order::getProducts($user_id); //------此方法中有两层遍历--------
     return $this->render('index',['orders'=>$orders]);
   }
   //收银台核对
