@@ -45,4 +45,10 @@ class CommonController extends Controller{
     $this->view->params['sale'] = (array)$sale;
     $this->view->params['all'] = (array)$all;
   }
+  //是否登录的共公方法
+  protected function isLogin(){
+    if(Yii::$app->session['is_login'] !=1){
+      return $this->redirect(['member/auth']);
+    }
+  }
 }

@@ -98,11 +98,16 @@ class User extends ActiveRecord{
   public function login($data,$scenario='login'){
     $this->scenario = $scenario;
     if($this->load($data) && $this->validate()){
+      $loginName = self::find()->where('user_name=:user', [':user' => $data['User']['loginName']])->one();
+      if(is_null($loginName)){ //此处添加一个判断　为使session中的loginName是用户名而操作
+        $loginName = self::find()->where('user_email=:user', [':user' => $data['User']['loginName']])->one();
+      }
+      $loginName = $loginName->user_name;
       //validate中必需要写入rememberMe的验证，不然$this->rememberMe为Null
       $lifetime = $this->rememberMe ? 24 * 3600 : 0;
       $session = Yii::$app->session;
       session_set_cookie_params($lifetime);
-      $session['loginName'] = $this->loginName;
+      $session['loginName'] = $loginName;
       $session['is_login'] = 1;
       return (bool)$session['is_login'];
     }
