@@ -109,4 +109,52 @@ class OrderController extends CommonController {
     //9.没有异常提交后，就跳转到订单确认页 并将订单id传过去
     return $this->redirect(['order/check','order_id'=>$order_id]);
   }
+  //确认定单
+  public function actionConfirm()
+  {
+    //addressid, expressid, status, amount(orderid,userid)
+    try {
+      $this->isLogin();
+      if (!Yii::$app->request->isPost) {
+        throw new \Exception();
+      }
+      $post = Yii::$app->request->post();
+      $user_model = User::find()->where('user_name = :name', [':name' => Yii::$app->session['loginName']])->one();
+      if (empty($user_model)) {
+        throw new \Exception();
+      }
+      $user_id = $user_model->user_id;
+      $model = Order::find()->where('order_id = :oid and user_id = :uid', [':oid' => $post['order_id'], ':uid' => $user_id])->one();
+      if (empty($model)) {
+        throw new \Exception();
+      }
+      $model->scenario = "update";
+      $post['status'] = Order::CHECK_ORDER;
+      $details = OrderDetail::find()->where('order_id = :oid', [':oid' => $post['order_id']])->all();
+      $amount = 0;
+      foreach($details as $detail) {
+        $amount += $detail->product_num*$detail->price;
+      }
+      if ($amount <= 0) {
+        throw new \Exception();
+      }
+      $express = Yii::$app->params['expressPrice'][$post['express_id']];
+      if ($express < 0) {
+        throw new \Exception();
+      }
+      $amount += $express;
+      $post['amount'] = $amount;
+      $data['Order'] = $post;
+      if (empty($post['address_id'])) {
+        return $this->redirect(['order/pay', 'order_id' => $post['order_id'], 'pay_method' => $post['pay_method']]);
+      }
+      if (!$model->load($data) || !$model->save()) {
+        throw new \Exception();
+      }else{
+        return $this->redirect(['order/pay', 'order_id' => $post['order_id'], 'pay_method' => $post['pay_method']]);
+      }
+    }catch(\Exception $e) {
+      return $this->redirect(['index/index']);
+    }
+  }
 }

@@ -12,7 +12,7 @@ use yii\bootstrap\ActiveForm;
         <?php foreach($addresses as $key => $address): ?>
           <div class="row field-row" style="margin-top:10px">
             <div class="col-xs-12">
-              <input class="le-radio big address" type="radio" name="address" value="<?php echo $address['address_id'] ?>" <?php if ($key == 0) {echo 'checked = "checked"';} ?> />
+              <input onchange="javascript:changeRadio(<?=$address['address_id'];?>)" class="le-radio big address" type="radio" name="address_id" value="<?php echo $address['address_id'] ?>" <?php if ($key == 0) {echo 'checked = "checked"';} ?> />
               <a class="simple-link bold" href="#"><?php echo $address['first_name'].$address['last_name']." ".$address['company']." ".$address['address']. " " . $address['postcode']. " ". $address['email']." ".$address['telephone'] ?></a>
             </div>
             <a style="margin-left:45px" href="<?php echo yii\helpers\Url::to(['address/del', 'address_id' => $address['address_id']]) ?>">删除</a>
@@ -148,9 +148,9 @@ use yii\bootstrap\ActiveForm;
 
       <div class="text-center" id="payment-method-options">
       <div class="btn-group">
-        <button type="button" class="btn btn-default"><input class="le-radio " type="radio" name="paymethod" value="alipay" checked> 支付宝支付 </button>
+        <button type="button" class="btn btn-default"><input class="le-radio " type="radio" name="pay_method" value="alipay" checked> 支付宝支付 </button>
         <div class="btn-group">
-          <button type="button" class="btn btn-default"><input class="le-radio " type="radio" name="paymethod" value="alipay"> 微信支付 </button>
+          <button type="button" class="btn btn-default"><input class="le-radio " type="radio" name="pay_method" value="alipay"> 微信支付 </button>
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             其它支付方式
@@ -181,4 +181,10 @@ use yii\bootstrap\ActiveForm;
 </section><!-- /#checkout-page -->
 <!-- ========================================= CONTENT : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
 <input type="hidden" value="<?php echo (int)\Yii::$app->request->get("order_id"); ?>" name="order_id">
+<input id="address_id" type="hidden" name="address_id" value="<?=$addresses[0]['address_id'];?>">
 <?php ActiveForm::end(); ?>
+<script>
+  function changeRadio(address_id) {
+    $('#address_id').val(address_id);
+  }
+</script>

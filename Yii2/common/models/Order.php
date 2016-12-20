@@ -37,6 +37,7 @@ class Order extends ActiveRecord{
     return [
       [['user_id','status'],'required','on'=>['add']],
       ['create_time','safe','on'=>['add']],
+      [['address_id', 'express_id', 'amount', 'status'], 'required','message'=>'不能为空', 'on' => ['update']],
     ];
   }
   //--------可以通过封装关联查询来尝试减少代码---------(可能效率会降低)
