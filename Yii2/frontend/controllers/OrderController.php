@@ -6,6 +6,7 @@ use common\models\User;
 use common\models\Order;
 use common\models\OrderDetail;
 use frontend\models\Cart;
+use common\models\Pay;
 use Yii;
 class OrderController extends CommonController {
   //public $layout = false;  //关闭页头脚
@@ -155,6 +156,29 @@ class OrderController extends CommonController {
       }
     }catch(\Exception $e) {
       return $this->redirect(['index/index']);
+    }
+  }
+
+  //支付方式选择 此处为支付宝的即时到账
+  public function actionPay(){
+    try{
+      $this->isLogin();
+      //获取数据
+      $order_id = Yii::$app->request->get('order_id');
+      $pay_method = Yii::$app->request->get('pay_method');
+      //验证传过来的参数
+      if(empty($order_id) || empty($pay_method)){
+        throw new \Exception();
+      }
+      //选择支付方式，此处为支付宝即时到账  新建pay.php活动记录，写入支付方法
+      if($pay_method = 'alipay'){
+        return Pay::alipay($order_id);
+      }
+//      if($pay_method = 'tenxpay'){
+//        return Pay::tenxpay($order_id);
+//      }
+    }catch (\Exception $e){
+      return $this->redirect(['order/index']);
     }
   }
 }
