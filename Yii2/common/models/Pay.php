@@ -32,6 +32,7 @@ class Pay{  //注意此处定义的类写法
       //所有返回的参数可以查看alipayPay()中的参数返回
       //(6)验证成功　接收订单id 订单状态
       $out_trade_no = $data['extra_common_param'];
+      $trade_no = $data['trade_no']; //交易号用来存储到数据库中，方便对账
       $trade_status = $data['trade_status'];
       //(7)定义状态　默认定义为支付失败
       $status = Order::PAY_FAILED;
@@ -45,8 +46,8 @@ class Pay{  //注意此处定义的类写法
           return false;
         }
         //(11)更新订单状态
-        if($order_info->status == Order::CHECK_ORDER){
-          Order::updateAll(['status'=>$status],'order_id=:oid',[':oid'=>$order_info->order_id]);
+        if($order_info->status == Order::CHECK_ORDER){   //存储了支付订单号及通过json格式化所有post数据
+          Order::updateAll(['status'=>$status,'trade_no'=>$trade_no,'trade_ext'=>json_encode($data)],'order_id=:oid',[':oid'=>$order_info->order_id]);
         }else{
           return false;
         }
