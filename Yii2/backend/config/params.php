@@ -5,7 +5,7 @@ return [
       'manage'=>10,
       'user'=>10,
       'product'=>10,
-      'order'=>5,
+      'order'=>6,
     ],
     'defaultValues'=>[
       'avatar'=>'statics/img/contact-img.png',

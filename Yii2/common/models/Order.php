@@ -31,7 +31,7 @@ class Order extends ActiveRecord{
   public function attributeLabels()
   {
     return [
-
+      'express_no'=>'快递单号：'
     ];
   }
 
@@ -41,6 +41,7 @@ class Order extends ActiveRecord{
       [['user_id','status'],'required','on'=>['add']],
       ['create_time','safe','on'=>['add']],
       [['address_id', 'express_id', 'amount', 'status'], 'required','message'=>'不能为空', 'on' => ['update']],
+      ['express_no','required','on'=>['send']],
     ];
   }
   //--------可以通过封装关联查询来尝试减少代码---------(可能效率会降低)
@@ -72,27 +73,53 @@ class Order extends ActiveRecord{
   public static function getDetail($orders){
     //遍历所有订单 获取数据
     foreach ($orders as $order) {
-      //先通过订单id获得所有详细订单数据
-      $details = OrderDetail::find()->where('order_id=:oid',[':oid'=>$order->order_id])->all();
-      $products = [];
-      //再次遍历详细订单记录，获得对应的商品信息 通过product_id 获得title及数量
-      foreach ($details as  $detail){
-        //先获得商品对象
-        $product = Product::find()->where('product_id=:pid',[':pid'=>$detail->product_id])->one();
-        $product->num = $detail->product_num;
-        $products[] = $product;//将数据存入预先准备的数组中
-      }
-      //将获得的所有商品信息加入到order中
-      $order->products =$products;
-      $order->user_name = User::find()->where('user_id=:uid',[':uid'=>$order->user_id])->one()->user_name;
-      $order->address = Address::find()->where('address_id=:aid',[':aid'=>$order->address_id])->one();
-      if(empty($order->address)){
-        $order->address = '';
-      }else{
-        $order->address = $order->address->address;
-      }
-      $order->zhstatus = self::$status[$order->status];//←←←看一下此处的调用方法，是正确的
+      //由于获取当前order_id对应的数据是相同的，所以加入下面的getData($order)静态方法直接调用，省略注释内容
+      $order = self::getData($order);
+//      //先通过订单id获得所有详细订单数据
+//      $details = OrderDetail::find()->where('order_id=:oid',[':oid'=>$order->order_id])->all();
+//      $products = [];
+//      //再次遍历详细订单记录，获得对应的商品信息 通过product_id 获得title及数量
+//      foreach ($details as  $detail){
+//        //先获得商品对象
+//        $product = Product::find()->where('product_id=:pid',[':pid'=>$detail->product_id])->one();
+//        $product->num = $detail->product_num;
+//        $products[] = $product;//将数据存入预先准备的数组中
+//      }
+//      //将获得的所有商品信息加入到order中
+//      $order->products =$products;
+//      $order->user_name = User::find()->where('user_id=:uid',[':uid'=>$order->user_id])->one()->user_name;
+//      $order->address = Address::find()->where('address_id=:aid',[':aid'=>$order->address_id])->one();
+//      if(empty($order->address)){
+//        $order->address = '';
+//      }else{
+//        $order->address = $order->address->address;
+//      }
+//      $order->zhstatus = self::$status[$order->status];//←←←看一下此处的调用方法，是正确的
     }
     return $orders;
+  }
+
+  public static function getData($order){
+    //先通过订单id获得所有详细订单数据
+    $details = OrderDetail::find()->where('order_id=:oid',[':oid'=>$order->order_id])->all();
+    $products = [];
+    //再次遍历详细订单记录，获得对应的商品信息 通过product_id 获得title及数量
+    foreach ($details as  $detail){
+      //先获得商品对象
+      $product = Product::find()->where('product_id=:pid',[':pid'=>$detail->product_id])->one();
+      $product->num = $detail->product_num;
+      $products[] = $product;//将数据存入预先准备的数组中
+    }
+    //将获得的所有商品信息加入到order中
+    $order->products =$products;
+    $order->user_name = User::find()->where('user_id=:uid',[':uid'=>$order->user_id])->one()->user_name;
+    $order->address = Address::find()->where('address_id=:aid',[':aid'=>$order->address_id])->one();
+    if(empty($order->address)){
+      $order->address = '';
+    }else{
+      $order->address = $order->address->address;
+    }
+    $order->zhstatus = self::$status[$order->status];//←←←看一下此处的调用方法，是正确的
+    return $order;
   }
 }

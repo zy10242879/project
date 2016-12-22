@@ -17,4 +17,28 @@ class OrderController extends Controller{
     $data = Order::getDetail($data);  //创建order活动记录中getDetail静态方法来处理$data数据
     return $this->render('list',['orders'=>$data,'pager'=>$pager]);
   }
+  //订单详细查看
+  public function actionDetail(){
+    $this->layout = 'layout_backend';
+    $order_id = (int)Yii::$app->request->get('order_id');
+    $order = Order::find()->where('order_id=:oid',[':oid'=>$order_id])->one();
+    $data = Order::getData($order);
+    return $this->render('detail',['order'=>$data]);
+  }
+  //订单发货
+  public function actionSend(){
+    $this->layout = 'layout_backend';
+    $order_id = (int)Yii::$app->request->get('order_id');
+    $model = Order::find()->where('order_id=:oid',[':oid'=>$order_id])->one();
+    if(Yii::$app->request->isPost){
+      $model->scenario = 'send';
+      $post = Yii::$app->request->post();
+      //将状态数据改为已发货
+      $model->status = Order::SENDED;
+      if($model->load($post) && $model->save()){
+        Yii::$app->session->setFlash('info','发货成功！');
+      }
+    }
+    return $this->render('send',['model'=>$model]);
+  }
 }
