@@ -31,7 +31,7 @@ class OrderController extends CommonController {
     //2.查询该用户下的地址信息、订单详情、所有快递信息
     //①查询地址信息 获得user_id 根据user_id查询地址信息
     $user_id = User::find()->where('user_name = :name',[':name'=>Yii::$app->session['loginName']])->one()->user_id;
-    $addresses = Address::find()->where('user_id = :uid',[':uid'=>$user_id])->asArray()->all();
+    $addresses = Address::find()->where('user_id = :uid',[':uid'=>$user_id])->orderBy('address_id desc')->asArray()->all();
     //②通过order_id获得details详细信息，遍历details,通过product_id获取商品的详细信息
     $details = OrderDetail::find()->where('order_id = :oid',[':oid'=>$order_id])->asArray()->all();
     $data = [];

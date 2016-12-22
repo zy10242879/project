@@ -20,6 +20,9 @@ class Order extends ActiveRecord{
   //由于getProducts()没有这些参数，所以要添加
   public $products;
   public $zhstatus;
+  //上面及下面的属性由于getDetail()中没有，所以需要添加
+  public $user_name;
+  public $address;
 
   public static function tableName()
   {
@@ -44,7 +47,7 @@ class Order extends ActiveRecord{
   //遍历订单表index中的orders数据  -----对4个数据表进行操作
   public static function getProducts($user_id){
     //通过user_id找到所有状态不是初始化的订单的订单表数据   ---order---表
-    $orders = self::find()->where('status > 0 and user_id = :uid', [':uid' => $user_id])->orderBy('create_time desc')->all();
+    $orders = self::find()->where('status >= 0 and user_id = :uid', [':uid' => $user_id])->orderBy('create_time desc')->all();
     //通过遍历以上订单表数据，得到所有订单的订单id，通过订单id遍历详细表，获得订单详细表中的商品
     foreach($orders as $order) {    //----order_detail----表
       $details = OrderDetail::find()->where('order_id = :oid', [':oid' => $order->order_id])->all();
@@ -65,5 +68,31 @@ class Order extends ActiveRecord{
     }
     return $orders;
   }
-
+  //此方法返回的属性中由于products zhstatus(中文订单状态) username address这四个属性是没有的，所以要在上面创建
+  public static function getDetail($orders){
+    //遍历所有订单 获取数据
+    foreach ($orders as $order) {
+      //先通过订单id获得所有详细订单数据
+      $details = OrderDetail::find()->where('order_id=:oid',[':oid'=>$order->order_id])->all();
+      $products = [];
+      //再次遍历详细订单记录，获得对应的商品信息 通过product_id 获得title及数量
+      foreach ($details as  $detail){
+        //先获得商品对象
+        $product = Product::find()->where('product_id=:pid',[':pid'=>$detail->product_id])->one();
+        $product->num = $detail->product_num;
+        $products[] = $product;//将数据存入预先准备的数组中
+      }
+      //将获得的所有商品信息加入到order中
+      $order->products =$products;
+      $order->user_name = User::find()->where('user_id=:uid',[':uid'=>$order->user_id])->one()->user_name;
+      $order->address = Address::find()->where('address_id=:aid',[':aid'=>$order->address_id])->one();
+      if(empty($order->address)){
+        $order->address = '';
+      }else{
+        $order->address = $order->address->address;
+      }
+      $order->zhstatus = self::$status[$order->status];//←←←看一下此处的调用方法，是正确的
+    }
+    return $orders;
+  }
 }
