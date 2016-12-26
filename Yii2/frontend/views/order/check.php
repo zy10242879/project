@@ -173,7 +173,7 @@ use yii\bootstrap\ActiveForm;
       </div><!-- /#payment-method-options -->
 
       <div class="place-order-button">
-        <button class="le-button big">确认订单</button>
+        <button  class="le-button big">确认订单</button>
       </div><!-- /.place-order-button -->
 
     </div><!-- /.col -->
@@ -181,10 +181,16 @@ use yii\bootstrap\ActiveForm;
 </section><!-- /#checkout-page -->
 <!-- ========================================= CONTENT : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
 <input type="hidden" value="<?php echo (int)\Yii::$app->request->get("order_id"); ?>" name="order_id">
+<?php if(!empty($addresses)):?>
 <input id="address_id" type="hidden" name="address_id" value="<?=$addresses[0]['address_id'];?>">
+<?php else:?>
+<input id="address_id" type="hidden" name="address_id" value="">
+<?php endif;?>
 <?php ActiveForm::end(); ?>
 <script>
   function changeRadio(address_id) {
     $('#address_id').val(address_id);
   }
+
+
 </script>

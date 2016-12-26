@@ -1,7 +1,7 @@
 <!-- ============================================================= HEADER : END ============================================================= -->		<div id="single-product">
   <div class="container" style="padding-top:10px">
     <?php foreach($orders as $order): ?>
-    <div style="margin-bottom:30px;">
+    <div id="order<?=$order->order_id;?>" style="margin-bottom:30px;">
       <div class="trade-order-mainClose">
         <div>
           <table style="width:100%;border-collapse:collapse;border-spacing:0px;">
@@ -158,7 +158,7 @@
                 </td>
                 <td style="text-align:center;vertical-align:top;padding-top:10px;padding-bottom:10px;border-right-width:1px;border-right-style:solid;border-right-color:#E8E8E8;border-top-width:0;border-top-style:solid;border-top-color:#E8E8E8;" >
                 <div>
-                <div style="margin-bottom:3px;">
+                <div style="margin-bottom:10px;">
                   <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/check', 'order_id' => $order->order_id]) ?>">
                     <?php echo $order->zhstatus ?>
                   </a>
@@ -183,6 +183,27 @@
                       </a>
                     </span>
                   </div>
+                <?php endif; ?>
+                <?php if ($order->status == 0 || $order->status == 100 || $order->status == 201): ?>
+                  <div>
+                  <div style="margin-bottom:10px;position:relative">
+                    <span>
+                        <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/check', 'order_id' => $order->order_id]) ?>" target="">
+                        <span style="color: blue;" class="trade-operate-text">
+                          继续支付
+                        </span>
+                      </a>
+                    </span>
+                    </div>
+                  <div style="margin-bottom:10px;position:relative">
+                    <span>
+                        <a class="tp-tag-a" href="javascript:delOrder(<?=$order->order_id;?>)" target="">
+                        <span style="color:#CCCCCC;" class="trade-operate-text">
+                          删除订单
+                        </span>
+                      </a>
+                    </span>
+                    </div>
                 <?php endif; ?>
               <?php else: ?>
                 <td style="text-align:center;vertical-align:top;padding-top:10px;padding-bottom:10px;border-right-width:1px;border-right-style:solid;border-right-color:#E8E8E8;border-top-width:0;border-top-style:solid;border-top-color:#E8E8E8;" ></td>

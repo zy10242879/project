@@ -25,7 +25,7 @@ class OrderController extends CommonController {
     //1.查看当前传过来的order_id的订单状态，并判断如果不处于订单初始化或待支付的情况下，跳转到订单中心
     $order_id = Yii::$app->request->get('order_id');
     $status = Order::find()->where('order_id=:oid',[':oid'=>$order_id])->one()->status;
-    if($status != Order::CREATE_ORDER && $status != Order::CHECK_ORDER){
+    if($status != Order::CREATE_ORDER && $status != Order::CHECK_ORDER && $status != Order::PAY_FAILED){
       return $this->redirect(['order/index']);
     }
     //2.查询该用户下的地址信息、订单详情、所有快递信息
@@ -105,6 +105,7 @@ class OrderController extends CommonController {
     }catch (\Exception $e){
       //8.有异常进行回滚 并跳转到购物车页面
       $transaction->rollBack();
+      var_dump($e->getMessage());die;//检查异常
       return $this->redirect(['cart/index']);
     }
     //9.没有异常提交后，就跳转到订单确认页 并将订单id传过去
@@ -113,7 +114,7 @@ class OrderController extends CommonController {
   //确认定单
   public function actionConfirm()
   {
-    //addressid, expressid, status, amount(orderid,userid)
+    //address_id, express_id, status, amount(order_id,user_id)
     try {
       $this->isLogin();
       if (!Yii::$app->request->isPost) {
@@ -147,7 +148,7 @@ class OrderController extends CommonController {
       $post['amount'] = $amount;
       $data['Order'] = $post;
       if (empty($post['address_id'])) {
-        return $this->redirect(['order/pay', 'order_id' => $post['order_id'], 'pay_method' => $post['pay_method']]);
+        throw new \Exception();
       }
       if (!$model->load($data) || !$model->save()) {
         throw new \Exception();
@@ -180,5 +181,24 @@ class OrderController extends CommonController {
     }catch (\Exception $e){
       return $this->redirect(['order/index']);
     }
+  }
+  //删除订单
+  public function actionDel(){
+    $this->isLogin();
+    $order_id = (int)Yii::$app->request->get('order_id');
+    $transaction = Yii::$app->db->beginTransaction();
+    try{
+      if(!Order::deleteAll('order_id=:oid',[':oid'=>$order_id])){
+        throw new \Exception();
+      }
+      if(!OrderDetail::deleteAll('order_id=:oid',[':oid'=>$order_id])){
+        throw new \Exception();
+      }
+      $transaction->commit();
+    }catch (\Exception $e){
+      $transaction->rollBack();
+      return 'fail';
+    }
+    return 'success';
   }
 }

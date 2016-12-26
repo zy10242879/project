@@ -64,7 +64,7 @@ class Order extends ActiveRecord{
         $product->cate = Category::find()->where('cate_id = :cid', [':cid' => $product['cate_id']])->one()->title;
         $products[] = $product;
       }
-      //$order->zhstatus = self::$status[$order->status];
+      $order->zhstatus = self::$status[$order->status];
       $order->products = $products;
     }
     return $orders;
@@ -122,4 +122,5 @@ class Order extends ActiveRecord{
     $order->zhstatus = self::$status[$order->status];//←←←看一下此处的调用方法，是正确的
     return $order;
   }
+
 }

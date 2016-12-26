@@ -485,6 +485,28 @@
     });
   }
 </script>
+<script>
+  function delOrder(order_id) {
+    var url = "<?=yii\helpers\Url::to(['order/del']);?>";
+    var data = {'order_id':order_id};
+    $.get(url,data,function (data) {
+      if(data == 'success'){
+        toastr.success("订单删除成功!");
+        $('#order'+order_id).remove();
+      }else if(data == 'fail'){
+        toastr.warning("订单删除失败!");
+      }else{
+        toastr.error("**参数错误**");
+      }
+    });
+  }
+  $('#orderconfirm').submit(function(e){
+    if($('#address_id').val()==""){
+      toastr.warning("收货地址不能为空!");
+      e.preventDefault();
+    }
 
+  });
+</script>
 </body>
 </html>
