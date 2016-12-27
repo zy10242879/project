@@ -8,6 +8,7 @@ use common\models\OrderDetail;
 use frontend\models\Cart;
 use common\models\Pay;
 use Yii;
+use dzer\express\Express;
 class OrderController extends CommonController {
   //public $layout = false;  //关闭页头脚
   //订单中心
@@ -200,5 +201,14 @@ class OrderController extends CommonController {
       return 'fail';
     }
     return 'success';
+  }
+  //ajax请求获得快递信息
+  public function actionGetExpress(){
+    $express_no = Yii::$app->request->get('express_no');
+    //通过快递单号查询物流的状态
+    //composer.phar require dzer/yii2-express 安装快递查询类dzer
+    $res = Express::search($express_no);
+    echo $res;
+    exit;
   }
 }

@@ -500,13 +500,37 @@
       }
     });
   }
+  //当收货地址为空时，发出提示信息，并停止表单提交
   $('#orderconfirm').submit(function(e){
     if($('#address_id').val()==""){
       toastr.warning("收货地址不能为空!");
       e.preventDefault();
     }
-
   });
+
+  //物流信息隐藏与查询后显示效果 ajax
+  $(".expressshow").hide();
+  $(".express").hover(function () { //hover 鼠标移入移出的复合事件
+    var a = $(this); //将a定义为当前对象
+    if(a.attr('data')!='ok'){ //定义data不为'ok'时进行ajax请求
+      $.get('<?=yii\helpers\Url::to(['order/get-express']);?>',{'express_no':a.attr('data')},            function(res){
+          var str = "";
+          if(res.message == 'ok') { //如果回调数据中message是ok代表快递正常
+            for(var i=0;i<res.data.length;i++){
+              str += "<p>"+res.data[i].context + " "+res.data[i].time;//拼出快递信息
+            }
+            a.find(".expressshow").html(str);//查找到a标签下的expressshow并加入拼的快递信息
+            a.attr('data','ok');//如果ajax数据没有问题，将data的数据写为ok以防ajax重复请求
+          }else{
+            a.find(".expressshow").html('没有快递信息，请稍候查询！')
+          }
+        },'json');//定义方法来进行get请求，在orderController中写入GetExpress方法来返回快递信息
+    }
+    a.find(".expressshow").show();//显示ajax请求的信息
+  },function(){
+    $(this).find(".expressshow").hide();//鼠标移出时隐藏信息
+  });
+
 </script>
 </body>
 </html>
