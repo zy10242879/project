@@ -167,7 +167,7 @@
                   <div>
                   <div style="margin-bottom:3px;position:relative">
                     <span>
-                        <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/received', 'order_id' => $order->order_id]) ?>" target="_blank">
+                        <a class="tp-tag-a" href="<?php echo yii\helpers\Url::to(['order/received', 'order_id' => $order->order_id]) ?>" target="">
                         <span class="trade-operate-text">
                           确认收货
                         </span>

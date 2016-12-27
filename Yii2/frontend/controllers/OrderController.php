@@ -211,4 +211,14 @@ class OrderController extends CommonController {
     echo $res;
     exit;
   }
+  //确认收货
+  public function actionReceived(){
+    $order_id = Yii::$app->request->get('order_id');
+    $order = Order::find()->where('order_id = :oid',[':oid'=>$order_id])->one();
+    if(!empty($order) && $order->status == Order::SENDED){
+      $order->status = Order::RECEIVED;
+      $order->save();
+    }
+    return $this->redirect(['order/index']);
+  }
 }
