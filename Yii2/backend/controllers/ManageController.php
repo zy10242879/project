@@ -1,11 +1,10 @@
 <?php
 namespace backend\controllers;
 use Yii;
-use yii\web\Controller;
 use backend\models\Admin;
 use yii\data\Pagination;  //Ⅳ.载入分页类
 //⑱⑴创建管理员控制器，来进行邮箱链接的校验及密码修改 以及管理员的CRUL操作
-class ManageController extends Controller{
+class ManageController extends CommonController {
   //⑵创建邮箱密码修改方法
   public function actionMailChangePass(){
     //⑶获取所有get传递过来的参数

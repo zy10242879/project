@@ -3,10 +3,9 @@ namespace backend\controllers;
 use common\models\Profile;
 use Yii;
 use yii\data\Pagination;
-use yii\web\Controller;
 use common\models\User;
 
-class UserController extends Controller{
+class UserController extends CommonController {
 
   //显示用户信息　关联查询-->分页-->载入
   public function actionUsers(){

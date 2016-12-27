@@ -1,12 +1,11 @@
 <?php
 namespace backend\controllers;
 use Yii;
-use yii\web\Controller;
 use common\models\Product;
 use yii\data\Pagination; //载入分页类
 use common\models\Category;
 use crazyfd\qiniu\Qiniu; //载入七牛类
-class ProductController extends Controller{
+class ProductController extends CommonController {
   //显示商品及分页
   public function actionList(){
     $model = Product::find();

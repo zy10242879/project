@@ -3,8 +3,7 @@ namespace backend\controllers;
 use common\models\Order;
 use Yii;
 use yii\data\Pagination;
-use yii\web\Controller;
-class OrderController extends Controller{
+class OrderController extends CommonController {
   //后台订单显示　查找所有订单　通过订单id来获取其它需要显示的数据 以及分页
   public function actionList(){
     $this->layout = 'layout_backend';
