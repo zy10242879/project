@@ -8,7 +8,7 @@ class MemberController extends Controller
   //填邮箱注册会员
   public function actionReg()
   {
-    $this->layout = 'layout_frontend';
+    $this->layout = 'layout_frontend_login';
     $model = new User;
     if (Yii::$app->request->isPost) {
       $post = Yii::$app->request->post();
