@@ -12,26 +12,26 @@
 
   <title>妞妈手工烘焙</title>
   <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="statics/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/statics/css/bootstrap.min.css">
 
   <!-- Customizable CSS -->
-  <link rel="stylesheet" href="statics/css/main.css">
-  <link rel="stylesheet" href="statics/css/red.css">
-  <link rel="stylesheet" href="statics/css/owl.carousel.css">
-  <link rel="stylesheet" href="statics/css/owl.transitions.css">
-  <link rel="stylesheet" href="statics/css/animate.min.css">
+  <link rel="stylesheet" href="/statics/css/main.css">
+  <link rel="stylesheet" href="/statics/css/red.css">
+  <link rel="stylesheet" href="/statics/css/owl.carousel.css">
+  <link rel="stylesheet" href="/statics/css/owl.transitions.css">
+  <link rel="stylesheet" href="/statics/css/animate.min.css">
 
 
   <!-- Icons/Glyphs -->
-  <link rel="stylesheet" href="statics/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/statics/css/font-awesome.min.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="statics/images/favicon.ico">
+  <link rel="shortcut icon" href="/statics/images/favicon.ico">
 
   <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
   <!--[if lt IE 9]>
-  <script src="statics/js/html5shiv.js"></script>
-  <script src="statics/js/respond.min.js"></script>
+  <script src="/statics/js/html5shiv.js"></script>
+  <script src="/statics/js/respond.min.js"></script>
   <![endif]-->
 
 
@@ -72,7 +72,7 @@
         <!-- ============================================================= LOGO ============================================================= -->
         <div class="logo">
           <a href="<?php echo yii\helpers\Url::to(['index/index']) ?>">
-            <img alt="logo" src="statics/images/logo.PNG" width="160" height="80"/>
+            <img alt="logo" src="/statics/images/logo.PNG" width="160" height="80"/>
           </a>
         </div><!-- /.logo -->
         <!-- ============================================================= LOGO : END ============================================================= -->		</div><!-- /.logo-holder -->
@@ -185,7 +185,7 @@
           <!-- ============================================================= CONTACT INFO ============================================================= -->
           <div class="contact-info">
             <div class="footer-logo">
-              <img alt="logo" src="statics/images/logo.PNG" width="240" height="139"/>
+              <img alt="logo" src="/statics/images/logo.PNG" width="240" height="139"/>
             </div><!-- /.footer-logo -->
 
             <p class="regular-bold"> 请通过电话，电子邮件随时联系我们</p>
@@ -230,10 +230,10 @@
         <div class="col-xs-12 col-sm-6 no-margin">
           <div class="payment-methods ">
             <ul>
-              <li><img alt="" src="statics/images/payments/payment-visa.png"></li>
-              <li><img alt="" src="statics/images/payments/payment-master.png"></li>
-              <li><img alt="" src="statics/images/payments/payment-paypal.png"></li>
-              <li><img alt="" src="statics/images/payments/payment-skrill.png"></li>
+              <li><img alt="" src="/statics/images/payments/payment-visa.png"></li>
+              <li><img alt="" src="/statics/images/payments/payment-master.png"></li>
+              <li><img alt="" src="/statics/images/payments/payment-paypal.png"></li>
+              <li><img alt="" src="/statics/images/payments/payment-skrill.png"></li>
             </ul>
           </div><!-- /.payment-methods -->
         </div>
@@ -244,21 +244,21 @@
   <!-- ============================================================= FOOTER : END ============================================================= -->	</div><!-- /.wrapper -->
 
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="statics/js/jquery-1.10.2.min.js"></script>
-<script src="statics/js/jquery-migrate-1.2.1.js"></script>
-<script src="statics/js/bootstrap.min.js"></script>
-<script src="statics/js/gmap3.min.js"></script>
-<script src="statics/js/bootstrap-hover-dropdown.min.js"></script>
-<script src="statics/js/owl.carousel.min.js"></script>
-<script src="statics/js/css_browser_selector.min.js"></script>
-<script src="statics/js/echo.min.js"></script>
-<script src="statics/js/jquery.easing-1.3.min.js"></script>
-<script src="statics/js/bootstrap-slider.min.js"></script>
-<script src="statics/js/jquery.raty.min.js"></script>
-<script src="statics/js/jquery.prettyPhoto.min.js"></script>
-<script src="statics/js/jquery.customSelect.min.js"></script>
-<script src="statics/js/wow.min.js"></script>
-<script src="statics/js/scripts.js"></script>
+<script src="/statics/js/jquery-1.10.2.min.js"></script>
+<script src="/statics/js/jquery-migrate-1.2.1.js"></script>
+<script src="/statics/js/bootstrap.min.js"></script>
+<script src="/statics/js/gmap3.min.js"></script>
+<script src="/statics/js/bootstrap-hover-dropdown.min.js"></script>
+<script src="/statics/js/owl.carousel.min.js"></script>
+<script src="/statics/js/css_browser_selector.min.js"></script>
+<script src="/statics/js/echo.min.js"></script>
+<script src="/statics/js/jquery.easing-1.3.min.js"></script>
+<script src="/statics/js/bootstrap-slider.min.js"></script>
+<script src="/statics/js/jquery.raty.min.js"></script>
+<script src="/statics/js/jquery.prettyPhoto.min.js"></script>
+<script src="/statics/js/jquery.customSelect.min.js"></script>
+<script src="/statics/js/wow.min.js"></script>
+<script src="/statics/js/scripts.js"></script>
 <script>
   $("#createlink").click(function(){
     $(".billing-address").slideDown();

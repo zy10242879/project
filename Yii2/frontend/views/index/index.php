@@ -24,7 +24,7 @@
                                                 </ul>
                                             </div>
                                             <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="statics/images/banners/banner-side.png" />遍历图床照片</a>
+                                                <a href="#"><img alt="" src="/statics/images/banners/banner-side.png" />遍历图床照片</a>
                                             </div>
                                         </div>
                                         <!-- ================================== MEGAMENU VERTICAL ================================== -->
@@ -46,7 +46,7 @@
             <div id="hero">
                 <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-                    <div class="item" style="background-image: url(statics/images/sliders/slider01.jpg);">
+                    <div class="item" style="background-image: url(/statics/images/sliders/slider01.jpg);">
                         <div class="container-fluid">
 <!--                            <div class="caption vertical-center text-left">-->
 <!--                                <div class="big-text fadeInDown-1">-->
@@ -68,7 +68,7 @@
                         </div><!-- /.container-fluid -->
                     </div><!-- /.item -->
 
-                    <div class="item" style="background-image: url(statics/images/sliders/slider02.jpg);">
+                    <div class="item" style="background-image: url(/statics/images/sliders/slider02.jpg);">
                       <div class="container-fluid">
 <!--                        <div class="caption vertical-center text-left">-->
 <!--                          <div class="big-text fadeInDown-1">-->
@@ -106,7 +106,7 @@
                     <h1 style="font-family:'Microsoft Yahei';">尝尝鲜</h1>
 <!--                    <span class="tagline">查看最新分类</span>-->
                 </div>
-                <img class="banner-image" alt="" src="statics/images/blank.gif" data-echo="statics/images/banners/banner-narrow-01.jpg" />
+                <img class="banner-image" alt="" src="/statics/images/blank.gif" data-echo="/statics/images/banners/banner-narrow-01.jpg" />
             </a>
         </div>
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
@@ -115,7 +115,7 @@
                     <h1 style="font-family:'Microsoft Yahei';">半价</h1>
 <!--                    <span class="tagline">查看最新上架</span>-->
                 </div>
-                <img class="banner-image" alt="" src="statics/images/blank.gif" data-echo="statics/images/banners/banner-narrow-02.jpg" />
+                <img class="banner-image" alt="" src="/statics/images/blank.gif" data-echo="/statics/images/banners/banner-narrow-02.jpg" />
             </a>
         </div>
     </div><!-- /.container -->
@@ -447,49 +447,49 @@
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-01.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-01.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-02.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-02.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-03.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-03.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-04.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-04.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-01.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-01.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-02.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-02.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-03.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-03.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 
                 <div class="carousel-item">
                     <a href="#">
-                        <img alt="" src="statics/images/brands/brand-04.jpg" />
+                        <img alt="" src="/statics/images/brands/brand-04.jpg" />
                     </a>
                 </div><!-- /.carousel-item -->
 

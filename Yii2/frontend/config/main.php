@@ -16,6 +16,17 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'urlManager' => [ //Url美化
+          'enablePrettyUrl' => true,
+          'enableStrictParsing' => false,  //不启用严格解析
+          'showScriptName' => false, //隐藏index.php
+          'suffix'=>'.html',
+          'rules'=>[ //设置url地址更换，包括参数效果的更换
+            'index'=>'index/index',
+            'product-<product_id:\d+>'=>'product/detail',
+            'product-cate/<cate_id:\d+>'=>'product/index',
+          ],
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
