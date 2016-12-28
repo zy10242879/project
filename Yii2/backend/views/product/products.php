@@ -59,7 +59,7 @@
                         <tr class="first">
                             <td>
                                 <img src="//<?=$product->cover;?>-coversmall" class="img-circle avatar hidden-phone" />
-                                <a href="<?=yii\helpers\Url::to('@f/product/detail&product_id='.$product->product_id,true);?>" class="name"><?php echo $product->title; ?></a>
+                                <a href="<?=yii\helpers\Url::to('@f/product-'.$product->product_id.'.html',true);?>" class="name"><?php echo $product->title; ?></a>
                             </td>
                             <td>
                                 <?php echo $product->num; ?>

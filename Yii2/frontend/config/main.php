@@ -20,11 +20,11 @@ return [
           'enablePrettyUrl' => true,
           'enableStrictParsing' => false,  //不启用严格解析
           'showScriptName' => false, //隐藏index.php
-          'suffix'=>'.html',
-          'rules'=>[ //设置url地址更换，包括参数效果的更换
-            'index'=>'index/index',
-            'product-<product_id:\d+>'=>'product/detail',
-            'product-cate/<cate_id:\d+>'=>'product/index',
+          //'suffix'=>'.html',//此处如果加了后缀，在qq登录中的inc.php中也要加后缀不能qq登录失败
+          'rules'=>[ //设置url地址更换，包括参数效果的更换，可以更换任意url连接地址
+            'index.html'=>'index/index',  //此处同样可以为指定方法加后缀
+            'product-<product_id:\d+>.html'=>'product/detail',
+            'product-cate/<cate_id:\d+>.html'=>'product/index',
           ],
         ],
         'user' => [
