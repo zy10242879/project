@@ -9,6 +9,7 @@ use frontend\models\Cart;
 class CommonController extends Controller{
   public function init()    //当调用继承了CommonController的方法时，会自动先调用init()方法
   {                         //所有前台页面基本及公用数据从此init()方法中获得
+    Yii::beginProfile('profile1');//加入检测程序运行速度　下面有end结束
     $menu = Yii::$app->cache->get('menu');
     if(empty($menu)){ //使用redis缓存数据进行优化，失效时间为1小时，如果修改了分类表，会清除menu
     $menu = Category::getMenu();//获得分类信息 此处用了递归，可以用只获得1-2级的非递归getMenu()，看情况使用
@@ -48,6 +49,7 @@ class CommonController extends Controller{
     $this->view->params['hot'] = (array)$hot;
     $this->view->params['sale'] = (array)$sale;
     $this->view->params['all'] = (array)$all;
+    Yii::endProfile('profile1');
   }
   //是否登录的共公方法
   protected function isLogin(){
