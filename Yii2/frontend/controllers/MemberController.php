@@ -129,16 +129,17 @@ class MemberController extends Controller
     //⑹要调用get_user-info()方法，需要在上面传递$accessToken $openid
     $userInfo = $qc->get_user_info();
     //9-①.将获得的用户信息写入到session中 如果在数据库中查找到openid就只要把loginName和is_login写入session
+    Yii::$app->session->close();//此处要关闭session由于qqConnectAPI中已经开始了session有冲突
     $session = Yii::$app->session;
     //10.判断用户是否绑定过自己网站的用户，如果绑定过就做登录操作并跳转到首页，如果没有绑定就先绑定该用户
     //   通过唯一标识openid来进行账号的判断 没有绑定的话　将openid插入到user数据库表中 然后输入用户基本信息
     //判断在数据库中查找openid是否有这条记录
     $model = User::find()->where('openid=:openid',[':openid'=>$openid])->one();
     if($model){
+      session_set_cookie_params(3600*24);//设置cookie过期时间
       //11.有就将数据写入session中　包括loginName is_login
       $session['loginName'] = $model->user_name;
       $session['is_login'] = 1;
-      //-----更改frontend/config/main.php session保存名称为PHPSESSID-------才能使session正确存储
       //12.并跳转到登录首页面
       return $this->redirect(['index/index']);
     }

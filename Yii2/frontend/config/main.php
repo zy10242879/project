@@ -34,7 +34,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'PHPSESSID',  //如不更改为PHPSESSID 则QQ登录无法找到loginName和is_login
+          'name' => 'advanced-frontend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

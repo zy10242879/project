@@ -6,6 +6,10 @@ class IndexController extends CommonController{
   //前台首页控制器 //此处通过CommonController的init()方法获得了数据载入layout_frontend中及页面中
   public function actionIndex(){
     $this->layout = 'layout_frontend';
+//    echo Yii::$app->cache->get('test');
+//    die;
+    //Yii::$app->session['loginName']='大头言言';
+    //var_dump(Yii::$app->session['loginName']);die;
     //redis 测试正常
 //    Yii::$app->redis->set('test','111');
 //    echo Yii::$app->redis->get('test');

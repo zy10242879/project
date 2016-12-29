@@ -42,6 +42,7 @@ class CategoryController extends CommonController {
     if(Yii::$app->request->isPost){
       $post = Yii::$app->request->post();
       if($model->mod($post)){
+        Yii::$app->cache->delete('menu');
         Yii::$app->session->setFlash('info','修改成功');
       }
     }

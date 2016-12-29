@@ -27,7 +27,12 @@ class ProductController extends CommonController{
   public function actionDetail(){
     $this->layout = 'layout_frontend_nav';
     $product_id = Yii::$app->request->get("product_id");
-    $product = Product::find()->where('product_id = :id', [':id' => $product_id])->asArray()->one();
+    //商品详情cache优化 将查将的数据保存到redis中，保存时间为1分钟；可以加入到$this->params中进行配置设置
+    $product=Yii::$app->cache->get('product'.$product_id);
+    if(empty($product)){
+      $product = Product::find()->where('product_id = :id', [':id' => $product_id])->asArray()->one();
+      Yii::$app->cache->set('product'.$product_id,$product,60);
+    }
     $data['all'] = Product::find()->where('is_on = "1"')->orderBy('create_time desc')->limit(7)->all();
     return $this->render("detail", ['product' => $product, 'data' => $data]);
   }
