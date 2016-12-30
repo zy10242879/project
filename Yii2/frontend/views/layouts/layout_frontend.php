@@ -92,10 +92,10 @@
         </div><!-- /.contact-row -->
         <!-- ============================================================= SEARCH AREA ============================================================= -->
         <div class="search-area">
-          <form>
+          <form id="_form" method="post" action="<?=yii\helpers\Url::to(['search/search-keys']);?>">
             <div class="control-group">
-              <input class="search-field" placeholder="吃点什么搜搜看" />
-
+              <input type="text" name="search" class="search-field" placeholder="吃点什么搜搜看" />
+              <input type="hidden" name="_csrf-frontend" value="<?=Yii::$app->request->csrfToken;?>">
               <ul class="categories-filter animate-dropdown">
                 <li class="dropdown">
 
@@ -108,8 +108,9 @@
                   </ul>
                 </li>
               </ul>
+              <a onclick="document.getElementById('_form').submit();" style="padding:15px 15px 13px 12px" class="search-button" >
 
-              <a style="padding:15px 15px 13px 12px" class="search-button" href="#" ></a>
+              </a>
 
             </div>
           </form>

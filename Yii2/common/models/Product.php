@@ -65,4 +65,9 @@ class Product extends ActiveRecord{
     }
     return false;
   }
+  //通过product_id获得商品详细信息
+  public static function getProduct($product_id){
+    $data = self::find()->where('product_id = :pid',[':pid'=>$product_id])->asArray()->one();
+    return $data;
+  }
 }
