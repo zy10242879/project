@@ -1,0 +1,13 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit (internal) tests.
+
+class_name: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - \Helper\Unit
+#        - DB:
+#            dsn: 'mysql:host=localhost;dbname=yii2_shop'
+#            user: 'root'
+#            password: 'root'
