@@ -7,6 +7,7 @@ class User extends ActiveRecord{
   public $rePass;
   public $loginName;
   public $rememberMe;
+  public $verifyCode;
   public static function tableName()
   {
     return '{{%user}}';
@@ -19,7 +20,8 @@ class User extends ActiveRecord{
       'user_email'=>'电子邮箱',
       'user_pass'=>'登录密码',
       'rePass'=>'确认密码',
-      'loginName'=>'用户名/电子邮箱'
+      'loginName'=>'用户名/电子邮箱',
+      'verifyCode' => '验证码',
     ];
   }
 
@@ -38,6 +40,7 @@ class User extends ActiveRecord{
       ['loginName','required','message'=>'登录名不能为空','on'=>['login']],
       ['loginName','validateLoginName','on'=>['login']],
       ['rememberMe','boolean','on'=>['login']],//此rememberMe必需要写验证不然$this->rememberMe为Null
+      ['verifyCode','captcha','message'=>'请输入正确的验证码']
     ];
   }
 

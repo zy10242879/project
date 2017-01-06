@@ -31,6 +31,7 @@
             ]);?>
             <?=$form->field($model,'loginName')->textInput(['class'=>'le-input']);?>
             <?=$form->field($model,'user_pass')->passwordInput(['class'=>'le-input']);?>
+            <?=$form->field($model,'verifyCode')->widget(\yii\captcha\Captcha::className());?>
 <!--            <form role="form" class="login-form cf-style-1">-->
             <!--              <div class="field-row">-->
             <!--                <label>用户名/电子邮箱</label>-->

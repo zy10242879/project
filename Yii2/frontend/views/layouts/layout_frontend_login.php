@@ -304,6 +304,16 @@
     var addressid = $(this).val();
     $("input[name=addressid]").val(addressid);
   });
+  $('#user-verifycode-image').click(function () {
+    $.ajax({
+      url: "/site/captcha?refresh",
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        $("#user-verifycode-image").attr('src', data['url']);
+      }
+    })
+  });
 </script>
 
 </body>

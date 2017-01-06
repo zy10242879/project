@@ -61,6 +61,15 @@ class SiteController extends Controller
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'backColor' => 0xf0f0f0,//背景色
+                'maxLength' => 6,//最大显示个数
+                'minLength' => 5,//最少显示个数
+                'padding' => 5,//间距
+                'height' => 40,//高度
+                'width' => 130,//宽度
+                'foreColor' => 0x567,//字体颜色
+                'offset' => 4,//设置字符偏移量
+                //'controller' => 'login', //拥有这个动作的controller
             ],
         ];
     }
